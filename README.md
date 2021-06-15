@@ -1,6 +1,6 @@
 ## About the Application
 
-This is an E-Commerce application where farmers, agriculture land owners and farming enthusiasts can buy agriculture products such as seeds, pesticides and machinery online. Currently the agriculture sector in India has a fragmented supply chain, farmers deal with product uncertainty and are skeptical about buying products online. This web application solves the above problems by transcending mentioned traditional barriers.
+This is an E-Commerce web application where farmers, agriculture land owners and farming enthusiasts can buy agriculture products such as seeds, pesticides and machinery online. Currently the agriculture sector in India has a fragmented supply chain, farmers deal with product uncertainty and are skeptical about buying products online. This web application solves the above problems by transcending mentioned traditional barriers.
 
 ## Getting started
 
@@ -13,6 +13,8 @@ This is an E-Commerce application where farmers, agriculture land owners and far
 ### Product Detail Page
 
 ### Cart Page
+
+### Stripe Checkout Page
 
 ### Order History Page
 
