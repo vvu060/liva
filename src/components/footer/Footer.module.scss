@@ -1,17 +1,30 @@
-@import '../../scss/variables';
-@import '../../scss/functions';
-@import '../../scss/placeholder';
-.footer{
-    margin-top: auto;
-    &__top{
-        background: lighten(#146731,72%);
-        padding-block: rem(60);
-    }
+@import "../../scss/variables";
+@import "../../scss/functions";
+@import "../../scss/placeholder";
+.footer {
+  margin-top: auto;
+  &__top {
+    background: lighten($accentColor, 72%);
+    padding-block: rem(50);
+  }
 
-    &__bottom{
-        background: $accentColor;
-        color: set-textcolor($accentColor);
-        padding-block: rem(16);
-        @extend %text-center;
+  &__bottom {
+    background: $accentColor;
+    color: set-textcolor($accentColor);
+    padding-block: rem(16);
+    @extend %text-center;
+  }
+  &__title {
+    font-size: rem(20);
+    position: relative;
+    &::before {
+      background: lighten($accentColor, 10%);
+      height: rem(2);
+      width: rem(40);
+      content: "";
+      position: absolute;
+      bottom: rem(-5);
+      left: 0;
     }
+  }
 }

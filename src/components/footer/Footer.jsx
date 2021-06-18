@@ -7,7 +7,14 @@ const Footer = () => {
       <div className={style.footer__top}>
         <div className="container">
           <div className="row">
-                  footer top content goes here
+            <div className="col-4"></div>
+            <div className="col-4"></div>
+            <div className="col-4">
+              <h4 className={style.footer__title}>
+                Footer title
+              </h4>
+            </div>
+
           </div>
         </div>
       </div>

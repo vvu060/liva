@@ -1,8 +1,12 @@
+import Logo from "../logo/Logo"
+import style from './Header.module.scss';
 const Header = () =>{
     return(
-        <>
-            this is home
-        </>
+        <header className={style.header}>
+            <div className="container">
+            <Logo width={125} alt="Liva Logo" />
+            </div>
+        </header>
     )
 }
 

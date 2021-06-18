@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Logo from "./components/logo/Logo";
 import Routes from "./routes";
 import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
 function App() {
   return (
     <>
       <Router>
-        <Logo width={150} alt="Liva Logo" />
+        <Header/>
         <main id="main">
           <Routes />
         </main>

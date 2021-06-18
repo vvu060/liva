@@ -1,0 +1,7 @@
+@import '../../scss/variables';
+.header{
+    position: sticky;
+    top: 0;    
+    background: $lightColor;
+    z-index: 9;
+}
