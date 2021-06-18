@@ -5,7 +5,7 @@ import "./Home.scss";
 const Home = () => {
   return (
     <div>
-      <Footer />
+      I AM HOME
     </div>
   );
 };

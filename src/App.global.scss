@@ -1,12 +1,25 @@
 //reset
+@import './scss/placeholder';
 *{
     margin-top: 0;
 }
 *, ::after, ::before {
     box-sizing: border-box;
 }
+
+html,body{
+    @extend %h-100;
+}
+#root{
+    @extend %d-flex;
+    @extend %h-100;
+    @extend %f-dc;
+}
+
+
 body{
  font-size: 1rem;
  font-weight: 400;
- font-family: 'Noto Sans', sans-serif;   
+ font-family: 'Noto Sans', sans-serif;  
+ margin: 0 auto; 
 }
