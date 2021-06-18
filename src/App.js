@@ -3,6 +3,7 @@ import './App.global.scss';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Logo from "./components/logo/Logo";
 import Routes from "./routes";
+import Footer from "./components/footer/Footer";
 function App() {
   return (
     <>
@@ -11,6 +12,7 @@ function App() {
         <main id="main">
           <Routes />
         </main>
+        <Footer/>
       </Router>
     </>
   );
