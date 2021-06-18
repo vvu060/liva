@@ -1,25 +1,40 @@
 //reset
-@import './scss/placeholder';
-*{
-    margin-top: 0;
+@import "./scss/placeholder";
+@import "./scss/functions";
+* {
+  margin-top: 0;
 }
-*, ::after, ::before {
-    box-sizing: border-box;
-}
-
-html,body{
-    @extend %h-100;
-}
-#root{
-    @extend %d-flex;
-    @extend %h-100;
-    @extend %f-dc;
+*,
+::after,
+::before {
+  box-sizing: border-box;
 }
 
+html,
+body {
+  @extend %h-100;
+}
+#root {
+  @extend %d-flex;
+  @extend %h-100;
+  @extend %f-dc;
+}
 
-body{
- font-size: 1rem;
- font-weight: 400;
- font-family: 'Noto Sans', sans-serif;  
- margin: 0 auto; 
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Noto Sans", sans-serif;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: rem(1140);
+  margin-inline: auto;
+  padding-inline: rem(15);
+  @extend %w-100;
+}
+.row {
+  margin-inline: rem(-15);
 }

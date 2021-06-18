@@ -1,10 +1,17 @@
 @import '../../scss/variables';
 @import '../../scss/functions';
+@import '../../scss/placeholder';
 .footer{
     margin-top: auto;
+    &__top{
+        background: lighten(#146731,72%);
+        padding-block: rem(60);
+    }
 
     &__bottom{
         background: $accentColor;
+        color: set-textcolor($accentColor);
         padding-block: rem(16);
+        @extend %text-center;
     }
 }
