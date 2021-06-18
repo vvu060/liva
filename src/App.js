@@ -6,10 +6,11 @@ import ProductDetail from "./pages/product_detail/ProductDetail";
 import Login from "./pages/login/Login";
 import Cart from "./pages/cart/Cart";
 import Orders from "./pages/orders/Orders";
-
+import Logo from "./components/logo/Logo";
 function App() {
   return (
     <div>
+      <Logo width={150} alt="Liva Logo"/>
       <Router>
         <Switch>
           <Route exact path="/orders" component={Orders} />
