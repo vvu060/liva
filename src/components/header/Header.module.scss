@@ -1,0 +1,10 @@
+@import '../../scss/variables';
+@import '../../scss/functions';
+.header{
+    position: sticky;
+    top: 0;    
+    background: $lightColor;
+    z-index: 9;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+    padding-block: rem(10);
+}

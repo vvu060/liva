@@ -1,0 +1,54 @@
+//reset
+@import "./scss/placeholder";
+@import "./scss/functions";
+* {
+  margin-top: 0;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+img{
+    max-width: 100%;
+    vertical-align: middle;
+}
+html,
+body {
+  @extend %h-100;
+}
+#root {
+  @extend %d-flex;
+  @extend %h-100;
+  @extend %f-dc;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Noto Sans", sans-serif;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: rem(1140);
+  margin-inline: auto;
+
+  @extend %w-100;
+}
+.row {
+  margin-inline: rem(-15);
+  @extend %d-flex;
+  @extend %f-frw;
+}
+[class*='col-'],.container{
+    padding-inline: rem(15);
+}
+@for $i from 1 through 12 {
+    .col-#{$i} {
+      flex:0 0 (100 / (12 / $i) ) * 1%;
+      max-width:(100 / (12 / $i) ) * 1%
+    }
+  }
