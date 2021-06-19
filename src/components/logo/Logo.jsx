@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import logoSrc from "../../resources/logo.png";
 const Logo = ({ alt, width, height, className }) => {
-  return <img src={logoSrc} alt={alt} width={width} height={height} />;
+  return <img src={logoSrc} alt={alt} width={width} height={height} className={className} />;
 };
 Logo.propTypes = {
   alt: PropTypes.string.isRequired,
