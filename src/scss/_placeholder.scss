@@ -22,3 +22,13 @@
 %f-frw{
     flex-flow: row wrap;
 }
+%list-none{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+%d-jsb{
+    justify-content: space-between;
+    align-items: center;
+}

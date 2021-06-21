@@ -1,5 +1,6 @@
 @import '../../scss/variables';
 @import '../../scss/functions';
+@import '../../scss/placeholder';
 .header{
     position: sticky;
     top: 0;    
@@ -7,4 +8,7 @@
     z-index: 9;
     box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
     padding-block: rem(10);
+    &__row{
+        @extend %d-jsb;
+    }
 }

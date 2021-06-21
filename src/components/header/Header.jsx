@@ -1,16 +1,45 @@
 import { Link } from "react-router-dom";
-import Logo from "../logo/Logo"
-import style from './Header.module.scss';
-const Header = () =>{
-    return(
-        <header className={style.header}>
-            <div className="container">
-                <Link to="/">
-                    <Logo width={125} alt="Liva Logo" />
-                </Link>
+import Logo from "../logo/Logo";
+import SearchBar from "../searchbar/SearchBar";
+import style from "./Header.module.scss";
+import {ShoppingCart,Notifications,Person} from '@material-ui/icons/';
+const Header = () => {
+  return (
+    <header className={style.header}>
+      <div className="container">
+        <div className={`row ${style.header__row}`}>
+          <Link to="/" >
+            <Logo width={125} alt="Liva Logo" className={style.header__logo} />
+          </Link>
+          <div className="col-5">
+            <SearchBar />
+          </div>
+          <div>
+            <div  className="list-inline">
+                <button className={`btn ${style.header__btn}`}>
+                <ShoppingCart/>
+                </button>
+                <button className={`btn ${style.header__btn}`}>
+                <Notifications/>
+                </button>
+                <button className={`btn ${style.header__btn}`}>
+                <Person/>
+                </button>
+              
+             
+              <li>
+               
+                </li>
+                <li>
+               
+                </li>
             </div>
-        </header>
-    )
-}
 
-export default Header
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
