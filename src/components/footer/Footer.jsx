@@ -6,11 +6,14 @@ import Logo from "../logo/Logo";
 
 const Footer = () => {
   return (
-    <footer className={style.footer}>
+    <footer data-test="component-footer" className={style.footer}>
       <div className={style.footer__top}>
         <div className="container">
           <div className="row">
-            <div className={`col-4 ${style.footer__column}`}>
+            <div
+              data-test="footer-info"
+              className={`col-5 ${style.footer__column}`}
+            >
               <Logo width={100} alt="Liva Logo" />
               <p>
                 lorem ipsum dolor sit amet, consectetur adip consectetur adip
@@ -27,7 +30,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-4">
+            <div className="col-4" data-test="footer-links">
               <h4 className={style.footer__title}>Information</h4>
               <div className={style.footer_links} role="list">
                 <a href="#" role="listitem">
@@ -48,7 +51,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-4">
+            <div className="col-3" data-test="footer-links">
               <h4 className={style.footer__title}>My Account</h4>
               <div className={style.footer_links} role="list">
                 <a href="#" role="listitem">
