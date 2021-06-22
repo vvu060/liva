@@ -3,9 +3,66 @@
 @import "../../scss/placeholder";
 .footer {
   margin-top: auto;
+
   &__top {
-    background: lighten($accentColor, 72%);
-    padding-block: rem(50);
+    background: lighten($accentColor, 65%);
+    padding: rem(20);
+
+    .footer__column {
+      display: flex;
+      flex-direction: column;
+      font-size: rem(14);
+
+      p {
+        margin-top: rem(18);
+      }
+
+      .footer__location {
+        display: flex;
+        flex-direction: column;
+
+        .footer__info {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+
+          p {
+            margin-left: rem(3);
+          }
+        }
+      }
+    }
+
+    .footer__title {
+      font-size: rem(16);
+      text-transform: uppercase;
+      position: relative;
+      &::before {
+        background: lighten($accentColor, 10%);
+        height: rem(2);
+        width: rem(40);
+        content: "";
+        position: absolute;
+        bottom: rem(-5);
+        left: 0;
+      }
+    }
+
+    .footer_links {
+      display: flex;
+      flex-direction: column;
+      line-height: 2.5;
+      font-size: rem(14);
+
+      a {
+        color: $textColor;
+
+        &:hover {
+          color: $primaryColor;
+        }
+      }
+    }
   }
 
   &__bottom {
@@ -13,18 +70,5 @@
     color: set-textcolor($accentColor);
     padding-block: rem(16);
     @extend %text-center;
-  }
-  &__title {
-    font-size: rem(20);
-    position: relative;
-    &::before {
-      background: lighten($accentColor, 10%);
-      height: rem(2);
-      width: rem(40);
-      content: "";
-      position: absolute;
-      bottom: rem(-5);
-      left: 0;
-    }
   }
 }
