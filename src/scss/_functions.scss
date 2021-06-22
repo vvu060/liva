@@ -1,12 +1,13 @@
-@import 'variables';
+@use 'sass:math';
+@import "variables";
 @function rem($target) {
-  @return ($target / 16) * 1rem;
+  @return math.div($target , 16) * 1rem;
 }
 
 @function set-textcolor($bg) {
-    @if(lightness($bg) > 50) {
-      @return $textColor;
-    } @else {
-      @return $lightColor;
-    }
+  @if (lightness($bg) > 50) {
+    @return $textColor;
+  } @else {
+    @return $lightColor;
   }
+}
