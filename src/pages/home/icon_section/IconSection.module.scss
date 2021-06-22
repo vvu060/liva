@@ -1,0 +1,8 @@
+@import "../../../scss/variables";
+@import "../../../scss/functions";
+@import "../../../scss/placeholder";
+
+.icon__row {
+  padding: rem(15);
+  justify-content: space-between;
+}
