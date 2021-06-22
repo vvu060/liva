@@ -8,23 +8,19 @@ const Banner = () => {
       data-test="component-banner"
       className={`block ${style.banner}`}
       role="banner"
+      style={{ background: `url(banner-1.jpg) no-repeat bottom center` }}
     >
-      <div className={style.banner__wrap}>
-        <div className={style.banner__left}>
-          <h2>
-          -45% Offer All  Products.
-          </h2>
-          <button className="btn btn-primary">
-          shop now
-          </button>
-        </div>
-        <div className={style.banner__right}>
-          <img
-            data-test="component-banner-image"
-            src={`banner-${number}.png`}
-            alt=""
-          />
-        </div>
+      <div className={`container ${style.banner__container}`}>
+        <h1 className={style.banner__title} tabIndex="0">
+          <span>Welcome to</span>
+          LIVA
+        </h1>
+        <p>
+          The point of using Lorem Ipsum is that it has a more-or-less normal
+          distribution of letters, as opposed to using 'Content here, content
+          here', making it look like readable English
+        </p>
+        <a className={`btn btn-border btn-light ${style.banner__btn}`}>Discover</a>
       </div>
     </section>
   );
