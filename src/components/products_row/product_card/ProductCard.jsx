@@ -17,7 +17,7 @@ const ProductCard = ({ image, name, price, colSpace }) => {
       />
       <h5>{name}</h5>
       <p>{price}</p>
-      <Button name="Add to Cart" />
+      <Button classes="btn btn-primary btn-border" name="Add to Cart" />
     </div>
   );
 };
