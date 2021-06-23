@@ -1,0 +1,28 @@
+@import "../../scss/functions";
+@import "../../scss/variables";
+
+.productsRow {
+  margin-bottom: rem(50);
+  border-bottom: rem(1.5) solid $divider;
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rem(10);
+    color: $textColor;
+
+    h4 {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: rem(18);
+      font-weight: 600;
+    }
+
+    a {
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+}
