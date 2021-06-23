@@ -10,9 +10,21 @@
 ::before {
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+}
 img {
   max-width: 100%;
   vertical-align: middle;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
 html,
 body {
@@ -100,17 +112,17 @@ body {
       color: set-textcolor($accentColor);
     }
   }
-  &-border{
+  &-border {
     border: 1px solid transparent;
     color: $lightColor;
   }
-  &-light{
-    border-color:$lightColor;
+  &-light {
+    border-color: $lightColor;
   }
 }
 
-.list{
-  &-inline{
+.list {
+  &-inline {
     @extend %list-none;
     display: flex;
   }
@@ -125,8 +137,8 @@ body {
   transition: all 0.2s ease-in-out;
   z-index: 7001;
   color: $lightColor;
-  &:focus{
-    background: $accentColor;  
+  &:focus {
+    background: $accentColor;
     left: 0;
     outline: 0;
     position: absolute;
