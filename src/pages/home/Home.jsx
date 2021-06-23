@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense, lazy } from "react";
 import { endpoints, headers } from "../../endpoints";
 import axios from "axios";
 import IconSection from "./icon_section/IconSection";
-import LatestProducts from "./latest_products/LatestProducts";
+const LatestProducts = lazy(() => import("./latest_products/LatestProducts"));
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
 
@@ -37,7 +37,7 @@ const Home = () => {
     <div data-test="component-home">
       <Banner />
       <IconSection />
-      <LatestProducts />
+
       {categories &&
         categories
           .slice(1)
@@ -48,6 +48,7 @@ const Home = () => {
               name={category.name}
             />
           ))}
+      <LatestProducts />
     </div>
   );
 };

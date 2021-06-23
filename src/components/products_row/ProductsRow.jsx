@@ -50,10 +50,10 @@ const ProductsRow = ({ category, name }) => {
       <div className={`row ${style.productsRow__card}`}>
         {isLoading ? (
           <Fragment>
-            <ProductCardShimmer />
-            <ProductCardShimmer />
-            <ProductCardShimmer />
-            <ProductCardShimmer />
+            <ProductCardShimmer colSpace={4} />
+            <ProductCardShimmer colSpace={4} />
+            <ProductCardShimmer colSpace={4} />
+            <ProductCardShimmer colSpace={4} />
           </Fragment>
         ) : (
           <Fragment>
