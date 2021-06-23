@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { endpoints, headers } from "../../endpoints";
 import axios from "axios";
 import IconSection from "./icon_section/IconSection";
+import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
 import "./Home.scss";
 
@@ -32,6 +33,7 @@ const Home = () => {
 
   return (
     <div data-test="component-home">
+      <Banner />
       <IconSection />
       {categories &&
         categories.map((category) => (
