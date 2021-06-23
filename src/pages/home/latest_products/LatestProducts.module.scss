@@ -1,0 +1,24 @@
+@import "../../../scss/functions";
+@import "../../../scss/placeholder";
+@import "../../../scss/variables";
+
+.latestProducts {
+  margin-bottom: rem(20);
+  padding: rem(10);
+
+  &__title {
+    text-align: center;
+    line-height: 1.7;
+
+    p {
+      text-transform: uppercase;
+      color: $primaryColor;
+      font-weight: 600;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-size: rem(24);
+    }
+  }
+}

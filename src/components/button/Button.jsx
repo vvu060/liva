@@ -1,7 +1,7 @@
 import React from "react";
 import "./Button.scss";
 
-const Button = ({ color, disabled }) => {
+const Button = ({ name, color, disabled }) => {
   return (
     <div>
       <button
@@ -9,7 +9,7 @@ const Button = ({ color, disabled }) => {
         className={`${color}`}
         disabled={disabled}
       >
-        Submit
+        {name}
       </button>
     </div>
   );

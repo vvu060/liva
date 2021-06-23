@@ -1,24 +1,34 @@
-%h-100{
-    height: 100%;
+%h-100 {
+  height: 100%;
 }
-%d-flex{
-    display: flex;
+%d-flex {
+  display: flex;
 }
-%f-dc{
-    flex-direction: column;
+%f-dc {
+  flex-direction: column;
 }
-%a-ic{
-    align-items: center;
+%a-ic {
+  align-items: center;
 }
-%j-cc{
-    justify-content: center;
+%j-cc {
+  justify-content: center;
 }
-%text-center{
-    text-align: center;
+%text-center {
+  text-align: center;
 }
-%w-100{
-    width: 100%;
+%w-100 {
+  width: 100%;
 }
-%f-frw{
-    flex-flow: row wrap;
+%f-frw {
+  flex-flow: row wrap;
+}
+%fca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+%fra {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

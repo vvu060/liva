@@ -3,13 +3,18 @@ import PropTypes from "prop-types";
 import style from "./ProductCard.module.scss";
 import Button from "../../button/Button";
 
-const ProductCard = ({ image, name, price }) => {
+const ProductCard = ({ image, name, price, colSpace }) => {
   return (
     <div
       data-test="component-product-card"
-      className={`col-3 ${style.productCard}`}
+      className={`col-${colSpace} ${style.productCard}`}
     >
-      <img src={image} alt={name} className={style.productCard__image} />
+      <img
+        src={image}
+        loading="lazy"
+        alt={name}
+        className={style.productCard__image}
+      />
       <h5>{name}</h5>
       <p>{price}</p>
       <Button name="Add to Cart" />

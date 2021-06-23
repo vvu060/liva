@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { endpoints, headers } from "../../endpoints";
 import axios from "axios";
 import IconSection from "./icon_section/IconSection";
+import LatestProducts from "./latest_products/LatestProducts";
 import ProductsRow from "../../components/products_row/ProductsRow";
+
 import "./Home.scss";
 
 const Home = () => {
@@ -33,14 +35,17 @@ const Home = () => {
   return (
     <div data-test="component-home">
       <IconSection />
+      <LatestProducts />
       {categories &&
-        categories.map((category) => (
-          <ProductsRow
-            key={category.id}
-            category={category.id}
-            name={category.name}
-          />
-        ))}
+        categories
+          .slice(1)
+          .map((category) => (
+            <ProductsRow
+              key={category.id}
+              category={category.id}
+              name={category.name}
+            />
+          ))}
     </div>
   );
 };
