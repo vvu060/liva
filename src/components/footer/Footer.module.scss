@@ -1,66 +1,69 @@
 @import "../../scss/variables";
 @import "../../scss/functions";
 @import "../../scss/placeholder";
+
 .footer {
   margin-top: auto;
 
   &__top {
     background: lighten($accentColor, 65%);
     padding: rem(20);
+  }
 
-    .footer__column {
-      display: flex;
-      flex-direction: column;
-      font-size: rem(14);
+  &__column {
+    display: flex;
+    flex-direction: column;
+    font-size: rem(14);
 
-      p {
-        margin-top: rem(18);
-      }
-
-      .footer__location {
-        display: flex;
-        flex-direction: column;
-
-        .footer__info {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: flex-start;
-
-          p {
-            margin-left: rem(3);
-          }
-        }
-      }
+    p {
+      margin-top: rem(18);
     }
+  }
 
-    .footer__title {
-      font-size: rem(16);
+  &__location {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    p {
+      margin-left: rem(3);
+    }
+  }
+
+  &__title {
+    font-size: rem(16);
+    margin-bottom: rem(20);
+    text-transform: uppercase;
+    position: relative;
+    &::before {
+      background: lighten($accentColor, 10%);
+      height: rem(2);
+      width: rem(40);
+      content: "";
+      position: absolute;
+      bottom: rem(-5);
+      left: 0;
+    }
+  }
+
+  &_links {
+    display: flex;
+    flex-direction: column;
+    line-height: 2.5;
+    font-size: rem(14);
+
+    a {
+      color: $textColor;
       text-transform: uppercase;
-      position: relative;
-      &::before {
-        background: lighten($accentColor, 10%);
-        height: rem(2);
-        width: rem(40);
-        content: "";
-        position: absolute;
-        bottom: rem(-5);
-        left: 0;
-      }
-    }
 
-    .footer_links {
-      display: flex;
-      flex-direction: column;
-      line-height: 2.5;
-      font-size: rem(14);
-
-      a {
-        color: $textColor;
-
-        &:hover {
-          color: $primaryColor;
-        }
+      &:hover {
+        color: $primaryColor;
       }
     }
   }

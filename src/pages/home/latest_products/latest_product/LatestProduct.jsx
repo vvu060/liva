@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 const LatestProduct = ({ name, image, price }) => {
-  console.log(image);
   return (
     <div
       data-test="component-latest-product"

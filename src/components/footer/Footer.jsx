@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="row">
             <div
               data-test="footer-info"
-              className={`col-5 ${style.footer__column}`}
+              className={`col-6 ${style.footer__column}`}
             >
               <Logo width={100} alt="Liva Logo" />
               <p>
@@ -30,7 +30,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-4" data-test="footer-links">
+            <div className="col-3" data-test="footer-links">
               <h4 className={style.footer__title}>Information</h4>
               <div className={style.footer_links} role="list">
                 <a href="#" role="listitem">
@@ -73,7 +73,7 @@ const Footer = () => {
       </div>
       <div className={style.footer__bottom} data-testid="footerbottom">
         <div className="container">
-          Copyright &copy; 2021 liva all rights reserved
+          Copyright &copy; 2021 | Liva all rights reserved
         </div>
       </div>
     </footer>
