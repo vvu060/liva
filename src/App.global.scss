@@ -109,10 +109,28 @@ body {
   }
 }
 
-
 .list{
   &-inline{
     @extend %list-none;
     display: flex;
+  }
+}
+.skipnav {
+  background: transparent;
+  color: $textColor;
+  left: 0;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: -4.2rem;
+  transition: all 0.2s ease-in-out;
+  z-index: 7001;
+  color: $lightColor;
+  &:focus{
+    background: $accentColor;  
+    left: 0;
+    outline: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s ease-in-out;
   }
 }
