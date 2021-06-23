@@ -8,7 +8,7 @@ import BreadCrumb from "../../components/bread_crumb/BreadCrumb";
 import style from "./ProductListing.module.scss";
 
 const ProductListing = (props) => {
-  const [categoryId, setCategoryId] = useState("");
+  const [categoryId, setCategoryId] = useState("cat_gvRjwOQmG54mNL");
 
   const {
     isLoading: isLoadingCategories,
@@ -34,6 +34,7 @@ const ProductListing = (props) => {
 
   return (
     <div className={`container ${style.productListing}`}>
+      <h3>Categories</h3>
       <div className={`${style.productListing__filter}`}>
         {/* Category Filter  */}
         {categories &&
