@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { endpoints, headers } from "../../endpoints";
 import axios from "axios";
 import IconSection from "./icon_section/IconSection";
+import LatestProducts from "./latest_products/LatestProducts";
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
+
 import "./Home.scss";
 
 const Home = () => {
@@ -35,14 +37,17 @@ const Home = () => {
     <div data-test="component-home">
       <Banner />
       <IconSection />
+      <LatestProducts />
       {categories &&
-        categories.map((category) => (
-          <ProductsRow
-            key={category.id}
-            category={category.id}
-            name={category.name}
-          />
-        ))}
+        categories
+          .slice(1)
+          .map((category) => (
+            <ProductsRow
+              key={category.id}
+              category={category.id}
+              name={category.name}
+            />
+          ))}
     </div>
   );
 };

@@ -8,13 +8,13 @@ import ProductCardShimmer from "../loading/product_card/ProductCardShimmer";
 
 const ProductsRow = ({ category, name }) => {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   /**
    * Factory function to fetch & store products from a category in products state.
    * @function fetchProducts
    * @param - No Parameters.
-   * @returns {products} - List of categories from commerce js.
+   * @returns {products} - List of products from commerce js.
    */
   const fetchProducts = async () => {
     setIsLoading(true);
@@ -64,6 +64,7 @@ const ProductsRow = ({ category, name }) => {
                   image={product.assets[0]?.url}
                   name={product.name}
                   price={product.price.formatted_with_symbol}
+                  colSpace={3}
                 />
               ))}
           </Fragment>

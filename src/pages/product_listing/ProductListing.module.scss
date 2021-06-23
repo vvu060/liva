@@ -1,0 +1,10 @@
+.productListing {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+
+  &__filter {
+    margin-top: 70px;
+  }
+}
