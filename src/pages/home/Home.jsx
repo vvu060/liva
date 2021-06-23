@@ -1,12 +1,10 @@
 import React from "react";
-import Footer from "../../components/footer/Footer";
+import Banner from '../../components/banner/Banner';
 import "./Home.scss";
 
 const Home = () => {
   return (
-    <div>
-      I AM HOME
-    </div>
+    <Banner/>
   );
 };
 
