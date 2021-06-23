@@ -1,17 +1,15 @@
 import React from "react";
-import "./Button.scss";
 
-const Button = ({ color, disabled }) => {
+const Button = ({ color, disabled, children, label, className }) => {
   return (
-    <div>
-      <button
-        data-test="component-button"
-        className={`${color}`}
-        disabled={disabled}
-      >
-        Submit
-      </button>
-    </div>
+    <button
+      data-test="component-button"
+      className={`${className ? className : ""}`}
+      disabled={disabled}
+      aria-label={label}
+    >
+      {children}
+    </button>
   );
 };
 
