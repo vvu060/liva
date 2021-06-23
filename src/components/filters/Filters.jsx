@@ -7,7 +7,10 @@ const Filters = ({ name, image, id, parentCallback }) => {
   };
 
   return (
-    <div onClick={handleCallback} className={`${style.filters}`}>
+    <div
+      onClick={handleCallback}
+      className={`${style.filters} ${style.filters__current}`}
+    >
       <img src={image} loading="lazy" alt={name} />
       <h5>{name}</h5>
     </div>
