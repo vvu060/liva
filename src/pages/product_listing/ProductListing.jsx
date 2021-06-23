@@ -37,16 +37,27 @@ const ProductListing = () => {
       </div>
       <div className={`row ${style.productListing__product}`}>
         {/* Products */}
-        {products &&
-          products.data.map((product) => (
-            <ProductCard
-              key={product.id}
-              image={product.assets[0]?.url}
-              name={product.name}
-              price={product.price.formatted_with_symbol}
-              colSpace={3}
-            />
-          ))}
+        {isLoadingProducts ? (
+          <Fragment>
+            <ProductCardShimmer colSpace={3} />
+            <ProductCardShimmer colSpace={3} />
+            <ProductCardShimmer colSpace={3} />
+            <ProductCardShimmer colSpace={3} />
+          </Fragment>
+        ) : (
+          <Fragment>
+            {products &&
+              products.data.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  image={product.assets[0]?.url}
+                  name={product.name}
+                  price={product.price.formatted_with_symbol}
+                  colSpace={3}
+                />
+              ))}
+          </Fragment>
+        )}
       </div>
     </div>
   );
