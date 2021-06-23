@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { endpoints, headers } from "../../endpoints";
 import style from "./ProductsRow.module.scss";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import axios from "axios";
 import ProductCard from "./product_card/ProductCard";
 import ProductCardShimmer from "../loading/product_card/ProductCardShimmer";
@@ -45,7 +46,12 @@ const ProductsRow = ({ category, name }) => {
     >
       <div className={style.productsRow__title}>
         <h4>{name}</h4>
-        <a href="#">View More</a>
+        <a href="/products">
+          View More{" "}
+          <span>
+            <ArrowForwardIosIcon />
+          </span>{" "}
+        </a>
       </div>
       <div className={`row ${style.productsRow__card}`}>
         {isLoading ? (
