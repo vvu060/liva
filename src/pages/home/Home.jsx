@@ -1,9 +1,9 @@
 import React from "react";
-import Footer from "../../components/footer/Footer";
-import style from "./Home.module.scss";
+import Banner from "../../components/banner/Banner";
+import "./Home.scss";
 
 const Home = () => {
-  return <div>I AM HOME</div>;
+  return <Banner />;
 };
 
 export default Home;
