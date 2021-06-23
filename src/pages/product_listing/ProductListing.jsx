@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState, Fragment } from "react";
 import { endpoints, headers } from "../../endpoints";
 import useFetch from "react-fetch-hook";
 import Filters from "../../components/filters/Filters";
 import ProductCard from "../../components/products_row/product_card/ProductCard";
 import ProductCardShimmer from "../../components/loading/product_card/ProductCardShimmer";
+import BreadCrumb from "../../components/bread_crumb/BreadCrumb";
+import style from "./ProductListing.module.scss";
 
-const ProductListing = () => {
+const ProductListing = (props) => {
+  const [categoryId, setCategoryId] = useState("");
+
   const {
     isLoading: isLoadingCategories,
     error: errorCategories,
@@ -21,6 +25,12 @@ const ProductListing = () => {
   } = useFetch(`${endpoints.products}?limit=6&category_id[]=${categoryId}`, {
     headers: headers,
   });
+
+  const breadCrumbName = props.match.path.slice(1).toUpperCase();
+
+  const parentCallback = (categoryId) => {
+    setCategoryId(categoryId);
+  };
 
   return (
     <div className={`container ${style.productListing}`}>
