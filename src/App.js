@@ -9,6 +9,9 @@ function App() {
   return (
     <>
       <Router>
+      <a class="skipnav" href="#main">
+	Skip to main content
+</a>
         <Header/>
         <main id="main">
           <Routes />
