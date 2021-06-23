@@ -22,13 +22,29 @@
 %f-frw {
   flex-flow: row wrap;
 }
-%fca {
-  display: flex;
-  flex-direction: column;
+%list-none {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+%d-ajc {
+  @extend %d-flex;
+  @extend %a-ic;
+  @extend %j-cc;
+}
+%d-jsb {
+  justify-content: space-between;
   align-items: center;
 }
+
+%fca {
+  @extend %d-flex;
+  @extend %f-dc;
+  @extend %a-ic;
+}
+
 %fra {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @extend %d-flex;
+  @extend %f-frw;
+  @extend %a-ic;
 }
