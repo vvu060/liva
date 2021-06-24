@@ -45,7 +45,7 @@ const ProductsRow = ({ category, name }) => {
       className={`container ${style.productsRow}`}
     >
       <div className={style.productsRow__title}>
-        <h4>{name}</h4>
+        <h4 data-test="category-name">{name}</h4>
         <a href="/products">
           View More{" "}
           <span>
