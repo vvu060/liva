@@ -9,12 +9,13 @@ const LatestProduct = ({ name, image, price }) => {
       data-test="component-latest-product"
       className={`col-4 ${style.latestProduct}`}
     >
-      <img src={image} loading="lazy" alt={name} />
+      <img data-test="product-image" src={image} loading="lazy" alt={name} />
       <div className={style.latestProduct__details}>
         <h5 data-test="product-name">{name}</h5>
         <p>
           {" "}
-          <s>₹150.00</s>&nbsp;&nbsp;<span>{price}</span>
+          <s>₹150.00</s>&nbsp;&nbsp;
+          <span data-test="product-price">{price}</span>
         </p>
       </div>
       <div className={style.latestProduct__icon}>
@@ -28,12 +29,6 @@ LatestProduct.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-};
-
-LatestProduct.defaultProps = {
-  alt: "Company Logo",
-  width: 50,
-  height: "auto",
 };
 
 export default LatestProduct;
