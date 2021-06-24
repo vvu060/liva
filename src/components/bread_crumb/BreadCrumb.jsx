@@ -1,7 +1,7 @@
 import React from "react";
 
 const BreadCrumb = ({ name }) => {
-  return <div>HOME &gt; {name}</div>;
+  return <div data-test="component-bread-crumb">HOME &gt; {name}</div>;
 };
 
 export default BreadCrumb;
