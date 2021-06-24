@@ -1,9 +1,10 @@
 import React from "react";
 
-const Button = ({ color, disabled, name, label, classes }) => {
+const Button = ({ disabled, name, label, classes }) => {
   return (
     <button
       data-test="component-button"
+      data-test="button-name"
       className={`${classes ? classes : ""}`}
       disabled={disabled}
       aria-label={label}
