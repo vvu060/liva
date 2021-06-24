@@ -6,34 +6,14 @@
   margin-top: auto;
 
   &__top {
-    background: lighten($accentColor, 65%);
-    padding: rem(20);
+    background: lighten($accentColor,72%);
+    padding: rem(40) 0;
   }
 
   &__column {
-    display: flex;
+    @extend %d-flex;
     flex-direction: column;
     font-size: rem(14);
-
-    p {
-      margin-top: rem(18);
-    }
-  }
-
-  &__location {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-
-    p {
-      margin-left: rem(3);
-    }
   }
 
   &__title {
@@ -73,5 +53,24 @@
     color: set-textcolor($accentColor);
     padding-block: rem(16);
     @extend %text-center;
+  }
+
+  &__logo,
+  &__item{
+    margin-bottom: rem(16);
+  }
+
+  &__list{
+    @extend %d-flex;
+    flex-direction: column;
+  }
+
+  &__item{
+    @extend %d-flex;
+    align-items: center;
+
+    svg{
+      margin-right: rem(10);
+    }
   }
 }

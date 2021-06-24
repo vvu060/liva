@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <div data-test="component-home">
-      <Banner className="my-2" />
+      <Banner/>
       <IconSection className="my-2" />
       <LatestProducts className="my-2" />
       {categories &&

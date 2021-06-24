@@ -8,7 +8,7 @@ const Banner = () => {
       data-test="component-banner"
       className={`block ${style.banner}`}
       role="banner"
-      style={{ background: `url(banner-1.jpg) no-repeat bottom center` }}
+      style={{ background: `url(banner-1.jpg) no-repeat bottom center`, backgroundSize: `cover` }}
     >
       <div className={`container ${style.banner__container}`}>
         <h1 className={style.banner__title} tabIndex="0">
