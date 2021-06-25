@@ -26,13 +26,12 @@ describe("renders button component", () => {
 describe("renders button name", () => {
   test("does not render button name when `name` props is not available", () => {
     const wrapper = setup({ name: "" });
-    const name = findByTestAttr(wrapper, "button-name");
+    const name = findByTestAttr(wrapper, "component-button");
     expect(name.text()).toBe("");
   });
 
-  test("renders product name when `name` props is available", () => {
+  test("renders button  name when `name` props is available", () => {
     const wrapper = setup({ name: "Add to Cart" });
-    // const name = findByTestAttr(wrapper, "button-name");
-    expect(wrapper.find("button").prop("name")).toEqual("Add to Cart");
+    expect(wrapper.text()).toEqual("Add to Cart");
   });
 });
