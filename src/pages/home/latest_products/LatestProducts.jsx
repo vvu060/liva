@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import axios from "axios";
-import { endpoints, headers } from "../../../endpoints";
+import { endpoints, headersPublic } from "../../../endpoints";
 import LatestProduct from "./latest_product/LatestProduct";
 import LatestProductShimmer from "../../../components/loading/latest_product/LatestProductShimmer";
 import style from "./LatestProducts.module.scss";
@@ -23,7 +23,7 @@ const LatestProducts = () => {
           limit: 6,
           category_id: ["cat_ypbroEy01o8n4e"],
         },
-        headers: headers,
+        headers: headersPublic,
       });
       setProducts(data.data);
       setIsLoading(false);

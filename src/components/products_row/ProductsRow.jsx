@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
-import { endpoints, headers } from "../../endpoints";
+import { endpoints, headersPublic } from "../../endpoints";
 import style from "./ProductsRow.module.scss";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import axios from "axios";
@@ -25,7 +25,7 @@ const ProductsRow = ({ category, name }) => {
           limit: 4,
           category_id: [`${category}`],
         },
-        headers: headers,
+        headers: headersPublic,
       });
       setProducts(data.data);
       setIsLoading(false);

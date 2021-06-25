@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import { endpoints, headers } from "../../endpoints";
+import { endpoints, headersPublic } from "../../endpoints";
 import useFetch from "react-fetch-hook";
 import Filters from "../../components/filters/Filters";
 import ProductCard from "../../components/products_row/product_card/ProductCard";
@@ -15,7 +15,7 @@ const ProductListing = (props) => {
     error: errorCategories,
     data: categories,
   } = useFetch(`${endpoints.categories}`, {
-    headers: headers,
+    headers: headersPublic,
   });
 
   const {
@@ -23,7 +23,7 @@ const ProductListing = (props) => {
     error: errorProducts,
     data: products,
   } = useFetch(`${endpoints.products}?limit=6&category_id[]=${categoryId}`, {
-    headers: headers,
+    headers: headersPublic,
   });
 
   const breadCrumbName = props.match.path.slice(1).toUpperCase();
