@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./Banner.module.scss";
 const Banner = () => {
-  const [number, setNumber] = useState(0);
-  useEffect(() => setNumber(Math.floor(Math.random() * 2) + 1));
   return (
     <section
       data-test="component-banner"
@@ -20,7 +18,9 @@ const Banner = () => {
           distribution of letters, as opposed to using 'Content here, content
           here', making it look like readable English
         </p>
-        <a className={`btn btn-border btn-light ${style.banner__btn}`}>Discover</a>
+        <a className={`btn btn-border btn-light ${style.banner__btn}`}>
+          Discover
+        </a>
       </div>
     </section>
   );
