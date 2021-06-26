@@ -1,3 +1,24 @@
 @import "../../../scss/variables";
 @import "../../../scss/functions";
 @import "../../../scss/placeholder";
+.whyus {
+
+  &_item {
+    position: relative;
+    border: rem(3) solid $primaryColor;
+    padding: rem(20) rem(10);
+
+    &::before {
+      content: "";
+      position: absolute;
+      background: $lightColor;
+      height: rem(50);
+      width: rem(10);
+      left: rem(-5);
+    }
+
+    &wrap {
+        
+    }
+  }
+}

@@ -10,6 +10,9 @@
     height: rem(50);
     width: rem(10);
     left: rem(-5);
+    top:50%;
+    transform: translateY(-50%);
+    
   }
 
   position: relative;
