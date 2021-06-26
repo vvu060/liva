@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./IconSection.module.scss";
-import Icon from "./icon/Icon";
+import Icon from "../../../components/icon/Icon";
 import {
   HeadsetMicOutlined,
   FlightTakeoffOutlined,
@@ -13,31 +13,52 @@ const WhyUs = () => {
       <div data-test="component-icon-section" className="container">
         <div className="row">
           <div className={`col-4 ${style.whyus_item}}`}>
-          <div className={style.whyus_item}>
-                asfsdf dsf s
+            <div className={style.whyus__item}>
+              <div className={style.whyus__iconwrap}>
+                <Icon Icon={HeadsetMicOutlined} classes={style.whyus__icon} />
+              </div>
+              <div className={style.whyus__descwrap}>
+                <h3 className={style.whyus__title} data-test="element-title">
+                  Online Support
+                </h3>
+                <p data-test="element-desc" className={style.whyus__desc}>
+                  We Provide 24/7 Online Support
+                </p>
+              </div>
             </div>
-            <Icon
-              Icon={HeadsetMicOutlined}
-              title="Online Support"
-              desc="We Provide 24/7 Online Support"
-            />
           </div>
           <div className={`col-4 ${style.whyus_itemwrap}}`}>
-            <div className={style.whyus_item}>
-                asfsdf dsf s
+            <div className={style.whyus__item}>
+              <div className={style.whyus__iconwrap}>
+                <Icon
+                  Icon={FlightTakeoffOutlined}
+                  classes={style.whyus__icon}
+                />
+              </div>
+              <div className={style.whyus__descwrap}>
+                <h3 className={style.whyus__title} data-test="element-title">
+                  Free Shipping
+                </h3>
+                <p data-test="element-desc" className={style.whyus__desc}>
+                  Free Home Delivery
+                </p>
+              </div>
             </div>
-            <Icon
-              Icon={FlightTakeoffOutlined}
-              title="Free Shipping"
-              desc="Free Home Delivery"
-            />
           </div>
           <div className={`col-4 ${style.whyus_item}}`}>
-            <Icon
-              Icon={SecurityOutlined}
-              title="Secure Payment"
-              desc="Fully Secure Payment Service"
-            />
+            <div className={style.whyus__item}>
+              <div className={style.whyus__iconwrap}>
+                <Icon Icon={HeadsetMicOutlined} classes={style.whyus__icon} />
+              </div>
+              <div className={style.whyus__descwrap}>
+                <h3 className={style.whyus__title} data-test="element-title">
+                  Online Support
+                </h3>
+                <p data-test="element-desc" className={style.whyus__desc}>
+                  We Provide 24/7 Online Support
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

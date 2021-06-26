@@ -2,11 +2,31 @@
 @import "../../../scss/functions";
 @import "../../../scss/placeholder";
 .whyus {
+  &__title {
+    margin-bottom: rem(5);
+    font-size: rem(18);
+  }
 
-  &_item {
+  &__icon {
+    fill: $lightColor;
+    font-size: xx-large;
+
+    &wrap {
+      border-radius: 50%;
+      background: linear-gradient(to bottom right, #03cc59, #029a43);
+      height: rem(60);
+      width: rem(60);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 rem(10) 0 0;
+    }
+  }
+  &__item {
     position: relative;
     border: rem(3) solid $primaryColor;
-    padding: rem(20) rem(10);
+    padding: rem(15);
+    @extend %fra;
 
     &::before {
       content: "";
@@ -15,10 +35,16 @@
       height: rem(50);
       width: rem(10);
       left: rem(-5);
+      top: 50%;
+      transform: translateY(-50%);
     }
-
+  }
+  &__desc {
+    margin: 0;
     &wrap {
-        
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
   }
 }
