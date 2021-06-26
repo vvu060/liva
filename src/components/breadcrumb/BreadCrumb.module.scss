@@ -1,0 +1,7 @@
+@import "../../scss/variables";
+@import "../../scss/functions";
+@import "../../scss/placeholder";
+.breadcrumb{
+    position: relative;
+    @extend %list-none;
+}
