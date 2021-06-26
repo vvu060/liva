@@ -1,19 +1,19 @@
 import defaultuser from "../../resources/defaultuser.png";
 import PropTypes from "prop-types";
 import style from './Avatar.module.scss';
-const Avatar = ({ src ,alt,classes}) => {
-  return <img src={src} alt={alt} className={`${style.avatar} ${classes}`} />;
+const Avatar = ({ image ,title,classes}) => {
+  return <img src={image} alt={title} className={`${style.avatar} ${classes}`}  data-test="component-avatar"/>;
 };
 
 Avatar.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   class: PropTypes.string
 };
 
 Avatar.defaultProps = {
-  src: defaultuser,
-  alt: 'Profile Image',
+  image: defaultuser,
+  title: 'Profile Image',
   classes: ''
 };
 
