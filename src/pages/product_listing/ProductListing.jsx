@@ -4,7 +4,7 @@ import useFetch from "react-fetch-hook";
 import Filters from "../../components/filters/Filters";
 import ProductCard from "../../components/products_row/product_card/ProductCard";
 import ProductCardShimmer from "../../components/loading/product_card/ProductCardShimmer";
-import BreadCrumb from "../../components/bread_crumb/BreadCrumb";
+import BreadCrumb from "../../components/breadcrumb/BreadCrumb";
 import style from "./ProductListing.module.scss";
 
 const ProductListing = (props) => {
