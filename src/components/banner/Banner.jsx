@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./Banner.module.scss";
 const Banner = () => {
-  const [number, setNumber] = useState(0);
-  useEffect(() => setNumber(Math.floor(Math.random() * 2) + 1));
   return (
     <section
       data-test="component-banner"
@@ -10,7 +8,7 @@ const Banner = () => {
       role="banner"
       style={{
         background: `url(banner-1.jpg) no-repeat bottom center`,
-        backgroundSize: "cover",
+        backgroundSize: `cover`
       }}
     >
       <div className={`container ${style.banner__container}`}>
