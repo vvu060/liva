@@ -1,4 +1,4 @@
-import style from "./style.module.scss";
+import style from "./BreadCrumb.module.scss";
 import { Link, useLocation } from "react-router-dom";
 const Breadcrumb = () => {
   const Location = useLocation();

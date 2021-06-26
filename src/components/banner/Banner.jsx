@@ -8,7 +8,10 @@ const Banner = () => {
       data-test="component-banner"
       className={`block ${style.banner}`}
       role="banner"
-      style={{ background: `url(banner-1.jpg) no-repeat bottom center` }}
+      style={{
+        background: `url(banner-1.jpg) no-repeat bottom center`,
+        backgroundSize: "cover",
+      }}
     >
       <div className={`container ${style.banner__container}`}>
         <h1 className={style.banner__title} tabIndex="0">
@@ -20,7 +23,9 @@ const Banner = () => {
           distribution of letters, as opposed to using 'Content here, content
           here', making it look like readable English
         </p>
-        <a className={`btn btn-border btn-light ${style.banner__btn}`}>Discover</a>
+        <a className={`btn btn-border btn-light ${style.banner__btn}`}>
+          Discover
+        </a>
       </div>
     </section>
   );

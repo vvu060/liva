@@ -1,0 +1,8 @@
+@import "../../scss/variables";
+@import "../../scss/functions";
+@import "../../scss/placeholder";
+.avatar {
+  border-radius: 50%;
+  height: rem(24);
+  width: rem(24);
+}
