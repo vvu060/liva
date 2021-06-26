@@ -2,8 +2,8 @@ import { auth } from "../firebase";
 import { login } from "../redux/features/user/userSlice";
 import { checkNewUser } from "./checkNewUser";
 
-export const signIn = (provider, dispatch, history) => {
-  if ((!provider, !dispatch, !history)) return;
+export const signIn = (provider, dispatch) => {
+  if (!provider && !dispatch && !history) return;
 
   auth
     .signInWithPopup(provider)
@@ -20,8 +20,8 @@ export const signIn = (provider, dispatch, history) => {
         userId: user.user.uid,
       };
 
-      dispatch(login(userData));
-      checkNewUser(userData, history);
+      dispatch(login({ userData }));
+      checkNewUser(userData, dispatch);
     })
     .catch((error) => alert(error.message));
 };

@@ -5,7 +5,6 @@ import IconSection from "./icon_section/IconSection";
 const LatestProducts = lazy(() => import("./latest_products/LatestProducts"));
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
-
 import "./Home.scss";
 
 const Home = () => {
