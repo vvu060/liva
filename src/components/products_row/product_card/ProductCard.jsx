@@ -10,14 +10,15 @@ const ProductCard = ({ image, name, price, colSpace }) => {
       className={`col-${colSpace} ${style.productCard}`}
     >
       <img
+        data-test="product-image"
         src={image}
         loading="lazy"
         alt={name}
         className={style.productCard__image}
       />
-      <h5>{name}</h5>
-      <p>{price}</p>
-      <Button name="Add to Cart" />
+      <h5 data-test="product-name">{name}</h5>
+      <p data-test="product-price">{price}</p>
+      <Button classes="btn btn-primary btn-border" name="Add to Cart" />
     </div>
   );
 };

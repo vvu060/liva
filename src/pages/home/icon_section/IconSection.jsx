@@ -13,6 +13,7 @@ const IconSection = () => {
       <div className={`row ${style.icon__row}`}>
         <div className="col-4">
           <Icon
+            data-test="component-icon"
             Icon={HeadsetMicOutlined}
             title="Online Support"
             desc="We Provide 24/7 Online Support"
@@ -20,6 +21,7 @@ const IconSection = () => {
         </div>
         <div className="col-4">
           <Icon
+            data-test="component-icon"
             Icon={FlightTakeoffOutlined}
             title="Free Shipping"
             desc="Free Home Delivery"
@@ -27,6 +29,7 @@ const IconSection = () => {
         </div>
         <div className="col-4">
           <Icon
+            data-test="component-icon"
             Icon={SecurityOutlined}
             title="Secure Payment"
             desc="Fully Secure Payment Service"

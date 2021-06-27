@@ -1,14 +1,14 @@
 import React from "react";
 
-const Button = ({ color, disabled, children, label, className }) => {
+const Button = ({ disabled, name, label, classes }) => {
   return (
     <button
       data-test="component-button"
-      className={`${className ? className : ""}`}
+      className={`${classes ? classes : ""}`}
       disabled={disabled}
       aria-label={label}
     >
-      {children}
+      {name}
     </button>
   );
 };

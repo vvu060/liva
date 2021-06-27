@@ -1,5 +1,6 @@
 @import "../../scss/functions";
 @import "../../scss/variables";
+@import "../../scss/placeholder";
 
 .productsRow {
   margin-bottom: rem(50);
@@ -23,6 +24,13 @@
     a {
       font-weight: 500;
       cursor: pointer;
+      text-transform: uppercase;
+      color: $textColor;
+      @extend %fra;
+
+      &:hover {
+        color: $primaryColor;
+      }
     }
   }
 }

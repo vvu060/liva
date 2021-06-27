@@ -2,7 +2,6 @@ import React from "react";
 import { shallow } from "enzyme";
 import Icon from "./Icon";
 import { findByTestAttr, checkProps } from "../../../../test/testUtils";
-import { HeadsetMicOutlined } from "@material-ui/icons";
 
 const setup = (props = {}) => {
   return shallow(<Icon {...props} />);
@@ -62,7 +61,6 @@ describe("renders desc text", () => {
 
 test("does not throw warning with expected props", () => {
   const expectedProps = {
-    Icon: HeadsetMicOutlined,
     title: "Online Shopping",
     desc: "Online Shopping 24/7",
   };

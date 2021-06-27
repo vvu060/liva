@@ -35,9 +35,9 @@ const Home = () => {
 
   return (
     <div data-test="component-home">
-      <Banner />
-      <IconSection />
-
+      <Banner className="my-2" />
+      <IconSection className="my-2" />
+      <LatestProducts className="my-2" />
       {categories &&
         categories
           .slice(1)
@@ -48,7 +48,6 @@ const Home = () => {
               name={category.name}
             />
           ))}
-      <LatestProducts />
     </div>
   );
 };
