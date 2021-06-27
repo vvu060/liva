@@ -1,13 +1,18 @@
 import React from "react";
 import style from "./Filters.module.scss";
 
-const Filters = ({ name, id }) => {
+const Filters = ({ name, image, id, parentCallback }) => {
+  const handleCallback = () => {
+    parentCallback(id);
+  };
+
   return (
-    <div className="">
-      <div className={`${style.filters}`}>
-        <input type="radio" name={name} id={id} value={id} />
-        <label htmlFor={name}>{name}</label>
-      </div>
+    <div
+      onClick={handleCallback}
+      className={`${style.filters} ${style.filters__current}`}
+    >
+      <img src={image} loading="lazy" alt={name} />
+      <h5>{name}</h5>
     </div>
   );
 };
