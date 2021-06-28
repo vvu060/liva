@@ -33,7 +33,9 @@ const CartItem = ({ name, price, image, id, packetSize, size }) => {
         </div>
         <h4 className={style.cartItem__amount}>Total Amount: ₹1500</h4>
       </div>
-      <Button name="Remove" classes="btn btn-primary" disabled={false} />
+      <div className={style.cartItem__button}>
+        <Button name="Remove" classes="btn btn-primary" disabled={false} />
+      </div>
     </div>
   );
 };

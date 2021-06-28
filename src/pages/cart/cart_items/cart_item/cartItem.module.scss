@@ -6,10 +6,10 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  border-bottom: 1px solid $divider;
 
   &__img {
-    width: rem(150);
-    height: rem(150);
+    width: rem(200);
     object-fit: contain;
   }
 

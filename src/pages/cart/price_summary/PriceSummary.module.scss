@@ -3,6 +3,8 @@
 @import "../../../scss/variables";
 
 .price {
+  flex: 0.3;
+
   &__details {
     display: flex;
     flex-direction: column;
@@ -25,5 +27,9 @@
     p {
       margin: 0;
     }
+  }
+
+  &__button {
+    width: 100%;
   }
 }

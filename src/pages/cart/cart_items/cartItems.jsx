@@ -20,7 +20,8 @@ const CartItems = () => {
   console.log(cartItems);
 
   return (
-    <div className="block">
+    <div className={`block ${style.cartItems}`}>
+      <h2>My Cart ({cartItems.length})</h2>
       {cartItems.map((cartItem) => (
         <CartItem
           key={cartItem.id}
