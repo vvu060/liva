@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../../../components/button/Button";
 import { Remove, Add } from "@material-ui/icons";
 import style from "./CartItem.module.scss";
 
 const CartItem = ({ name, price, image, id, packetSize, size }) => {
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQuantity = () => {
+    setQuantity((quantity) => (quantity += 1));
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity <= 1) return;
+    setQuantity((quantity) => (quantity -= 1));
+  };
+
   console.log({ name, price, image, id });
   return (
     <div className={`block ${style.cartItem}`}>
@@ -26,9 +37,19 @@ const CartItem = ({ name, price, image, id, packetSize, size }) => {
         <div className={style.cartItem__qty}>
           <p>Quantity :</p>
           <div className={style.cartItem__qtyInput}>
-            <Remove className={style.cartItem__icon} />
-            <input type="number" name="" id="" min="1" value="1" />
-            <Add className={style.cartItem__icon} />
+            <Remove
+              className={style.cartItem__icon}
+              onClick={decreaseQuantity}
+            />
+            <input
+              type="number"
+              name=""
+              id=""
+              min="1"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+            <Add className={style.cartItem__icon} onClick={increaseQuantity} />
           </div>
         </div>
         <h4 className={style.cartItem__amount}>Total Amount: ₹1500</h4>
