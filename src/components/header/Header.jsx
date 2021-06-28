@@ -3,6 +3,7 @@ import Logo from "../logo/Logo";
 import SearchBar from "../searchbar/SearchBar";
 import style from "./Header.module.scss";
 import {ShoppingCart,Notifications,Person} from '@material-ui/icons/';
+import Avatar from "../avatar/Avatar";
 const Header = () => {
   return (
     <header className={style.header}>
@@ -23,7 +24,7 @@ const Header = () => {
                 <Notifications/>
                 </button>
                 <button className={`btn ${style.header__btn}`}>
-                <Person/>
+                <Avatar/>
                 </button>
               
              
