@@ -63,8 +63,8 @@ body {
 }
 @for $i from 1 through 12 {
   .col-#{$i} {
-    flex: 0 0 math.div(100, math.div(12,$i)) * 1%;
-    max-width: math.div(100, math.div(12,$i)) * 1%;
+    flex: 0 0 math.div(100, math.div(12, $i)) * 1%;
+    max-width: math.div(100, math.div(12, $i)) * 1%;
   }
 }
 
@@ -149,6 +149,6 @@ body {
   }
 }
 
-.block{
+.block {
   padding: rem(50) 0;
 }

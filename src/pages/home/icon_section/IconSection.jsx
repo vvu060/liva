@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./IconSection.module.scss";
-import Icon from "../../../components/icon/Icon";
 import {
   HeadsetMicOutlined,
   FlightTakeoffOutlined,
@@ -15,7 +14,7 @@ const WhyUs = () => {
           <div className={`col-4 ${style.whyus_item}}`}>
             <div className={style.whyus__item}>
               <div className={style.whyus__iconwrap}>
-                <Icon Icon={HeadsetMicOutlined} classes={style.whyus__icon} />
+                <HeadsetMicOutlined classes={style.whyus__icon} />
               </div>
               <div className={style.whyus__descwrap}>
                 <h3 className={style.whyus__title} data-test="element-title">
@@ -30,10 +29,7 @@ const WhyUs = () => {
           <div className={`col-4 ${style.whyus_itemwrap}}`}>
             <div className={style.whyus__item}>
               <div className={style.whyus__iconwrap}>
-                <Icon
-                  Icon={FlightTakeoffOutlined}
-                  classes={style.whyus__icon}
-                />
+                <FlightTakeoffOutlined classes={style.whyus__icon} />
               </div>
               <div className={style.whyus__descwrap}>
                 <h3 className={style.whyus__title} data-test="element-title">
@@ -48,7 +44,7 @@ const WhyUs = () => {
           <div className={`col-4 ${style.whyus_item}}`}>
             <div className={style.whyus__item}>
               <div className={style.whyus__iconwrap}>
-                <Icon Icon={HeadsetMicOutlined} classes={style.whyus__icon} />
+                <HeadsetMicOutlined classes={style.whyus__icon} />
               </div>
               <div className={style.whyus__descwrap}>
                 <h3 className={style.whyus__title} data-test="element-title">
