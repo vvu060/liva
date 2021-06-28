@@ -1,0 +1,29 @@
+@import "../../../scss/functions";
+@import "../../../scss/placeholder";
+@import "../../../scss/variables";
+
+.price {
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px 10px;
+    color: $textColor;
+    line-height: 2;
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: $textColor;
+    font-size: rem(15);
+    font-weight: 600;
+
+    p {
+      margin: 0;
+    }
+  }
+}
