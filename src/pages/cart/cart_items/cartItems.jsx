@@ -4,7 +4,7 @@ import style from "./CartItems.module.scss";
 
 const CartItems = () => {
   return (
-    <div>
+    <div className="block">
       <CartItem />
     </div>
   );

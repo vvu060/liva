@@ -1,7 +1,7 @@
 import React from "react";
 
 const PriceSummary = () => {
-  return <div>Price Summary</div>;
+  return <div className="block">Price Summary</div>;
 };
 
 export default PriceSummary;
