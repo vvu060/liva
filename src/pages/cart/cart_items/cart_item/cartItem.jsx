@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Button from "../../../../components/button/Button";
 import { Remove, Add } from "@material-ui/icons";
-import axios from "axios";
 import style from "./CartItem.module.scss";
-import { endpoints, headers } from "../../../../endpoints";
+import { updateItem, removeItem } from "../../../../helpers/updateCart";
 
 const CartItem = ({
   name,
@@ -23,7 +22,7 @@ const CartItem = ({
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedQuantity(quantity);
-    }, 500);
+    }, 700);
 
     return () => {
       clearTimeout(timerId);
@@ -32,13 +31,11 @@ const CartItem = ({
 
   useEffect(() => {
     if (debouncedQuantity) {
-      updateItem(debouncedQuantity);
+      updateItem(debouncedQuantity, cartId, lineItemId);
     }
   }, [debouncedQuantity]);
 
-  console.log(debouncedQuantity);
-
-  const increaseQuantity = (e) => {
+  const increaseQuantity = () => {
     setQuantity((quantity) => (quantity += 1));
   };
 
@@ -51,25 +48,8 @@ const CartItem = ({
     setQuantity(e.target.value);
   };
 
-  const updateItem = (qty) => {
-    fetch(`${endpoints.cart}/${cartId}/items/${lineItemId}`, {
-      method: "PUT",
-      headers: headers,
-      body: JSON.stringify({ quantity: qty }),
-    })
-      .then((response) => response.json())
-      .then((data) => setAmount(data.line_total.formatted_with_symbol))
-      .then((error) => console.log(error));
-  };
-
-  const removeItem = () => {
-    fetch(`${endpoints.cart}/${cartId}/items/${lineItemId}`, {
-      method: "DELETE",
-      headers: headers,
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .then((error) => console.log(error));
+  const removeFromCart = () => {
+    removeItem(cartId, lineItemId);
   };
 
   return (
@@ -107,10 +87,7 @@ const CartItem = ({
               value={quantity}
               onChange={(e) => updateQuantity(e)}
             />
-            <Add
-              className={style.cartItem__icon}
-              onClick={(e) => increaseQuantity(e)}
-            />
+            <Add className={style.cartItem__icon} onClick={increaseQuantity} />
           </div>
         </div>
         <h4 className={style.cartItem__amount}>Total Amount: {amount}</h4>
@@ -120,7 +97,7 @@ const CartItem = ({
           name="Remove"
           classes="btn btn-primary"
           disabled={false}
-          onClick={removeItem}
+          onClick={removeFromCart}
         />
       </div>
     </div>
