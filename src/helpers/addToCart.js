@@ -13,16 +13,16 @@ export const addToCart = (productId, dispatch) => {
   if (cartId) {
     addItemsToCart(cartId, body, dispatch);
   } else {
-    createCart(body);
+    createCart(body, dispatch);
   }
 };
 
-const createCart = async (body) => {
+const createCart = async (body, dispatch) => {
   const { data } = await axios.get(`${endpoints.cart}`, { headers: headers });
 
   localStorage.setItem("cart_id", data.id);
 
-  await addItemsToCart(data.id, body);
+  await addItemsToCart(data.id, body, dispatch);
 };
 
 const addItemsToCart = async (cartId, body, dispatch) => {
