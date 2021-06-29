@@ -2,8 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import style from "./ProductCard.module.scss";
 import Button from "../../button/Button";
+import { addToCart } from "../../../helpers/addToCart";
 
-const ProductCard = ({ image, name, price, colSpace }) => {
+const ProductCard = ({ productId, image, name, price, colSpace }) => {
+  const addItemToCart = (productId) => {
+    addToCart(productId);
+  };
+
   return (
     <div
       data-test="component-product-card"
@@ -18,7 +23,12 @@ const ProductCard = ({ image, name, price, colSpace }) => {
       />
       <h5 data-test="product-name">{name}</h5>
       <p data-test="product-price">{price}</p>
-      <Button classes="btn btn-primary btn-border" name="Add to Cart" />
+      <Button
+        classes="btn btn-primary btn-border"
+        name="Add to Cart"
+        parameters={productId}
+        onClick={addItemToCart}
+      />
     </div>
   );
 };
