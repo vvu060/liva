@@ -9,7 +9,7 @@ export const updateItem = async (qty, cartId, lineItemId) => {
       headers: headers,
     });
   } catch (error) {
-    console.error(error);
+    alert(error.message);
   }
 };
 
