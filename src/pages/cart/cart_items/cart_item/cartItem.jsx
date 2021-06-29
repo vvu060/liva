@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Button from "../../../../components/button/Button";
 import { Remove, Add } from "@material-ui/icons";
 import axios from "axios";
@@ -17,19 +17,41 @@ const CartItem = ({
 }) => {
   const cartId = localStorage.getItem("cart_id");
   const [quantity, setQuantity] = useState(qty);
+  const [debouncedQuantity, setDebouncedQuantity] = useState(quantity);
   const [amount, setAmount] = useState(totalPrice);
 
-  const increaseQuantity = () => {
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedQuantity(quantity);
+    }, 500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [quantity]);
+
+  useEffect(() => {
+    if (debouncedQuantity) {
+      updateItem(debouncedQuantity);
+    }
+  }, [debouncedQuantity]);
+
+  console.log(debouncedQuantity);
+
+  const increaseQuantity = (e) => {
     setQuantity((quantity) => (quantity += 1));
-    updateCart(quantity + 1);
   };
 
   const decreaseQuantity = () => {
+    if (quantity <= 1) return;
     setQuantity((quantity) => (quantity -= 1));
-    updateCart(quantity - 1);
   };
 
-  const updateCart = (qty) => {
+  const updateQuantity = (e) => {
+    setQuantity(e.target.value);
+  };
+
+  const updateItem = (qty) => {
     fetch(`${endpoints.cart}/${cartId}/items/${lineItemId}`, {
       method: "PUT",
       headers: headers,
@@ -37,6 +59,16 @@ const CartItem = ({
     })
       .then((response) => response.json())
       .then((data) => setAmount(data.line_total.formatted_with_symbol))
+      .then((error) => console.log(error));
+  };
+
+  const removeItem = () => {
+    fetch(`${endpoints.cart}/${cartId}/items/${lineItemId}`, {
+      method: "DELETE",
+      headers: headers,
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
       .then((error) => console.log(error));
   };
 
@@ -73,15 +105,23 @@ const CartItem = ({
               type="number"
               min="1"
               value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={(e) => updateQuantity(e)}
             />
-            <Add className={style.cartItem__icon} onClick={increaseQuantity} />
+            <Add
+              className={style.cartItem__icon}
+              onClick={(e) => increaseQuantity(e)}
+            />
           </div>
         </div>
         <h4 className={style.cartItem__amount}>Total Amount: {amount}</h4>
       </div>
       <div className={style.cartItem__button}>
-        <Button name="Remove" classes="btn btn-primary" disabled={false} />
+        <Button
+          name="Remove"
+          classes="btn btn-primary"
+          disabled={false}
+          onClick={removeItem}
+        />
       </div>
     </div>
   );

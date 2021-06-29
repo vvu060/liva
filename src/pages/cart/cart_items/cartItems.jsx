@@ -21,7 +21,7 @@ const CartItems = () => {
     getCart();
   }, []);
 
-  console.log(cartItems);
+  // console.log(cartItems);
 
   return (
     <div className={`block ${style.cartItems}`}>
