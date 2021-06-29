@@ -67,6 +67,7 @@ const ProductsRow = ({ category, name }) => {
               products.map((product) => (
                 <ProductCard
                   key={product.id}
+                  productId={product.id}
                   image={product.assets[0]?.url}
                   name={product.name}
                   price={product.price.formatted_with_symbol}
