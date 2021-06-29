@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import style from "./ProductCard.module.scss";
 import Button from "../../button/Button";
 import { addToCart } from "../../../helpers/addToCart";
+import { useDispatch } from "react-redux";
 
 const ProductCard = ({ productId, image, name, price, colSpace }) => {
-  const addItemToCart = (productId) => {
-    addToCart(productId);
+  const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    addToCart(productId, dispatch);
   };
 
   return (
