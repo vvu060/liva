@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Button from "../../../components/button/Button";
+import { endpoints, headers } from "../../../endpoints";
 import { selectTotalAmount } from "../../../redux/features/cart/cartSlice";
 import style from "./PriceSummary.module.scss";
 
 const PriceSummary = () => {
+  const cartId = localStorage.getItem("cart_id");
   const totalAmount = useSelector(selectTotalAmount);
+
+  // let params = {
+  //   type: "permalink",
+  // };
+
+  useEffect(() => {
+    fetch(`${endpoints.checkout}/${cartId}?type=cart`, {
+      method: "GET",
+      headers,
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div className={`block ${style.price}`}>
