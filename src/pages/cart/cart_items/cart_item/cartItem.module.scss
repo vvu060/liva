@@ -1,0 +1,80 @@
+@import "../../../../scss/placeholder";
+@import "../../../../scss/functions";
+@import "../../../../scss/variables";
+
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-bottom: 1px solid $divider;
+
+  &__img {
+    width: rem(200);
+    object-fit: contain;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    margin-left: rem(5);
+    line-height: 1.5;
+  }
+
+  &__name {
+    font-size: rem(18);
+    color: $textColor;
+    font-weight: 600;
+    margin-bottom: rem(3);
+  }
+
+  &__size {
+    font-size: rem(13);
+  }
+
+  &__qty {
+    @extend %fra;
+    margin-bottom: rem(5);
+
+    p {
+      margin: 0;
+      font-size: rem(15);
+      margin-right: rem(5);
+    }
+  }
+
+  &__qtyInput {
+    @extend %fra;
+    border: 1px solid $primaryColor;
+    padding: 0 rem(5);
+    margin-right: rem(2);
+
+    padding: rem(5);
+
+    input {
+      border: none;
+      max-width: rem(50);
+      height: rem(25);
+      text-align: center;
+      outline: none;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    font-size: large;
+    color: $textColor;
+    cursor: pointer;
+  }
+
+  &__amount {
+    font-size: rem(16);
+    font-weight: 600;
+  }
+}
