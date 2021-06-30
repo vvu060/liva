@@ -7,8 +7,8 @@ import Footer from "./Footer";
  * @param {object} props - Component props specific to this setup
  * @returns {ShallowWrapper}
  */
-const setup = (props = {}) => {
-  return shallow(<Footer {...props} />);
+const setup = () => {
+  return shallow(<Footer />);
 };
 
 test("renders footer without crashing", () => {

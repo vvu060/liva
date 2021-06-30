@@ -1,54 +1,41 @@
-@import "../../../../scss/variables";
-@import "../../../../scss/functions";
-@import "../../../../scss/placeholder";
+// @import "../../../../scss/variables";
+// @import "../../../../scss/functions";
+// @import "../../../../scss/placeholder";
 
-.whyus {
-  &::before {
-    content: "";
-    position: absolute;
-    background: $lightColor;
-    height: rem(50);
-    width: rem(10);
-    left: rem(-5);
-  }
+// .whyus {
 
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: rem(2.5) solid $primaryColor;
-  padding: rem(20) rem(10);
 
-  &__desc {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
 
-    h5 {
-      margin-bottom: rem(5);
-      font-size: rem(18);
-    }
 
-    p {
-      font-size: rem(13);
-    }
-  }
+//   &__desc {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-end;
 
-  &__iconWrap {
-    border: rem(2) solid $primaryColor;
-    padding: rem(20);
-    margin: 0 rem(10);
-    border-radius: 50%;
-    border: none;
-    background: linear-gradient(
-      to bottom right,
-      lighten($primaryColor, 10%),
-      $primaryColor
-    );
-  }
+//     h5 {
+//       margin-bottom: rem(5);
+//       font-size: rem(18);
+//     }
 
-  &__icon {
-    fill: $lightColor;
-    font-size: xx-large;
-  }
-}
+//     p {
+//       font-size: rem(13);
+//     }
+//   }
+
+//   &__iconWrap {
+//     border: rem(2) solid $primaryColor;
+//     padding: rem(20);
+//     margin: 0 rem(10);
+//     border: none;
+    // background: linear-gradient(
+    //   to bottom right,
+    //   lighten($primaryColor, 10%),
+    //   $primaryColor
+    // );
+//   }
+
+//   &__icon {
+    // fill: $lightColor;
+    // font-size: xx-large;
+//   }
+// }
