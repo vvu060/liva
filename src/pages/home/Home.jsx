@@ -1,11 +1,10 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
-import { endpoints, headers } from "../../endpoints";
+import { endpoints, headersPublic } from "../../endpoints";
 import axios from "axios";
 import IconSection from "./icon_section/IconSection";
 const LatestProducts = lazy(() => import("./latest_products/LatestProducts"));
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
-
 import "./Home.scss";
 
 const Home = () => {
@@ -20,7 +19,7 @@ const Home = () => {
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get(`${endpoints.categories}`, {
-        headers: headers,
+        headers: headersPublic,
       });
 
       setCategories(data.data);

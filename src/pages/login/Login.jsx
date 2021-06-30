@@ -1,9 +1,10 @@
 import React from "react";
+import Button from "../../components/button/Button";
 
 const Login = () => {
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="container">
+      <Button classes="btn btn-primary" name="Sign In With Google" />
     </div>
   );
 };

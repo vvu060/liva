@@ -3,8 +3,16 @@ import Logo from "../logo/Logo";
 import SearchBar from "../searchbar/SearchBar";
 import style from "./Header.module.scss";
 import { ShoppingCart, Notifications, Person } from "@material-ui/icons/";
-import Avatar from "../avatar/Avatar";
+import { useDispatch } from "react-redux";
+import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
+
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const showSidebar = () => {
+    dispatch(openSidebar({ sidebar: true }));
+  };
+
   return (
     <header className={style.header}>
       <div className="container">
@@ -17,16 +25,20 @@ const Header = () => {
           </div>
           <div>
             <div className="list-inline">
-              <button className={`btn ${style.header__btn}`}>
-                <Link to="/cart">
-                  <ShoppingCart />
-                </Link>
+              <button
+                onClick={showSidebar}
+                className={`btn ${style.header__btn}`}
+              >
+                <ShoppingCart />
               </button>
               <button className={`btn ${style.header__btn}`}>
                 <Notifications />
               </button>
-              <button className={`btn ${style.header__btn}`}>
-                <Avatar />
+              <button
+                onClick={showSidebar}
+                className={`btn ${style.header__btn}`}
+              >
+                <Person />
               </button>
 
               <li></li>
