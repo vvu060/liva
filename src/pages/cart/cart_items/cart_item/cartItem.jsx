@@ -4,7 +4,7 @@ import { Remove, Add } from "@material-ui/icons";
 import style from "./CartItem.module.scss";
 import { updateItem, removeItem } from "../../../../helpers/updateCart";
 import { useDispatch, useSelector } from "react-redux";
-import { selectItemAmount } from "../../../../redux/features/cart/cartSlice";
+import { selectLoading } from "../../../../redux/features/loading/loadingSlice";
 
 const CartItem = ({
   name,
@@ -17,6 +17,7 @@ const CartItem = ({
   qty,
 }) => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectLoading);
   const cartId = localStorage.getItem("cart_id");
   const [quantity, setQuantity] = useState(qty);
   const [debouncedQuantity, setDebouncedQuantity] = useState(quantity);
@@ -106,6 +107,7 @@ const CartItem = ({
           onClick={removeFromCart}
         />
       </div>
+      {isLoading ? <h1>Loading</h1> : ""}
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import { endpoints, headers } from "../endpoints";
 import axios from "axios";
 import { getTotalAmount } from "../redux/features/cart/cartSlice";
+import { loading } from "../redux/features/loading/loadingSlice";
 
 export const updateItem = async (qty, cartId, lineItemId, dispatch) => {
+  dispatch(loading(true));
   const body = { quantity: qty };
 
   try {
@@ -14,6 +16,7 @@ export const updateItem = async (qty, cartId, lineItemId, dispatch) => {
       }
     );
     dispatch(getTotalAmount(data.cart.subtotal.formatted_with_symbol));
+    dispatch(loading(false));
   } catch (error) {
     alert(error.message);
   }
