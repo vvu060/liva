@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useFetch = (url, options) => {
-  if (url === undefined && options === undefined) return 0;
+  if (url === undefined && options === undefined) return;
 
   const [response, setResponse] = useState([]);
   const [error, setError] = useState(null);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import CartItem from "./cart_item/CartItem";
-import { endpoints, headers } from "../../../endpoints";
+import { endpoints, headersPublic } from "../../../endpoints";
 import style from "./CartItems.module.scss";
 import CartItemShimmer from "../../../components/loading/cart_item/CartItemShimmer";
 
@@ -11,7 +11,10 @@ const CartItems = () => {
 
   const getCart = () => {
     setIsLoading(true);
-    fetch(`${endpoints.cart}/${cartId}`, { method: "GET", headers: headers })
+    fetch(`${endpoints.cart}/${cartId}`, {
+      method: "GET",
+      headers: headersPublic,
+    })
       .then((response) => response.json())
       .then((data) => {
         setCartItems(data.line_items);

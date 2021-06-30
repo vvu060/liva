@@ -12,9 +12,8 @@ const LatestProducts = () => {
       limit: 6,
       category_id: ["cat_ypbroEy01o8n4e"],
     },
-    headers: headers,
+    headers: headersPublic,
   });
-  console.log({ response, error, isLoading });
   // const [products, setProducts] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
 
@@ -67,8 +66,6 @@ const LatestProducts = () => {
           </Fragment>
         ) : (
           <Fragment>
-            {console.log(response, "afsfsdf")}
-
             {response &&
               response.map((product) => (
                 <LatestProduct

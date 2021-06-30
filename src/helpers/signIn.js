@@ -20,7 +20,7 @@ export const signIn = (provider, dispatch) => {
         userId: user.user.uid,
       };
 
-      dispatch(login({ userData }));
+      dispatch(login(userData));
       checkNewUser(userData, dispatch);
     })
     .catch((error) => alert(error.message));
