@@ -7,15 +7,15 @@ import useFetch from "../../../hooks/useFetch";
 import style from "./LatestProducts.module.scss";
 
 const LatestProducts = () => {
-  const { response, error, isLoading } = useFetch(`${endpoints.products}`, {
-    params: {
-      limit: 6,
-      category_id: ["cat_ypbroEy01o8n4e"],
-    },
-    headers: headersPublic,
-  });
-  // const [products, setProducts] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  // const { response, error, isLoading } = useFetch(`${endpoints.products}`, {
+  //   params: {
+  //     limit: 6,
+  //     category_id: ["cat_ypbroEy01o8n4e"],
+  //   },
+  //   headers: headersPublic,
+  // });
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   /**
    * Factory function to fetch & store products from a category in products state.
@@ -23,27 +23,27 @@ const LatestProducts = () => {
    * @param - No Parameters.
    * @returns {products} - List of products from commerce js.
    */
-  // const getProducts = async () => {
-  //   setIsLoading(true);
-  //   try {
-  //     const { data } = await axios.get(`${endpoints.products}`, {
-  //       params: {
-  //         limit: 6,
-  //         category_id: ["cat_ypbroEy01o8n4e"],
-  //       },
-  //       headers: headers,
-  //     });
-  //     setProducts(data.data);
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     alert(error.message);
-  //     setIsLoading(false);
-  //   }
-  // };
+  const getProducts = async () => {
+    setIsLoading(true);
+    try {
+      const { data } = await axios.get(`${endpoints.products}`, {
+        params: {
+          limit: 6,
+          category_id: ["cat_ypbroEy01o8n4e"],
+        },
+        headers: headers,
+      });
+      setProducts(data.data);
+      setIsLoading(false);
+    } catch (error) {
+      alert(error.message);
+      setIsLoading(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div
@@ -66,8 +66,8 @@ const LatestProducts = () => {
           </Fragment>
         ) : (
           <Fragment>
-            {response &&
-              response.map((product) => (
+            {products &&
+              products.map((product) => (
                 <LatestProduct
                   key={product.id}
                   image={product.assets[0]?.url}
