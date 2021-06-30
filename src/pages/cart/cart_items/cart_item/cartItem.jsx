@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../../../../components/button/Button";
 import { Remove, Add } from "@material-ui/icons";
 import style from "./CartItem.module.scss";
 import { updateItem, removeItem } from "../../../../helpers/updateCart";
+import { useDispatch, useSelector } from "react-redux";
+import { selectItemAmount } from "../../../../redux/features/cart/cartSlice";
 
 const CartItem = ({
   name,
@@ -14,6 +16,7 @@ const CartItem = ({
   size,
   qty,
 }) => {
+  const dispatch = useDispatch();
   const cartId = localStorage.getItem("cart_id");
   const [quantity, setQuantity] = useState(qty);
   const [debouncedQuantity, setDebouncedQuantity] = useState(quantity);
@@ -31,17 +34,20 @@ const CartItem = ({
 
   useEffect(() => {
     if (debouncedQuantity) {
-      updateItem(debouncedQuantity, cartId, lineItemId);
+      updateItem(debouncedQuantity, cartId, lineItemId, dispatch);
+      setAmount(+debouncedQuantity * +price);
     }
   }, [debouncedQuantity]);
 
   const increaseQuantity = () => {
     setQuantity((quantity) => (quantity += 1));
+    setAmount((+quantity + 1) * +price);
   };
 
   const decreaseQuantity = () => {
     if (quantity <= 1) return;
     setQuantity((quantity) => (quantity -= 1));
+    setAmount((+quantity - 1) * +price);
   };
 
   const updateQuantity = (e) => {

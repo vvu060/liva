@@ -24,17 +24,14 @@ const CartItems = () => {
     getCart();
   }, []);
 
-  // console.log(cartItems);
-
   return (
     <div className={`block ${style.cartItems}`}>
       <h2>My Cart ({cartItems.length})</h2>
       {isLoading ? (
         <Fragment>
-          <CartItemShimmer colSpace={6} />
-          <CartItemShimmer colSpace={6} />
-          <CartItemShimmer colSpace={6} />
-          <CartItemShimmer colSpace={6} />
+          <CartItemShimmer colSpace={10} />
+          <CartItemShimmer colSpace={10} />
+          <CartItemShimmer colSpace={10} />
         </Fragment>
       ) : (
         <Fragment>
@@ -42,8 +39,8 @@ const CartItems = () => {
             <CartItem
               key={cartItem.id}
               name={cartItem.name}
-              price={cartItem.price.formatted_with_symbol}
-              totalPrice={cartItem.line_total.formatted_with_symbol}
+              price={cartItem.price.formatted}
+              totalPrice={cartItem.line_total.formatted}
               image={cartItem.media.source}
               // packetSize={cartItem.variant_groups[0].name}
               // size={cartItem.variant_groups[0].options[0].name}

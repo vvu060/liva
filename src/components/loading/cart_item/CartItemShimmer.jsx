@@ -5,7 +5,7 @@ const CartItemShimmer = ({ colSpace }) => {
   return (
     <div
       data-test="component-shimmer"
-      className={`${style.shimmer} container col-10`}
+      className={`${style.shimmer} container col-${colSpace}`}
     >
       <div className={style.shimmer__wrapper}>
         <div className={`${style.shimmer__image} ${style.animate}`}></div>
