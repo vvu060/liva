@@ -1,20 +1,19 @@
 import React, { useEffect, useState, Fragment } from "react";
 import axios from "axios";
-import { endpoints, headers } from "../../../endpoints";
+import { endpoints, headersPublic } from "../../../endpoints";
 import LatestProduct from "./latest_product/LatestProduct";
 import LatestProductShimmer from "../../../components/loading/latest_product/LatestProductShimmer";
-import useFetch from '../../../hooks/useFetch';
+import useFetch from "../../../hooks/useFetch";
 import style from "./LatestProducts.module.scss";
 
 const LatestProducts = () => {
-  const {response,error,isLoading} = useFetch(`${endpoints.products}`,  {
+  const { response, error, isLoading } = useFetch(`${endpoints.products}`, {
     params: {
       limit: 6,
       category_id: ["cat_ypbroEy01o8n4e"],
     },
-    headers: headers,
+    headers: headersPublic,
   });
-   console.log({response,error,isLoading})
   // const [products, setProducts] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
 
@@ -67,11 +66,6 @@ const LatestProducts = () => {
           </Fragment>
         ) : (
           <Fragment>
-            
-            {
-            console.log(response,'afsfsdf')
-            }
-           
             {response &&
               response.map((product) => (
                 <LatestProduct
