@@ -29,12 +29,11 @@ const Header = () => {
           </div>
           <div>
             <div className="list-inline">
-              <button
-                onClick={showSidebar}
-                className={`btn ${style.header__btn}`}
-              >
-                <ShoppingCart />
-              </button>
+              <Link to="/cart">
+                <button className={`btn ${style.header__btn}`}>
+                  <ShoppingCart />
+                </button>
+              </Link>
               <button className={`btn ${style.header__btn}`}>
                 <Notifications />
               </button>
