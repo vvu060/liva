@@ -31,10 +31,6 @@ app.post("/create-checkout-session", async (req, res) => {
     mode: "payment",
     success_url: `${YOUR_DOMAIN}?success=true`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
-    metadata: {
-      email,
-      // images: JSON.stringify(items.map((item) => item.media.source)),
-    },
   });
 
   console.log("session", session);

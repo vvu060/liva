@@ -22,11 +22,12 @@ const Routes = () => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         console.log(authUser);
+        const fullName = authUser.displayName.split(" ");
         const userData = {
           email: authUser.email,
           phone: authUser.phoneNumber,
-          firstname: authUser.given_name,
-          lastname: authUser.family_name,
+          firstname: fullName[0],
+          lastname: fullName.pop(),
           external_id: authUser.id,
           photoUrl: authUser.photoURL,
           userId: authUser.uid,
@@ -45,7 +46,7 @@ const Routes = () => {
     <Suspense fallback={<div>Loading</div>}>
       <Switch>
         <Route exact path="/orders" component={Orders} />
-        <Route exact path="/payment/:id" component={Payment} />
+        <Route exact path="/payment/" component={Payment} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/products/:id" component={ProductDetail} />
