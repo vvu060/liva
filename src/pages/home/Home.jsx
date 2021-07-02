@@ -19,7 +19,7 @@ const Home = () => {
     <div data-test="component-home">
       <Banner />
       <IconSection />
-      <LatestProducts className="my-2" />
+      <LatestProducts />
       {categories &&
         categories
           .slice(1)
