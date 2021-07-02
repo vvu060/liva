@@ -1,10 +1,9 @@
-import React, { useEffect, useState, Fragment } from "react";
-import axios from "axios";
+import React, { Fragment } from "react";
 import { endpoints, headersPublic } from "../../endpoints";
+import useFetch from "../../hooks/useFetch";
 import LatestProduct from "./latest_product/LatestProduct";
 import LatestProductShimmer from "../loading/latest_product/LatestProductShimmer";
 import style from "./LatestProducts.module.scss";
-import useFetch from "../../hooks/useFetch";
 
 const LatestProducts = () => {
   const {

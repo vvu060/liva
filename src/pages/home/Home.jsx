@@ -2,10 +2,11 @@ import React, { useEffect, useState, Suspense, lazy } from "react";
 import { endpoints, headersPublic } from "../../endpoints";
 import axios from "axios";
 import IconSection from "./icon_section/IconSection";
-const LatestProducts = lazy(() => import("./latest_products/LatestProducts"));
+const LatestProducts = lazy(() =>
+  import("../../components/latest_products/LatestProducts")
+);
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
-import "./Home.scss";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -34,8 +35,8 @@ const Home = () => {
 
   return (
     <div data-test="component-home">
-      <Banner/>
-      <IconSection/>
+      <Banner />
+      <IconSection />
       <LatestProducts className="my-2" />
       {categories &&
         categories
