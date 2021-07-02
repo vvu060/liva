@@ -38,7 +38,7 @@ const ProductListing = (props) => {
       <div className={`${style.productListing__filter}`}>
         {/* Category Filter  */}
         {categories &&
-          categories.data.map((category) => (
+          categories.map((category) => (
             <Filters
               key={category.id}
               category={category.id}
@@ -61,13 +61,14 @@ const ProductListing = (props) => {
         ) : (
           <Fragment>
             {products &&
-              products.data.map((product) => (
+              products.map((product) => (
                 <ProductCard
                   key={product.id}
                   image={product.assets[0]?.url}
                   name={product.name}
                   price={product.price.formatted_with_symbol}
                   colSpace={3}
+                  productId={product.id}
                 />
               ))}
           </Fragment>
