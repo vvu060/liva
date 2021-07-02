@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { endpoints, headersPublic } from "../../endpoints";
 import {
   selectUserEmail,
-  selectUserId,
   selectUserFirstName,
   selectUserLastName,
 } from "../../redux/features/user/userSlice";
@@ -45,7 +44,9 @@ const Payment = () => {
       console.log({ obj, item });
       return {
         ...obj,
-        [item[key]]: { quantity: item.quantity },
+        [item[key]]: {
+          quantity: item.quantity,
+        },
       };
     }, initialValue);
   };
@@ -84,7 +85,8 @@ const Payment = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        localStorage.removeItem("cart_id", "checkoutTokenId");
+        localStorage.removeItem("cart_id");
+        localStorage.removeItem("checkoutTokenId");
       })
       .catch((error) => console.error(error));
   };
@@ -107,7 +109,11 @@ const Payment = () => {
           shipped, if you would like to check the status of the order(s) please
           press the link below.
         </p>
-        <Button name="Go to my orders" classes="btn btn-primary" />
+        <Button
+          name="Go to my orders"
+          classes="btn btn-primary"
+          onClick={captureOrder}
+        />
         <div className="block">
           <LatestProducts />
         </div>
