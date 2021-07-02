@@ -8,13 +8,13 @@ export const loadingSlice = createSlice({
   name: "loading",
   initialState,
   reducers: {
-    loading: (state, action) => {
+    isLoading: (state, action) => {
       state.isLoading = action.payload;
     },
   },
 });
 
-export const { loading } = loadingSlice.actions;
+export const { isLoading } = loadingSlice.actions;
 
 export const selectLoading = (state) => state.loading.isLoading;
 

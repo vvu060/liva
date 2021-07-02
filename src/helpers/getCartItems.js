@@ -1,16 +1,19 @@
 import axios from "axios";
 import { endpoints, headersPublic } from "../endpoints";
 import { cartItems } from "../redux/features/cart/cartSlice";
-import { loading } from "../redux/features/loading/loadingSlice";
+import { isLoading } from "../redux/features/loading/loadingSlice";
+import { isError } from "../redux/features/loading/errorSlice";
 
 export const getCartItems = async (cartId, dispatch) => {
-  dispatch(loading(true));
+  dispatch(isLoading(true));
   try {
     const { data } = await axios.get(`${endpoints.cart}/${cartId}`, {
       headers: headersPublic,
     });
+
     dispatch(cartItems(data));
+    dispatch(isLoading(false));
   } catch (error) {
-    alert(error.message);
+    dispatch(isError(true));
   }
 };
