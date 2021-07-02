@@ -2,7 +2,7 @@
 @import "../../scss/functions";
 @import "../../scss/variables";
 
-.success {
+.payment {
   @extend %fca;
   padding-inline: rem(20);
 
@@ -21,8 +21,14 @@
     }
   }
 
-  &__icon {
+  &__successIcon {
     color: lighten($primaryColor, 5%);
+    font-size: xx-large;
+    margin-right: rem(5);
+  }
+
+  &__cancelIcon {
+    color: lighten(red, 10%);
     font-size: xx-large;
     margin-right: rem(5);
   }
