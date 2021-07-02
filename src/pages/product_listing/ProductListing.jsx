@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { endpoints, headersPublic } from "../../endpoints";
-import useFetch from "react-fetch-hook";
+import useFetch from "../../hooks/useFetch";
 import Filters from "../../components/filters/Filters";
 import ProductCard from "../../components/products_row/product_card/ProductCard";
 import ProductCardShimmer from "../../components/loading/product_card/ProductCardShimmer";
@@ -11,18 +11,18 @@ const ProductListing = (props) => {
   const [categoryId, setCategoryId] = useState("cat_gvRjwOQmG54mNL");
 
   const {
-    isLoading: isLoadingCategories,
-    error: errorCategories,
-    data: categories,
+    response: categories,
+    isError: categoriesError,
+    isLoading: categoriesLoading,
   } = useFetch(`${endpoints.categories}`, {
     headers: headersPublic,
   });
 
   const {
-    isLoading: isLoadingProducts,
-    error: errorProducts,
-    data: products,
-  } = useFetch(`${endpoints.products}?limit=6&category_id[]=${categoryId}`, {
+    response: products,
+    isError: productsError,
+    isLoading: productsLoading,
+  } = useFetch(`${endpoints.products}?limit=10&category_id[]=${categoryId}`, {
     headers: headersPublic,
   });
 
@@ -51,7 +51,7 @@ const ProductListing = (props) => {
       </div>
       <div className={`row ${style.productListing__product}`}>
         {/* Products */}
-        {isLoadingProducts ? (
+        {productsLoading ? (
           <Fragment>
             <ProductCardShimmer colSpace={3} />
             <ProductCardShimmer colSpace={3} />
