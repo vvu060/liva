@@ -1,10 +1,7 @@
-import React, { useEffect, useState, Suspense, lazy } from "react";
+import React from "react";
 import { endpoints, headersPublic } from "../../endpoints";
-import axios from "axios";
 import IconSection from "./icon_section/IconSection";
-const LatestProducts = lazy(() =>
-  import("../../components/latest_products/LatestProducts")
-);
+import LatestProducts from "../../components/latest_products/LatestProducts";
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
 import useFetch from "../../hooks/useFetch";
