@@ -7,31 +7,16 @@ const LatestProducts = lazy(() =>
 );
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
+import useFetch from "../../hooks/useFetch";
 
 const Home = () => {
-  const [categories, setCategories] = useState([]);
-
-  /**
-   * Factory function to store product categories in categories state.
-   * @function fetchCategories
-   * @param - No Parameters.
-   * @returns {categories} - List of categories from commerce js.
-   */
-  const fetchCategories = async () => {
-    try {
-      const { data } = await axios.get(`${endpoints.categories}`, {
-        headers: headersPublic,
-      });
-
-      setCategories(data.data);
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
+  const {
+    response: categories,
+    isError,
+    isLoading,
+  } = useFetch(`${endpoints.categories}`, {
+    headers: headersPublic,
+  });
 
   return (
     <div data-test="component-home">
