@@ -7,6 +7,10 @@ import {
   selectUserFirstName,
   selectUserLastName,
 } from "../../redux/features/user/userSlice";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import Button from "../../components/button/Button";
+import LatestProducts from "../home/latest_products/LatestProducts";
+import style from "./Payment.module.scss";
 
 const Payment = () => {
   const cartId = localStorage.getItem("cart_id");
@@ -88,10 +92,21 @@ const Payment = () => {
   console.log(cartItems);
 
   return (
-    <div>
-      <h1>Payment</h1>
-      <button onClick={captureOrder}>Click Me</button>
-    </div>
+    <main className={`container block ${style.success}`}>
+      <div className={style.success__confirmation}>
+        <CheckCircleIcon className={style.success__icon} />
+        <h1>Thank You, your order has been confirmed!</h1>
+      </div>
+      <p>
+        Thank you for shopping with us. We'll send a confirmation of item has
+        shipped, if you would like to check the status of the order(s) please
+        press the link below.
+      </p>
+      <Button name="Go to my orders" classes="btn btn-primary" />
+      <div className="block">
+        <LatestProducts />
+      </div>
+    </main>
   );
 };
 

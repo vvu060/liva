@@ -20,8 +20,6 @@ export const signIn = (provider, dispatch) => {
         userId: user.uid,
       };
 
-      console.log(userData);
-
       dispatch(login(userData));
       checkNewUser(userData, dispatch);
     })

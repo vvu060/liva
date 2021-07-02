@@ -1,0 +1,29 @@
+@import "../../scss/placeholder";
+@import "../../scss/functions";
+@import "../../scss/variables";
+
+.success {
+  @extend %fca;
+  padding-inline: rem(20);
+
+  p {
+    color: $textColor;
+    font-size: rem(15);
+    margin-bottom: rem(15);
+  }
+
+  &__confirmation {
+    @extend %fra;
+    margin-bottom: rem(20);
+
+    h1 {
+      color: $textColor;
+    }
+  }
+
+  &__icon {
+    color: lighten($primaryColor, 5%);
+    font-size: xx-large;
+    margin-right: rem(5);
+  }
+}
