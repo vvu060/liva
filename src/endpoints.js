@@ -3,6 +3,7 @@ const baseUrl = process.env.REACT_APP_BASE_URL;
 export const headersPublic = {
   "X-Authorization": process.env.REACT_APP_CHEC_PUBLIC_KEY,
   "Content-Type": "application/json",
+  Accept: "application/json",
 };
 
 export const headersSecret = {

@@ -1,36 +1,39 @@
 import { endpoints, headersSecret } from "../endpoints";
+import axios from "axios";
 import { closeSidebar } from "../redux/features/sidebar/sidebarSlice";
+import { loginCommerceJS } from "../redux/features/user/userSlice";
 
 export const checkNewUser = async (userData, dispatch) => {
   if (!userData && !dispatch) return;
 
-  const { email, phone, firstname, lastname, external_id } = userData;
-
   try {
-    await fetch(`${endpoints.customers}`, {
-      method: "POST",
+    const { data } = await axios.post(`${endpoints.customers}`, userData, {
       headers: headersSecret,
-      body: JSON.stringify({
-        email,
-        phone,
-        firstname,
-        lastname,
-        external_id,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status_code && data.status_code === "422") {
-          const errorMessage = data.error.errors.email[0];
+    });
 
-          if (errorMessage === "The email address has already been taken.") {
-            alert(`Welcome Back ${userData.firstname}`);
-          }
-          dispatch(closeSidebar({ sidebar: false }));
-        }
-        dispatch(closeSidebar({ sidebar: false }));
-      });
+    localStorage.setItem("chec_user_id", data.id);
+
+    dispatch(loginCommerceJS(data.id));
+    dispatch(closeSidebar({ sidebar: false }));
   } catch (error) {
-    console.log(error);
+    if (error.response && error.response.status === 422) {
+      alert(`Welcome Back ${userData.firstname}`);
+      getCustomerId(email, dispatch);
+
+      dispatch(closeSidebar({ sidebar: false }));
+    }
+  }
+};
+
+export const getCustomerId = async (email, dispatch) => {
+  try {
+    const { data } = await axios.get(`${endpoints.customers}?query=${email}`, {
+      headers: headersSecret,
+    });
+
+    localStorage.setItem("chec_user_id", data.data[0].id);
+    dispatch(loginCommerceJS(data.data[0].id));
+  } catch (error) {
+    alert(error.message);
   }
 };
