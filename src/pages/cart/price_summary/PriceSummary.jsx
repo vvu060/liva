@@ -10,6 +10,7 @@ import style from "./PriceSummary.module.scss";
 import { loadStripe } from "@stripe/stripe-js";
 import { selectUserEmail } from "../../../redux/features/user/userSlice";
 import axios from "axios";
+import { generateCheckoutToken } from "../../../helpers/generateCheckoutToken";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
@@ -17,7 +18,7 @@ const PriceSummary = () => {
   const cartId = localStorage.getItem("cart_id")
     ? localStorage.getItem("cart_id")
     : "";
-  let checkoutTokenId = localStorage.getItem("checkoutTokenId");
+  const checkoutTokenId = localStorage.getItem("checkoutTokenId");
   const totalAmount = useSelector(selectTotalAmount);
   const items = useSelector(selectCartItems);
   const userEmail = useSelector(selectUserEmail);
@@ -61,23 +62,9 @@ const PriceSummary = () => {
     if (result.error) alert(result.error.message);
   };
 
-  const generateCheckoutToken = () => {
-    fetch(`${endpoints.checkout}/${cartId}?type=cart`, {
-      method: "GET",
-      headers: headersPublic,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        checkoutTokenId = data.id;
-        localStorage.setItem("checkoutTokenId", data.id);
-      })
-      .catch((error) => console.error(error));
-  };
-
   useEffect(() => {
     if (!checkoutTokenId) {
-      generateCheckoutToken();
+      generateCheckoutToken(cartId);
     }
   }, []);
 
