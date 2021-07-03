@@ -14,7 +14,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-const YOUR_DOMAIN = "http://localhost:3000/cart";
+const YOUR_DOMAIN = "http://localhost:3000/payment";
 
 app.post("/create-checkout-session", async (req, res) => {
   const { items, email } = req.body;
@@ -22,6 +22,7 @@ app.post("/create-checkout-session", async (req, res) => {
   console.log("transformedItems", items);
 
   const session = await stripe.checkout.sessions.create({
+    customer_email: email,
     payment_method_types: ["card"],
     shipping_address_collection: {
       allowed_countries: ["IN"],
@@ -30,10 +31,6 @@ app.post("/create-checkout-session", async (req, res) => {
     mode: "payment",
     success_url: `${YOUR_DOMAIN}?success=true`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
-    metadata: {
-      email,
-      // images: JSON.stringify(items.map((item) => item.media.source)),
-    },
   });
 
   console.log("session", session);
@@ -42,19 +39,3 @@ app.post("/create-checkout-session", async (req, res) => {
 });
 
 app.listen(5000, () => console.log("Running on port 5000"));
-
-// [
-//   {
-//     price_data: {
-//       currency: "INR",
-//       product_data: {
-//         name: "Chilli Seeds",
-//         // images: [
-//         //   "https://cdn.chec.io/merchants/28500/assets/6Zi0ox5ddDBwkqHN|greenchilli_dyk.png",
-//         // ],
-//       },
-//       unit_amount: 1000,
-//     },
-//     quantity: 1,
-//   },
-// ]

@@ -11,6 +11,8 @@ export const checkoutSession = async (items, userEmail) => {
     "Access-Control-Allow-Origin": "*",
   });
 
+  console.log(items);
+
   const transformedItems = items.map((item) => ({
     price_data: {
       currency: "INR",

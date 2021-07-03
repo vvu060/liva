@@ -6,12 +6,9 @@ import {
   selectTotalAmount,
 } from "../../../redux/features/cart/cartSlice";
 import style from "./PriceSummary.module.scss";
-import { loadStripe } from "@stripe/stripe-js";
 import { selectUserEmail } from "../../../redux/features/user/userSlice";
 import { generateCheckoutToken } from "../../../helpers/generateCheckoutToken";
 import { checkoutSession } from "../../../helpers/checkoutSession";
-
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const PriceSummary = () => {
   const cartId = localStorage.getItem("cart_id")
