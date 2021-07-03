@@ -8,6 +8,7 @@ const initialState = {
   external_id: "",
   photoUrl: "",
   userId: "",
+  checUserId: "",
 };
 
 export const userSlice = createSlice({
@@ -33,17 +34,20 @@ export const userSlice = createSlice({
       state.photoUrl = "";
       state.userId = "";
     },
+    loginCommerceJS: (state, action) => {
+      state.checUserId = action.payload;
+    },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout, loginCommerceJS } = userSlice.actions;
 
 export const selectUserEmail = (state) => state.user.email;
 export const selectUserPhone = (state) => state.user.phone;
 export const selectUserFirstName = (state) => state.user.firstname;
 export const selectUserLastName = (state) => state.user.lastname;
-export const selectUserExternalId = (state) => state.user.external_id;
 export const selectUserPhoto = (state) => state.user.photoUrl;
 export const selectUserId = (state) => state.user.userId;
+export const selectChecUserId = (state) => state.user.checUserId;
 
 export default userSlice.reducer;
