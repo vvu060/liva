@@ -18,7 +18,7 @@ export const checkNewUser = async (userData, dispatch) => {
   } catch (error) {
     if (error.response && error.response.status === 422) {
       alert(`Welcome Back ${userData.firstname}`);
-      getCustomerId(email, dispatch);
+      getCustomerId(userData.email, dispatch);
 
       dispatch(closeSidebar({ sidebar: false }));
     }
@@ -30,7 +30,7 @@ export const getCustomerId = async (email, dispatch) => {
     const { data } = await axios.get(`${endpoints.customers}?query=${email}`, {
       headers: headersSecret,
     });
-
+    console.log(data);
     localStorage.setItem("chec_user_id", data.data[0].id);
     dispatch(loginCommerceJS(data.data[0].id));
   } catch (error) {
