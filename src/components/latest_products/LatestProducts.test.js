@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 import LatestProducts from "./LatestProducts";
-import { findByTestAttr } from "../../../test/testUtils";
+import { findByTestAttr } from "../../test/testUtils";
 
 const setup = () => {
   return mount(<LatestProducts />);

@@ -16,4 +16,5 @@ export const endpoints = {
   categories: `${baseUrl}/categories`,
   cart: `${baseUrl}/carts`,
   customers: `${baseUrl}/customers`,
+  checkout: `${baseUrl}/checkouts`,
 };
