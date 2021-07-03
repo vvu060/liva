@@ -1,5 +1,4 @@
 import { endpoints, headersSecret } from "../endpoints";
-import useFetch from "../hooks/useFetch";
 import { closeSidebar } from "../redux/features/sidebar/sidebarSlice";
 
 export const checkNewUser = async (userData, dispatch) => {

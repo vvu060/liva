@@ -11,32 +11,14 @@ const Login = lazy(() => import("./pages/login/Login"));
 const Cart = lazy(() => import("./pages/cart/Cart"));
 const Orders = lazy(() => import("./pages/orders/Orders"));
 const Payment = lazy(() => import("./pages/payment/Payment"));
-import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
-import { login, logout } from "./redux/features/user/userSlice";
+import { persistUser } from "./helpers/persistUser";
 
 const Routes = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        console.log(authUser);
-        const userData = {
-          email: authUser.email,
-          phone: authUser.phoneNumber,
-          firstname: authUser.given_name,
-          lastname: authUser.family_name,
-          external_id: authUser.id,
-          photoUrl: authUser.photoURL,
-          userId: authUser.uid,
-        };
-
-        dispatch(login(userData));
-      } else {
-        dispatch(logout());
-      }
-    });
+    const unsubscribe = persistUser(dispatch);
 
     return unsubscribe;
   }, []);
