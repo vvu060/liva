@@ -8,7 +8,7 @@ import {
 } from "../../redux/features/user/userSlice";
 import { CheckCircle, Cancel } from "@material-ui/icons";
 import Button from "../../components/button/Button";
-import LatestProducts from "../home/latest_products/LatestProducts";
+import LatestProducts from "../../components/latest_products/LatestProducts";
 import { useLocation } from "react-router-dom";
 import style from "./Payment.module.scss";
 

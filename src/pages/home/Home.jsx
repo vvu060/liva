@@ -1,42 +1,25 @@
-import React, { useEffect, useState, Suspense, lazy } from "react";
+import React from "react";
 import { endpoints, headersPublic } from "../../endpoints";
-import axios from "axios";
 import IconSection from "./icon_section/IconSection";
-const LatestProducts = lazy(() => import("./latest_products/LatestProducts"));
+import LatestProducts from "../../components/latest_products/LatestProducts";
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
-import "./Home.scss";
+import useFetch from "../../hooks/useFetch";
 
 const Home = () => {
-  const [categories, setCategories] = useState([]);
-
-  /**
-   * Factory function to store product categories in categories state.
-   * @function fetchCategories
-   * @param - No Parameters.
-   * @returns {categories} - List of categories from commerce js.
-   */
-  const fetchCategories = async () => {
-    try {
-      const { data } = await axios.get(`${endpoints.categories}`, {
-        headers: headersPublic,
-      });
-
-      setCategories(data.data);
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
+  const {
+    response: categories,
+    isError,
+    isLoading,
+  } = useFetch(`${endpoints.categories}`, {
+    headers: headersPublic,
+  });
 
   return (
     <div data-test="component-home">
-      <Banner/>
-      <IconSection/>
-      <LatestProducts className="my-2" />
+      <Banner />
+      <IconSection />
+      <LatestProducts />
       {categories &&
         categories
           .slice(1)

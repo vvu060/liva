@@ -5,7 +5,7 @@ const useFetch = (url, options) => {
   if (url === undefined && options === undefined) return;
 
   const [response, setResponse] = useState([]);
-  const [error, setError] = useState(null);
+  const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -19,10 +19,10 @@ const useFetch = (url, options) => {
           signal: abortCtrl.signal,
           ...options,
         });
-        setResponse(data);
+        setResponse(data.data);
         setIsLoading(false);
-      } catch (e) {
-        setError(e);
+      } catch (error) {
+        setIsError(error);
       }
     };
 
@@ -31,7 +31,7 @@ const useFetch = (url, options) => {
     return () => abortCtrl.abort();
   }, [url]);
 
-  return { response, error, isLoading };
+  return { response, isError, isLoading };
 };
 
 export default useFetch;

@@ -3,10 +3,13 @@ import CartItem from "./cart_item/CartItem";
 import { endpoints, headersPublic } from "../../../endpoints";
 import style from "./CartItems.module.scss";
 import CartItemShimmer from "../../../components/loading/cart_item/CartItemShimmer";
+import { cartItems } from "../../../redux/features/cart/cartSlice";
+import { useDispatch } from "react-redux";
 
 const CartItems = () => {
   const cartId = localStorage.getItem("cart_id");
-  const [cartItems, setCartItems] = useState([]);
+  const dispatch = useDispatch();
+  const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const getCart = () => {
@@ -17,7 +20,9 @@ const CartItems = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setCartItems(data.line_items);
+        console.log(data.line_items);
+        setItems(data.line_items);
+        dispatch(cartItems(data.line_items));
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
@@ -29,7 +34,7 @@ const CartItems = () => {
 
   return (
     <div className={`block ${style.cartItems}`}>
-      <h2>My Cart ({cartItems.length})</h2>
+      <h2>My Cart ({items && items.length})</h2>
       {isLoading ? (
         <Fragment>
           <CartItemShimmer colSpace={10} />
@@ -38,19 +43,20 @@ const CartItems = () => {
         </Fragment>
       ) : (
         <Fragment>
-          {cartItems.map((cartItem) => (
-            <CartItem
-              key={cartItem.id}
-              name={cartItem.name}
-              price={cartItem.price.formatted}
-              totalPrice={cartItem.line_total.formatted}
-              image={cartItem.media.source}
-              // packetSize={cartItem.variant_groups[0].name}
-              // size={cartItem.variant_groups[0].options[0].name}
-              lineItemId={cartItem.id}
-              qty={cartItem.quantity}
-            />
-          ))}
+          {items &&
+            items.map((cartItem) => (
+              <CartItem
+                key={cartItem.id}
+                name={cartItem.name}
+                price={cartItem.price.raw}
+                totalPrice={cartItem.line_total.raw}
+                image={cartItem.media.source}
+                // packetSize={cartItem.variant_groups[0].name}
+                // size={cartItem.variant_groups[0].options[0].name}
+                lineItemId={cartItem.id}
+                qty={cartItem.quantity}
+              />
+            ))}
         </Fragment>
       )}
     </div>

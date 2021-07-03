@@ -1,6 +1,6 @@
 import { endpoints, headersPublic } from "../endpoints";
 import axios from "axios";
-import { addCartItems } from "../redux/features/cart/cartSlice";
+import { cartItems } from "../redux/features/cart/cartSlice";
 
 export const addToCart = (productId, dispatch) => {
   const cartId = localStorage.getItem("cart_id");
@@ -37,7 +37,7 @@ const addItemsToCart = async (cartId, body, dispatch) => {
       headers: headersPublic,
     });
 
-    dispatch(addCartItems(data.cart));
+    dispatch(cartItems(data.cart.line_items));
   } catch (error) {
     alert(error.message);
   }
