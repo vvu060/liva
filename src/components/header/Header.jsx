@@ -3,7 +3,7 @@ import Logo from "../logo/Logo";
 import SearchBar from "../searchbar/SearchBar";
 import style from "./Header.module.scss";
 import { Avatar, Badge } from "@material-ui/core";
-import { ShoppingCart, Notifications, Person } from "@material-ui/icons/";
+import { ShoppingCart, History } from "@material-ui/icons/";
 import { useDispatch, useSelector } from "react-redux";
 import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import { selectUserPhoto } from "../../redux/features/user/userSlice";
@@ -41,9 +41,11 @@ const Header = () => {
                   </Badge>
                 </button>
               </Link>
-              <button className={`btn ${style.header__btn}`}>
-                <Notifications />
-              </button>
+              <Link to="/orders">
+                <button className={`btn ${style.header__btn}`}>
+                  <History />
+                </button>
+              </Link>
               <button
                 onClick={showSidebar}
                 className={`btn ${style.header__btn}`}
