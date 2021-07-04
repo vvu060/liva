@@ -2,20 +2,22 @@ import { Link } from "react-router-dom";
 import Logo from "../logo/Logo";
 import SearchBar from "../searchbar/SearchBar";
 import style from "./Header.module.scss";
-import { Avatar } from "@material-ui/core";
-import { ShoppingCart, Notifications, Person } from "@material-ui/icons/";
+import { Avatar, Badge } from "@material-ui/core";
+import { ShoppingCart, History } from "@material-ui/icons/";
 import { useDispatch, useSelector } from "react-redux";
 import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import { selectUserPhoto } from "../../redux/features/user/userSlice";
+import { selectCartItems } from "../../redux/features/cart/cartSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
   const userPhoto = useSelector(selectUserPhoto);
   const showSidebar = () => {
     dispatch(openSidebar({ sidebar: true }));
   };
 
-  console.log(userPhoto && userPhoto);
+  console.log(cartItems);
 
   return (
     <header className={style.header}>
@@ -31,12 +33,19 @@ const Header = () => {
             <div className="list-inline">
               <Link to="/cart">
                 <button className={`btn ${style.header__btn}`}>
-                  <ShoppingCart />
+                  <Badge
+                    badgeContent={cartItems && cartItems.length}
+                    color="secondary"
+                  >
+                    <ShoppingCart />
+                  </Badge>
                 </button>
               </Link>
-              <button className={`btn ${style.header__btn}`}>
-                <Notifications />
-              </button>
+              <Link to="/orders">
+                <button className={`btn ${style.header__btn}`}>
+                  <History />
+                </button>
+              </Link>
               <button
                 onClick={showSidebar}
                 className={`btn ${style.header__btn}`}

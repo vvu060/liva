@@ -3,14 +3,17 @@ import PropTypes from "prop-types";
 import style from "./ProductCard.module.scss";
 import Button from "../../button/Button";
 import { addToCart } from "../../../helpers/addToCart";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoading } from "../../../redux/features/loading/loadingSlice";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const ProductCard = ({ productId, image, name, price, colSpace }) => {
   const dispatch = useDispatch();
-
+  const isLoading = useSelector(selectLoading);
   const addItemToCart = () => {
     addToCart(productId, dispatch);
   };
+  console.log(isLoading);
 
   return (
     <div
@@ -26,12 +29,18 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
       />
       <h5 data-test="product-name">{name}</h5>
       <p data-test="product-price">{price}</p>
-      <Button
-        classes="btn btn-primary btn-border"
-        name="Add to Cart"
-        parameters={productId}
-        onClick={addItemToCart}
-      />
+      {isLoading ? (
+        <div className={style.productCard__loader}>
+          <BeatLoader color="white" size={10} />
+        </div>
+      ) : (
+        <Button
+          classes="btn btn-primary btn-border"
+          name="Add to Cart"
+          parameters={productId}
+          onClick={addItemToCart}
+        />
+      )}
     </div>
   );
 };

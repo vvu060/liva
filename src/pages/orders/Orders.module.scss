@@ -1,0 +1,12 @@
+@import "../../scss/functions";
+
+.orders {
+  h2 {
+    font-size: rem(25);
+  }
+
+  &__length {
+    font-weight: bold;
+    font-size: rem(15);
+  }
+}

@@ -9,10 +9,11 @@ import {
 import { CheckCircle, Cancel } from "@material-ui/icons";
 import Button from "../../components/button/Button";
 import LatestProducts from "../../components/latest_products/LatestProducts";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import style from "./Payment.module.scss";
 
 const Payment = () => {
+  const history = useHistory();
   const cartId = localStorage.getItem("cart_id");
   const checkoutTokenId = localStorage.getItem("checkoutTokenId");
   const checUserId = localStorage.getItem("chec_user_id");
@@ -89,6 +90,8 @@ const Payment = () => {
         localStorage.removeItem("checkoutTokenId");
       })
       .catch((error) => console.error(error));
+
+    history.push("/orders");
   };
 
   useEffect(() => {
