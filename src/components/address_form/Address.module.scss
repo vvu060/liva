@@ -39,7 +39,7 @@
     &:focus {
       box-shadow: none;
       outline: none;
-      border-color: lighten($accentColor, 0%);
+      border-color: lighten($accentColor, 40%);
     }
   }
 
