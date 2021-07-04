@@ -11,23 +11,7 @@ import { generateCheckoutToken } from "../../../helpers/generateCheckoutToken";
 import { checkoutSession } from "../../../helpers/checkoutSession";
 
 const PriceSummary = () => {
-  const cartId = localStorage.getItem("cart_id")
-    ? localStorage.getItem("cart_id")
-    : "";
-  const checkoutTokenId = localStorage.getItem("checkoutTokenId");
   const totalAmount = useSelector(selectTotalAmount);
-  const items = useSelector(selectCartItems);
-  const userEmail = useSelector(selectUserEmail);
-
-  const createCheckoutSession = () => {
-    checkoutSession(items, userEmail);
-  };
-
-  useEffect(() => {
-    if (!checkoutTokenId) {
-      generateCheckoutToken(cartId);
-    }
-  }, []);
 
   return (
     <div className={`block ${style.price}`}>
@@ -43,14 +27,7 @@ const PriceSummary = () => {
           Total Amount <p>{totalAmount}</p>{" "}
         </div>
       </div>
-      <div className={style.price__button}>
-        <Button
-          name="Checkout"
-          classes="btn btn-primary"
-          disabled={false}
-          onClick={createCheckoutSession}
-        />
-      </div>
+      <div className={style.price__button}></div>
     </div>
   );
 };
