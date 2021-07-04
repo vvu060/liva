@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { endpoints, headersPublic, headersSecret } from "../../endpoints";
 import useFetch from "../../hooks/useFetch";
 import { selectChecUserId } from "../../redux/features/user/userSlice";
+import Order from "./order/Order";
 
 const Orders = () => {
   const userId = useSelector(selectChecUserId);
@@ -18,7 +19,7 @@ const Orders = () => {
 
   return (
     <div>
-      <h1>Orders</h1>
+      <Order />
     </div>
   );
 };
