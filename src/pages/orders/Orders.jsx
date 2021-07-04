@@ -4,6 +4,7 @@ import { endpoints, headersPublic, headersSecret } from "../../endpoints";
 import useFetch from "../../hooks/useFetch";
 import { selectChecUserId } from "../../redux/features/user/userSlice";
 import Order from "./order/Order";
+import style from "./Orders.module.scss";
 
 const Orders = () => {
   const userId = useSelector(selectChecUserId);
@@ -15,11 +16,14 @@ const Orders = () => {
     headers: headersSecret,
   });
 
-  console.log({ orders, userId });
-
   return (
-    <div>
-      <Order />
+    <div className={`container ${style.orders}`}>
+      <h2>Your Orders</h2>
+      <hr />
+      <p className={style.orders__length}>Total {orders.length} Orders</p>
+      {orders.map((order) => (
+        <Order key={order.id} order={order} />
+      ))}
     </div>
   );
 };
