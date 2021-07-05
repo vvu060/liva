@@ -1,0 +1,67 @@
+@import "../../../scss/functions";
+@import "../../../scss/placeholder";
+
+.shimmer {
+  border-radius: rem(8);
+  max-width: rem(1180);
+  padding: 0;
+  margin: 0;
+
+  &__wrapper {
+    @extend %fra;
+    padding: 0;
+    margin: 0;
+    animation: fullView 0.5s forwards linear;
+    @keyframes fullView {
+      100% {
+        width: 100%;
+      }
+    }
+  }
+
+  &__image {
+    height: rem(400);
+    width: rem(400);
+    border-radius: rem(5);
+    margin-block: rem(10);
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: rem(400);
+    width: rem(600);
+    margin-left: rem(50);
+  }
+
+  &__detail {
+    height: rem(20);
+    background: #777;
+    width: rem(400);
+    margin-top: rem(10);
+    border-radius: rem(5);
+  }
+
+  &__desc {
+    height: rem(100);
+    background: #777;
+    width: rem(400);
+    margin-top: rem(10);
+    border-radius: rem(5);
+  }
+
+  .animate {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f4 36%);
+    background-size: rem(1000) 100%;
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: rem(-1000) 0;
+    }
+    100% {
+      background-position: rem(1000) 0;
+    }
+  }
+}
