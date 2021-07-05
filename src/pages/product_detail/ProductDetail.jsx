@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import Button from "../../components/button/Button";
 import ProductCard from "../../components/products_row/product_card/ProductCard";
+import ProductCardShimmer from "../../components/loading/product_card/ProductCardShimmer";
 import { endpoints, headersPublic } from "../../endpoints";
 import { addToCart } from "../../helpers/addToCart";
 import style from "./ProductDetail.module.scss";
@@ -11,17 +12,22 @@ const ProductDetail = (props) => {
   const productId = props.match.params.productId;
   const dispatch = useDispatch();
   const [details, setDetails] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
   const myRef = useRef();
 
   const getProduct = () => {
+    setIsLoading(true);
     fetch(`${endpoints.products}/${productId}`, {
       method: "GET",
       headers: headersPublic,
     })
       .then((response) => response.json())
-      .then((data) => setDetails(data))
+      .then((data) => {
+        setDetails(data);
+        setIsLoading(false);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -138,19 +144,30 @@ const ProductDetail = (props) => {
       <div class={`block ${style.product__related}`}>
         <h3>Related Products</h3>
         <div className={style.product__relatedProduct}>
-          {details &&
-            details.related_products
-              .slice(0, 4)
-              .map((product) => (
-                <ProductCard
-                  key={product.id}
-                  productId={product.id}
-                  image={product.media.source}
-                  name={product.name}
-                  price={product.price.formatted_with_symbol}
-                  colSpace={3}
-                />
-              ))}
+          {isLoading ? (
+            <Fragment>
+              <ProductCardShimmer colSpace={3} />
+              <ProductCardShimmer colSpace={3} />
+              <ProductCardShimmer colSpace={3} />
+              <ProductCardShimmer colSpace={3} />
+            </Fragment>
+          ) : (
+            <Fragment>
+              {details &&
+                details.related_products
+                  .slice(0, 4)
+                  .map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      productId={product.id}
+                      image={product.media.source}
+                      name={product.name}
+                      price={product.price.formatted_with_symbol}
+                      colSpace={3}
+                    />
+                  ))}
+            </Fragment>
+          )}
         </div>
       </div>
     </div>
