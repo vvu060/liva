@@ -135,20 +135,23 @@ const ProductDetail = () => {
           </div>
         </div>
       )}
-      <div class="">
-        {details &&
-          details.related_products
-            .slice(0, 4)
-            .map((product) => (
-              <ProductCard
-                key={product.id}
-                productId={product.id}
-                image={product.media.source}
-                name={product.name}
-                price={product.price.formatted_with_symbol}
-                colSpace={3}
-              />
-            ))}
+      <div class={`block ${style.product__related}`}>
+        <h3>Related Products</h3>
+        <div className={style.product__relatedProduct}>
+          {details &&
+            details.related_products
+              .slice(0, 4)
+              .map((product) => (
+                <ProductCard
+                  key={product.id}
+                  productId={product.id}
+                  image={product.media.source}
+                  name={product.name}
+                  price={product.price.formatted_with_symbol}
+                  colSpace={3}
+                />
+              ))}
+        </div>
       </div>
     </div>
   );
