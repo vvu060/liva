@@ -7,8 +7,8 @@ import { endpoints, headersPublic } from "../../endpoints";
 import { addToCart } from "../../helpers/addToCart";
 import style from "./ProductDetail.module.scss";
 
-const ProductDetail = () => {
-  const productId = localStorage.getItem("product_id");
+const ProductDetail = (props) => {
+  const productId = props.match.params.productId;
   const dispatch = useDispatch();
   const [details, setDetails] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -52,7 +52,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [productId]);
 
   console.log(details);
 

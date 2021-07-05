@@ -28,7 +28,7 @@ const Order = ({ order }) => {
       <div className={style.order__info}>
         <div className={style.order__cart}>
           {order.order.line_items.map((item) => (
-            <Link to={`/products/${item.product_name}`}>
+            <Link to={`/products/${item.product_name}/${item.product_id}`}>
               <div className={style.order__items}>
                 <p>{item.product_name}</p>
                 <p>{item.price.formatted_with_symbol}</p>

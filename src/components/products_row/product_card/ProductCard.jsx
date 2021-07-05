@@ -17,8 +17,7 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
   };
 
   const getProductId = () => {
-    localStorage.setItem("product_id", productId);
-    history.push(`/products/${name}`);
+    history.push(`/products/${name}/${productId}`);
   };
 
   return (
