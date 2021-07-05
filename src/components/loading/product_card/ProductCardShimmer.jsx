@@ -8,6 +8,8 @@ const ProductCardShimmer = ({ colSpace }) => {
       className={`${style.shimmer} container col-${colSpace}`}
     >
       <div className={style.shimmer__wrapper}>
+        <div className={`${style.shimmer__image} ${style.animate}`}></div>
+        <div className={`${style.shimmer__detail} ${style.animate}`}></div>
         <div className={`${style.shimmer__detail} ${style.animate}`}></div>
       </div>
     </div>
