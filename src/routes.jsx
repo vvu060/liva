@@ -30,7 +30,11 @@ const Routes = () => {
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/products/:id" component={ProductDetail} />
+        <Route
+          exact
+          path="/products/:name/:productId"
+          component={ProductDetail}
+        />
         <Route exact path="/products" component={ProductListing} />
         <Route exact path="/" component={Home} />
       </Switch>

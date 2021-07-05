@@ -1,0 +1,133 @@
+@import "../../scss/functions";
+@import "../../scss/variables";
+@import "../../scss/placeholder";
+
+.product {
+  display: grid;
+  grid-template-columns: repeat(1fr, 2);
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  &__images {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-right: rem(50);
+  }
+
+  &__thumb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: rem(15);
+
+    img {
+      width: rem(70);
+      height: rem(70);
+      object-fit: contain;
+      cursor: pointer;
+      margin-bottom: rem(20);
+      border-radius: rem(5);
+    }
+  }
+
+  &__bigImage {
+    width: rem(400);
+    object-fit: contain;
+  }
+
+  &__details {
+    line-height: 1.7;
+  }
+
+  &__name {
+    color: $textColor;
+    font-size: rem(28);
+  }
+
+  &__price {
+    color: lighten($accentColor, 10%);
+    font-size: rem(16);
+    font-weight: bold;
+  }
+
+  &__desc {
+    font-size: rem(14);
+  }
+
+  &__unit {
+    background: $accentColor;
+    padding: rem(5);
+    font-size: rem(14);
+    width: rem(80);
+    color: $lightColor;
+    font-weight: bold;
+    border-radius: rem(5);
+    text-align: center;
+  }
+
+  &__qty {
+    @extend %fra;
+    margin-bottom: rem(20);
+
+    p {
+      margin: 0;
+      font-size: rem(15);
+      margin-right: rem(5);
+    }
+  }
+
+  &__qtyInput {
+    @extend %fra;
+    border: 1px solid $primaryColor;
+    padding: 0 rem(5);
+    margin-right: rem(15);
+
+    padding: rem(5);
+
+    input {
+      border: none;
+      max-width: rem(50);
+      height: rem(25);
+      text-align: center;
+      outline: none;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    font-size: large;
+    color: $textColor;
+    cursor: pointer;
+  }
+
+  &__share {
+    padding: rem(5);
+
+    a {
+      img {
+        width: rem(25);
+        object-fit: contain;
+        margin-right: rem(15);
+        transition: all 0.4s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__relatedProduct {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
