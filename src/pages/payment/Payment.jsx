@@ -15,6 +15,7 @@ import style from "./Payment.module.scss";
 const Payment = () => {
   const history = useHistory();
   const cartId = localStorage.getItem("cart_id");
+  const shippingAddress = JSON.parse(localStorage.getItem("shipping_address"));
   const checkoutTokenId = localStorage.getItem("checkoutTokenId");
   const checUserId = localStorage.getItem("chec_user_id");
   const userFirstName = useSelector(selectUserFirstName);
@@ -66,6 +67,15 @@ const Payment = () => {
         firstname: userFirstName,
         lastname: userLastName,
         email: userEmail,
+        meta: shippingAddress.phoneNumber,
+      },
+      shipping: {
+        name: shippingAddress.name,
+        street: `${shippingAddress.address1}, ${shippingAddress.address2}`,
+        town_city: shippingAddress.city,
+        county_state: shippingAddress.state,
+        postal_zip_code: shippingAddress.pincode,
+        country: "IN",
       },
       payment: {
         gateway: "test_gateway",

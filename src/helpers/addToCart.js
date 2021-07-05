@@ -3,12 +3,12 @@ import axios from "axios";
 import { cartItems } from "../redux/features/cart/cartSlice";
 import { isLoading } from "../redux/features/loading/loadingSlice";
 
-export const addToCart = (productId, dispatch) => {
+export const addToCart = (productId, dispatch, quantity) => {
   const cartId = localStorage.getItem("cart_id");
 
   const body = JSON.stringify({
     id: productId,
-    quantity: 1,
+    quantity: quantity ? quantity : 1,
   });
 
   if (cartId) {

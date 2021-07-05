@@ -38,6 +38,7 @@ const Address = () => {
         state,
         pincode,
         payment,
+        phoneNumber,
       })
     );
     if (payment === "online") {
@@ -183,13 +184,6 @@ const Address = () => {
         </div>
       </div>
 
-      {/* <Button
-        name="Checkout"
-        classes="btn btn-primary"
-        disabled={false}
-        parameters={e}
-        onClick={handleSubmit}
-      /> */}
       <button type="submit" className="btn btn-primary">
         Checkout
       </button>

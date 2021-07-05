@@ -31,9 +31,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -49,10 +46,6 @@
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
     "enzyme": "^3.11.0",
-    "eslint": "^7.28.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-prettier-react": "^0.0.24",
     "sass": "^1.35.1"
   }
 }
