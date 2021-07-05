@@ -5,6 +5,7 @@ import style from "./CartItem.module.scss";
 import { updateItem, removeItem } from "../../../../helpers/updateCart";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoading } from "../../../../redux/features/loading/loadingSlice";
+import { useHistory } from "react-router-dom";
 
 const CartItem = ({
   name,
@@ -15,8 +16,10 @@ const CartItem = ({
   packetSize,
   size,
   qty,
+  productId,
 }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const isLoading = useSelector(selectLoading);
   const cartId = localStorage.getItem("cart_id");
   const [quantity, setQuantity] = useState(qty);
@@ -59,6 +62,11 @@ const CartItem = ({
     removeItem(cartId, lineItemId);
   };
 
+  const getProductId = () => {
+    localStorage.setItem("product_id", productId);
+    history.push(`/products/${name}`);
+  };
+
   return (
     <div className={`block ${style.cartItem}`}>
       <img
@@ -66,9 +74,12 @@ const CartItem = ({
         src={image}
         loading="lazy"
         alt={name}
+        onClick={getProductId}
       />
       <div className={style.cartItem__details}>
-        <h3 className={style.cartItem__name}>{name}</h3>
+        <h3 className={style.cartItem__name} onClick={getProductId}>
+          {name}
+        </h3>
 
         <p className={style.cartItem__size}>
           Per Piece: <span>{price}</span>

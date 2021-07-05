@@ -55,6 +55,7 @@ const CartItems = () => {
                 // size={cartItem.variant_groups[0].options[0].name}
                 lineItemId={cartItem.id}
                 qty={cartItem.quantity}
+                productId={cartItem.product_id}
               />
             ))}
         </Fragment>
