@@ -1,11 +1,15 @@
 import { Remove, Add } from "@material-ui/icons";
 import React, { Fragment, useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import Button from "../../components/button/Button";
+import ProductCard from "../../components/products_row/product_card/ProductCard";
 import { endpoints, headersPublic } from "../../endpoints";
+import { addToCart } from "../../helpers/addToCart";
 import style from "./ProductDetail.module.scss";
 
 const ProductDetail = () => {
   const productId = localStorage.getItem("product_id");
+  const dispatch = useDispatch();
   const [details, setDetails] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
@@ -40,6 +44,10 @@ const ProductDetail = () => {
     }
 
     images[index].id = "active";
+  };
+
+  const addItemToCart = () => {
+    addToCart(productId, dispatch, quantity);
   };
 
   useEffect(() => {
@@ -98,7 +106,11 @@ const ProductDetail = () => {
                   onClick={increaseQuantity}
                 />
               </div>
-              <Button classes="btn btn-primary" name="Add to Cart" />
+              <Button
+                classes="btn btn-primary"
+                name="Add to Cart"
+                onClick={addItemToCart}
+              />
             </div>
             <div className={style.product__share}>
               <a href="https://www.facebook.com/" target="_blank">
@@ -123,6 +135,21 @@ const ProductDetail = () => {
           </div>
         </div>
       )}
+      <div class="">
+        {details &&
+          details.related_products
+            .slice(0, 4)
+            .map((product) => (
+              <ProductCard
+                key={product.id}
+                productId={product.id}
+                image={product.media.source}
+                name={product.name}
+                price={product.price.formatted_with_symbol}
+                colSpace={3}
+              />
+            ))}
+      </div>
     </div>
   );
 };
