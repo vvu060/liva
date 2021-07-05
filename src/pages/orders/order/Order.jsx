@@ -41,7 +41,14 @@ const Order = ({ order }) => {
 
         <div className={style.order__address}>
           <h5>Shipping Address</h5>
-          <p>Main Street, NewYork, NY City.</p>
+          <p>{order.shipping.name}</p>
+          <p>{order.shipping.street}</p>
+          <p>{order.shipping.street_2}</p>
+          <p>
+            {order.shipping.town_city}{" "}
+            <span>{order.shipping.postal_zip_code}</span>{" "}
+          </p>
+          <p>{order.shipping.county_state}</p>
         </div>
       </div>
     </div>

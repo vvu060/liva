@@ -22,7 +22,7 @@ const Address = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [pincode, setPincode] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("+91");
   const [payment, setPayment] = useState("online");
   const items = useSelector(selectCartItems);
 
@@ -76,8 +76,8 @@ const Address = () => {
           type="number"
           value={phoneNumber}
           className={style.form__control}
-          minlength={10}
-          maxlength="12"
+          minLength="10"
+          maxLength="12"
           required
           placeholder="Enter Phone Number"
           id="phoneNumber"
@@ -164,7 +164,6 @@ const Address = () => {
               type="radio"
               name="cod"
               Value="cod"
-              required
               checked={payment === "cod"}
               onChange={(e) => setPayment(e.target.value)}
             />
@@ -175,7 +174,6 @@ const Address = () => {
               type="radio"
               name="online"
               Value="online"
-              required
               checked={payment === "online"}
               onChange={(e) => setPayment(e.target.value)}
             />

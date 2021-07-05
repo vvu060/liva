@@ -15,19 +15,24 @@ import style from "./Payment.module.scss";
 const Payment = () => {
   const history = useHistory();
   const cartId = localStorage.getItem("cart_id");
-  const shippingAddress = JSON.parse(localStorage.getItem("shipping_address"));
+  const shippingAddress = JSON.parse(localStorage.getItem("shipping_address"))
+    ? JSON.parse(localStorage.getItem("shipping_address"))
+    : "";
   const checkoutTokenId = localStorage.getItem("checkoutTokenId");
   const checUserId = localStorage.getItem("chec_user_id");
   const userFirstName = useSelector(selectUserFirstName);
   const userLastName = useSelector(selectUserLastName);
   const userEmail = useSelector(selectUserEmail);
   const [cartItems, setCartItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [totalAmount, setTotalAmount] = useState("");
+
   const location = useLocation();
 
   console.log({ location });
 
   const getCartItems = () => {
+    setIsLoading(true);
     fetch(`${endpoints.cart}/${cartId}`, {
       method: "GET",
       headers: headersPublic,
@@ -36,6 +41,8 @@ const Payment = () => {
       .then((data) => {
         setTotalAmount(data.subtotal.formatted_with_symbol);
         setCartItems(data.line_items);
+        captureOrder(data.line_items);
+        setIsLoading(false);
       })
       .catch((error) => console.error(error));
   };
@@ -53,7 +60,7 @@ const Payment = () => {
     }, initialValue);
   };
 
-  const captureOrder = () => {
+  const captureOrder = (cartItems) => {
     const transformedLineItems = convertArrayToObject(cartItems, "id");
     console.log(transformedLineItems);
 
@@ -67,7 +74,7 @@ const Payment = () => {
         firstname: userFirstName,
         lastname: userLastName,
         email: userEmail,
-        meta: shippingAddress.phoneNumber,
+        meta: [shippingAddress.phoneNumber],
       },
       shipping: {
         name: shippingAddress.name,
@@ -100,8 +107,6 @@ const Payment = () => {
         localStorage.removeItem("checkoutTokenId");
       })
       .catch((error) => console.error(error));
-
-    history.push("/orders");
   };
 
   useEffect(() => {
@@ -109,6 +114,10 @@ const Payment = () => {
   }, []);
 
   console.log(cartItems);
+
+  if (isLoading) {
+    return <h1>Loading</h1>;
+  }
 
   if (location.search.includes("success")) {
     return (
@@ -122,11 +131,13 @@ const Payment = () => {
           shipped, if you would like to check the status of the order(s) please
           press the link below.
         </p>
-        <Button
+        <button
           name="Go to my orders"
-          classes="btn btn-primary"
-          onClick={captureOrder}
-        />
+          className="btn btn-primary"
+          onClick={() => history.push("./orders")}
+        >
+          GO TO MY ORDERS
+        </button>
         <div className="block">
           <LatestProducts />
         </div>

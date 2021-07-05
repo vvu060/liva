@@ -84,11 +84,17 @@
     flex-flow: row wrap;
     font-size: rem(13);
     padding: rem(5);
+    margin-top: rem(10);
     margin-left: rem(10);
     color: $textColor;
 
     h5 {
       margin-bottom: rem(5);
+    }
+
+    p {
+      margin: 0;
+      font-size: rem(12);
     }
   }
 }
