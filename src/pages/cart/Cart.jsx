@@ -1,9 +1,17 @@
 import React from "react";
+import CartItems from "./cart_items/CartItems";
+import PriceSummary from "./price_summary/PriceSummary";
+import style from "./Cart.module.scss";
+import Address from "../../components/address_form/Address";
 
 const Cart = () => {
   return (
-    <div>
-      <h1>Cart</h1>
+    <div className={`container ${style.cart}`}>
+      <CartItems />
+      <div className={style.cart__info}>
+        <PriceSummary />
+        <Address />
+      </div>
     </div>
   );
 };

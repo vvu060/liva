@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import LatestProduct from "./LatestProduct";
-import { findByTestAttr, checkProps } from "../../../../test/testUtils";
+import { findByTestAttr, checkProps } from "../../../test/testUtils";
 
 const defaultProps = {
   name: "Carrot Seeds",

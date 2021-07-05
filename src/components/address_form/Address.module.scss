@@ -1,0 +1,60 @@
+@import "../../scss/functions";
+@import "../../scss/variables";
+@import "../../scss/placeholder";
+
+.form {
+  width: 100%;
+
+  h2 {
+    margin-bottom: rem(20);
+  }
+
+  &__group {
+    margin-bottom: rem(10);
+    transition: all 0.3s;
+  }
+
+  &__label {
+    font-size: rem(13);
+    color: $accentColor;
+    display: block;
+    opacity: 1;
+    transform: translateY(-27px);
+    transform-origin: 0 0;
+    transition: all 0.3s;
+  }
+
+  &__control {
+    box-shadow: none;
+    border-radius: 0;
+    border-style: none none solid none;
+    width: 100%;
+    transition: all 0.5s;
+    padding: rem(5);
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      border-color: lighten($accentColor, 40%);
+    }
+  }
+
+  &__control:focus + &__label,
+  &__control:not(:placeholder-shown) + &__label {
+    transform: translateY(-40px) scale(0.8);
+  }
+
+  &__group:focus-within {
+    transform: scale(1.05, 1.05);
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

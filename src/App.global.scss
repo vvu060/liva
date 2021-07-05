@@ -1,3 +1,4 @@
+@use 'sass:math';
 //reset
 @import "./scss/placeholder";
 @import "./scss/functions";
@@ -59,12 +60,11 @@ body {
 [class*="col-"],
 .container {
   padding-inline: rem(15);
-  margin-block: rem(10);
 }
 @for $i from 1 through 12 {
   .col-#{$i} {
-    flex: 0 0 (100 / (12 / $i)) * 1%;
-    max-width: (100 / (12 / $i)) * 1%;
+    flex: 0 0 math.div(100, math.div(12, $i)) * 1%;
+    max-width: math.div(100, math.div(12, $i)) * 1%;
   }
 }
 
@@ -148,6 +148,13 @@ body {
     transition: all 0.2s ease-in-out;
   }
 }
-.my-2 {
-  margin: 40px;
+
+.block {
+  padding: rem(50) 0;
+}
+
+#active {
+  border: 1.8px solid lighten($accentColor, 20%);
+  transform: scale(1.5);
+  opacity: 1;
 }

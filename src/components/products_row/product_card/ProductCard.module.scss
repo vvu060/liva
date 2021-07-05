@@ -1,5 +1,6 @@
 @import "../../../scss/functions";
 @import "../../../scss/variables";
+@import "../../../scss/placeholder";
 
 .productCard {
   display: flex;
@@ -39,5 +40,14 @@
     font-size: rem(16);
     font-weight: 500;
     margin-bottom: rem(5);
+  }
+
+  &__loader {
+    @extend %fca;
+    justify-content: center;
+    background: $primaryColor;
+    width: 50%;
+    border-radius: rem(3);
+    height: rem(37);
   }
 }

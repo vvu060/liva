@@ -8,7 +8,9 @@ const app = !firebase.apps.length
 
 const auth = firebase.auth();
 
+const db = app.firestore();
+
 const providerGoogle = new firebase.auth.GoogleAuthProvider();
 const providerFacebook = new firebase.auth.FacebookAuthProvider();
 
-export { auth, providerGoogle, providerFacebook };
+export { db, auth, providerGoogle, providerFacebook };
