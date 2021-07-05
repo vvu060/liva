@@ -25,7 +25,15 @@ const Address = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ name, address1, address2, city, state, pincode });
+    console.log({
+      name,
+      address1,
+      address2,
+      city,
+      state,
+      pincode,
+      phoneNumber,
+    });
     checkoutSession(items, userEmail);
   };
 
