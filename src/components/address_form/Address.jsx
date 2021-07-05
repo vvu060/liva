@@ -6,8 +6,10 @@ import { generateCheckoutToken } from "../../helpers/generateCheckoutToken";
 import { selectCartItems } from "../../redux/features/cart/cartSlice";
 import { selectUserEmail } from "../../redux/features/user/userSlice";
 import style from "./Address.module.scss";
+import { useHistory } from "react-router-dom";
 
 const Address = () => {
+  const history = useHistory();
   const userEmail = useSelector(selectUserEmail);
   const cartId = localStorage.getItem("cart_id")
     ? localStorage.getItem("cart_id")
@@ -21,20 +23,29 @@ const Address = () => {
   const [state, setState] = useState("");
   const [pincode, setPincode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [payment, setPayment] = useState("online");
   const items = useSelector(selectCartItems);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      name,
-      address1,
-      address2,
-      city,
-      state,
-      pincode,
-      phoneNumber,
-    });
-    checkoutSession(items, userEmail);
+    localStorage.setItem(
+      "shipping_address",
+      JSON.stringify({
+        name,
+        address1,
+        address2,
+        city,
+        state,
+        pincode,
+        payment,
+        phoneNumber,
+      })
+    );
+    if (payment === "online") {
+      checkoutSession(items, userEmail);
+    } else {
+      history.push("./payment?success=true");
+    }
   };
 
   useEffect(() => {
@@ -51,12 +62,13 @@ const Address = () => {
           type="text"
           className={style.form__control}
           value={name}
+          required
           placeholder="Enter Full Name"
           id="name"
           onChange={(e) => setName(e.target.value)}
         />
         <label className={style.form__label} htmlFor="name">
-          Full Name *
+          Full Name
         </label>
       </div>
       <div className={style.form__group}>
@@ -65,13 +77,14 @@ const Address = () => {
           value={phoneNumber}
           className={style.form__control}
           minlength={10}
-          maxlength={12}
+          maxlength="12"
+          required
           placeholder="Enter Phone Number"
           id="phoneNumber"
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <label className={style.form__label} htmlFor="phoneNumber">
-          Mobile Number *
+          Mobile Number
         </label>
       </div>
       <div className={style.form__group}>
@@ -80,11 +93,12 @@ const Address = () => {
           className={style.form__control}
           value={address1}
           placeholder="Address Line 1"
+          required
           id="address1"
           onChange={(e) => setAddress1(e.target.value)}
         />
         <label className={style.form__label} htmlFor="address1">
-          Address Line 1 *
+          Address Line 1
         </label>
       </div>
       <div className={style.form__group}>
@@ -110,7 +124,7 @@ const Address = () => {
           onChange={(e) => setCity(e.target.value)}
         />
         <label className={style.form__label} htmlFor="city">
-          City *
+          City
         </label>
       </div>
       <div className={style.form__group}>
@@ -123,30 +137,56 @@ const Address = () => {
           onChange={(e) => setPincode(e.target.value)}
         />
         <label className={style.form__label} htmlFor="pincode">
-          Pin Code *
+          Pin Code
         </label>
       </div>
       <div className={style.form__group}>
-        <label htmlFor="state">State *</label>
+        <label htmlFor="state" className={style.form__selectLabel}>
+          State
+        </label>
         <select
           className={style.form__control}
           name="state"
           id="state"
           value={state}
+          required
           onChange={(e) => setState(e.target.value)}
         >
           <option value="karnataka">Karnataka</option>
           <option value="maharashtra">Maharashtra</option>
         </select>
       </div>
+      <div className={style.form__radio}>
+        <span>Payment</span>
+        <div className={style.form__radioInput}>
+          <label htmlFor="cod" className={style.form__radioLabel}>
+            <input
+              type="radio"
+              name="cod"
+              Value="cod"
+              required
+              checked={payment === "cod"}
+              onChange={(e) => setPayment(e.target.value)}
+            />
+            COD
+          </label>
+          <label htmlFor="online" className={style.form__radioLabel}>
+            <input
+              type="radio"
+              name="online"
+              Value="online"
+              required
+              checked={payment === "online"}
+              onChange={(e) => setPayment(e.target.value)}
+            />
+            Online
+          </label>
+        </div>
+      </div>
 
-      {/* <Button
-        name="Checkout"
-        classes="btn btn-primary"
-        disabled={false}
-        // onClick={handleSubmit}
-      /> */}
-      <button className="btn btn-primary">Submit</button>
+      <button type="submit" className="btn btn-primary">
+        Checkout
+      </button>
     </form>
   );
 };

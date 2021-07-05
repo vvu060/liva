@@ -57,4 +57,32 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
+  &__radio {
+    font-size: rem(14);
+    margin: rem(15) 0;
+    color: $textColor;
+
+    span {
+      font-size: rem(13);
+    }
+  }
+
+  &__radioInput {
+    margin: rem(10) 0;
+  }
+
+  &__radioLabel {
+    margin-right: rem(10);
+    cursor: pointer;
+
+    input {
+      margin-right: rem(5);
+      cursor: pointer;
+    }
+  }
+
+  &__selectLabel {
+    font-size: rem(13);
+  }
 }
