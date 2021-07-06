@@ -28,9 +28,24 @@
       color: $textColor;
       @extend %fra;
 
+      span {
+        height: rem(25);
+        width: rem(25);
+        border: 1px solid $primaryColor;
+
+        border-radius: 50%;
+        text-align: center;
+        margin-left: rem(3);
+      }
+
       &:hover {
         color: $primaryColor;
       }
     }
+  }
+
+  &__icon {
+    font-size: medium;
+    margin: rem(2);
   }
 }

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { endpoints, headersPublic } from "../../endpoints";
 import style from "./ProductsRow.module.scss";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import ArrowForwardRoundedIcon from "@material-ui/icons/ArrowForwardRounded";
 import ProductCard from "./product_card/ProductCard";
 import ProductCardShimmer from "../loading/product_card/ProductCardShimmer";
 import useFetch from "../../hooks/useFetch";
@@ -30,7 +30,7 @@ const ProductsRow = ({ category, name }) => {
         <a href="/products">
           View More{" "}
           <span>
-            <ArrowForwardIosIcon />
+            <ArrowForwardRoundedIcon className={style.productsRow__icon} />
           </span>{" "}
         </a>
       </div>

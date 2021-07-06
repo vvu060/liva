@@ -1,14 +1,26 @@
-@import '../../scss/variables';
-@import '../../scss/functions';
-@import '../../scss/placeholder';
-.header{
-    position: sticky;
-    top: 0;    
-    background: $lightColor;
-    z-index: 9;
-    // box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
-    padding-block: rem(10);
-    &__row{
-        @extend %d-jsb;
-    }
+@import "../../scss/variables";
+@import "../../scss/functions";
+@import "../../scss/placeholder";
+
+.header {
+  position: sticky;
+  top: 0;
+  padding-block: rem(10);
+  background: $lightColor;
+  z-index: 9;
+  border-bottom: 1px solid $divider;
+
+  &__row {
+    @extend %d-jsb;
+  }
+
+  &__right {
+    @extend %fra;
+  }
+
+  &__icon {
+    margin-left: rem(30);
+    cursor: pointer;
+    font-size: x-large;
+  }
 }
