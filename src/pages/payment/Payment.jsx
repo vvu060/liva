@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { useSelector } from "react-redux";
 import { endpoints, headersPublic } from "../../endpoints";
 import {
@@ -11,6 +11,7 @@ import Button from "../../components/button/Button";
 import LatestProducts from "../../components/latest_products/LatestProducts";
 import { useHistory, useLocation } from "react-router-dom";
 import style from "./Payment.module.scss";
+import PaymentShimmer from "../../components/loading/payment/PaymentShimmer";
 
 const Payment = () => {
   const history = useHistory();
@@ -116,7 +117,11 @@ const Payment = () => {
   console.log(cartItems);
 
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return (
+      <Fragment>
+        <PaymentShimmer />
+      </Fragment>
+    );
   }
 
   if (location.search.includes("success")) {
