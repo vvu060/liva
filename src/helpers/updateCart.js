@@ -15,7 +15,7 @@ export const updateItem = async (qty, cartId, lineItemId, dispatch) => {
         headers: headersPublic,
       }
     );
-    dispatch(getTotalAmount(data.cart.subtotal.formatted_with_symbol));
+    dispatch(getTotalAmount(data.cart.subtotal.raw));
     dispatch(isLoading(false));
   } catch (error) {
     alert(error.message);

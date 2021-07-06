@@ -6,6 +6,7 @@ import { updateItem, removeItem } from "../../../../helpers/updateCart";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoading } from "../../../../redux/features/loading/loadingSlice";
 import { useHistory } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const CartItem = ({
   name,
@@ -81,7 +82,7 @@ const CartItem = ({
         </h3>
 
         <p className={style.cartItem__size}>
-          Per Piece: <span>{price}</span>
+          Per Piece: ₹<span>{price}</span>
         </p>
 
         <p className={style.cartItem__size}>
@@ -93,31 +94,39 @@ const CartItem = ({
         </p>
         <div className={style.cartItem__qty}>
           <p>Quantity :</p>
-          <div className={style.cartItem__qtyInput}>
-            <Remove
-              className={style.cartItem__icon}
-              onClick={decreaseQuantity}
-            />
-            <input
-              type="number"
-              min="1"
-              value={quantity}
-              onChange={(e) => updateQuantity(e)}
-            />
-            <Add className={style.cartItem__icon} onClick={increaseQuantity} />
-          </div>
+          {isLoading ? (
+            <div className={style.cartItem__loader}>
+              <ClipLoader color="green" size={30} />
+            </div>
+          ) : (
+            <div className={style.cartItem__qtyInput}>
+              <Remove
+                className={style.cartItem__icon}
+                onClick={decreaseQuantity}
+              />
+              <input
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={(e) => updateQuantity(e)}
+              />
+              <Add
+                className={style.cartItem__icon}
+                onClick={increaseQuantity}
+              />
+            </div>
+          )}
         </div>
-        <h4 className={style.cartItem__amount}>Total Amount: {amount}</h4>
+        <h4 className={style.cartItem__amount}>Total Amount: ₹{amount}</h4>
       </div>
-      <div className={style.cartItem__button}>
+      <div>
         <Button
           name="Remove"
           classes="btn btn-primary"
-          disabled={false}
+          disabled={isLoading}
           onClick={removeFromCart}
         />
       </div>
-      {isLoading ? <h1>Loading</h1> : ""}
     </div>
   );
 };

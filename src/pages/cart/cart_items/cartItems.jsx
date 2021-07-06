@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import CartItem from "./cart_item/CartItem";
 import { endpoints, headersPublic } from "../../../endpoints";
 import style from "./CartItems.module.scss";
+import Button from "../../../components/button/Button";
 import CartItemShimmer from "../../../components/loading/cart_item/CartItemShimmer";
 import { cartItems } from "../../../redux/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
@@ -60,6 +61,7 @@ const CartItems = () => {
             ))}
         </Fragment>
       )}
+      <Button name="Empty Cart" classes="btn btn-primary" />
     </div>
   );
 };
