@@ -2,7 +2,11 @@
 @import "../../scss/functions";
 @import "../../scss/placeholder";
 .banner {
-  background: lighten($accentColor, 63%);
+  background: linear-gradient(
+    to bottom right,
+    lighten($accentColor, 10%),
+    lighten($primaryColor, 15%)
+  );
   max-height: rem(500);
   height: rem(450);
   text-align: center;
@@ -30,17 +34,17 @@
     h4 {
       font-size: rem(20);
       margin-bottom: rem(20);
-      color: $accentColor;
+      color: #000;
     }
 
     h2 {
       font-size: rem(45);
       margin-bottom: rem(20);
-      color: $primaryColor;
+      color: #000;
     }
 
     button {
-      background: $accentColor;
+      background: #000;
       color: $lightColor;
       border: none;
       padding: rem(10) rem(15);
@@ -51,9 +55,9 @@
       transition: all 0.5s ease-in-out;
 
       &:hover {
-        color: $accentColor;
+        color: #000;
         background: transparent;
-        border: 1px solid $primaryColor;
+        border: 1px solid #000;
       }
     }
   }
