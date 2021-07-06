@@ -1,17 +1,19 @@
 import React, { Fragment } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import style from "./Sidebar.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Logo from "../logo/Logo";
 import { useHistory } from "react-router-dom";
 import { signIn } from "../../helpers/signIn";
-import { providerFacebook, providerGoogle } from "../../firebase";
+import { auth, providerFacebook, providerGoogle } from "../../firebase";
+import { logout, selectUserEmail } from "../../redux/features/user/userSlice";
 
 const Sidebar = ({ sidebar = false }) => {
   const dispatch = useDispatch();
-  let history = useHistory();
+  const userEmail = useSelector(selectUserEmail);
+  const history = useHistory();
 
   const hideSidebar = () => {
     dispatch(closeSidebar({ sidebar: false }));
@@ -23,6 +25,16 @@ const Sidebar = ({ sidebar = false }) => {
 
   const signInWithFacebook = () => {
     signIn(providerFacebook, dispatch, history);
+  };
+
+  const signOut = () => {
+    if (userEmail) {
+      console.log("coming here");
+      auth.signOut().then(() => {
+        dispatch(logout());
+        dispatch(closeSidebar({ sidebar: false }));
+      });
+    }
   };
 
   return (
@@ -41,7 +53,7 @@ const Sidebar = ({ sidebar = false }) => {
             className={style.sidebar}
           >
             <div className={style.sidebar__header}>
-              <h2>Sign In</h2>
+              <h2 onClick={signOut}>{userEmail ? "Sign Out" : "Sign In"}</h2>
               <CancelIcon
                 onClick={hideSidebar}
                 className={style.sidebar__close}
