@@ -9,7 +9,7 @@ import {
 
 const IconSection = () => {
   return (
-    <div data-test="component-icon-section" className="container">
+    <div data-test="component-icon-section" className="container block">
       <div className={`row ${style.icon__row}`}>
         <div className="col-4">
           <Icon

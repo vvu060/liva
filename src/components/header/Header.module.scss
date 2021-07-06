@@ -8,7 +8,7 @@
   padding-block: rem(10);
   background: $lightColor;
   z-index: 9;
-  border-bottom: 1px solid $divider;
+  border-bottom: 3px solid $divider;
 
   &__row {
     @extend %d-jsb;

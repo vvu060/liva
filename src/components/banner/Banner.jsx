@@ -6,21 +6,20 @@ const Banner = () => {
       data-test="component-banner"
       className={`block ${style.banner}`}
       role="banner"
-      style={{ background: `url(banner-1.jpg) no-repeat bottom center`, backgroundSize: `cover` }}
     >
-      <div className={`container ${style.banner__container}`}>
-        <h1 className={style.banner__title} tabIndex="0">
-          <span>Welcome to</span>
-          LIVA
-        </h1>
-        <p>
-          The point of using Lorem Ipsum is that it has a more-or-less normal
-          distribution of letters, as opposed to using 'Content here, content
-          here', making it look like readable English
-        </p>
-        <a className={`btn btn-border btn-light ${style.banner__btn}`}>
-          Discover
-        </a>
+      <div className={`${style.banner__container}`}>
+        <div className={style.banner__left}>
+          <h4>Natural & Organic</h4>
+          <h2>-30% offer on Latest Products</h2>
+          <button>Shop Now</button>
+        </div>
+
+        <div className={style.banner__right}>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0011/9868/6266/files/1-3-601x534.png?v=1621424321"
+            alt=""
+          />
+        </div>
       </div>
     </section>
   );
