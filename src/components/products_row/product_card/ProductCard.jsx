@@ -12,6 +12,7 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const isLoading = useSelector(selectLoading);
+
   const addItemToCart = () => {
     addToCart(productId, dispatch);
   };

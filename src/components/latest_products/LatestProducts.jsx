@@ -46,6 +46,7 @@ const LatestProducts = () => {
                   image={product.assets[0]?.url}
                   name={product.name}
                   price={product.price.formatted_with_symbol}
+                  productId={product.id}
                 />
               ))}
           </Fragment>
