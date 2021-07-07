@@ -50,4 +50,15 @@
     border-radius: rem(3);
     height: rem(37);
   }
+
+  &__rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__icon {
+    font-size: medium;
+    color: rgb(235, 235, 101);
+  }
 }

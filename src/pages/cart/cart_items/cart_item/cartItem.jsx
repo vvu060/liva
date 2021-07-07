@@ -60,12 +60,14 @@ const CartItem = ({
   };
 
   const removeFromCart = () => {
-    removeItem(cartId, lineItemId);
+    removeItem(cartId, lineItemId, dispatch);
   };
 
   const getProductId = () => {
     history.push(`/products/${name}/${productId}`);
   };
+
+  console.log("CartItem", { isLoading });
 
   return (
     <div className={`block ${style.cartItem}`}>

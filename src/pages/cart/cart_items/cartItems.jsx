@@ -4,14 +4,20 @@ import { endpoints, headersPublic } from "../../../endpoints";
 import style from "./CartItems.module.scss";
 import Button from "../../../components/button/Button";
 import CartItemShimmer from "../../../components/loading/cart_item/CartItemShimmer";
-import { cartItems } from "../../../redux/features/cart/cartSlice";
-import { useDispatch } from "react-redux";
+import {
+  cartItems,
+  selectCartItems,
+} from "../../../redux/features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoading } from "../../../redux/features/loading/loadingSlice";
 
 const CartItems = () => {
   const cartId = localStorage.getItem("cart_id");
   const dispatch = useDispatch();
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const cart = useSelector(selectCartItems);
+  const loading = useSelector(selectLoading);
+  const [items, setItems] = useState(cart);
+  const [isLoading, setIsLoading] = useState(loading);
 
   const getCart = () => {
     setIsLoading(true);
@@ -32,6 +38,13 @@ const CartItems = () => {
   useEffect(() => {
     getCart();
   }, []);
+
+  useEffect(() => {
+    setItems(cart);
+  }, [cart]);
+
+  // console.log({ items, cart });
+  console.log("CartItems", { isLoading });
 
   return (
     <div className={`block ${style.cartItems}`}>

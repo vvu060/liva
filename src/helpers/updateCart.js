@@ -1,6 +1,6 @@
 import { endpoints, headersPublic } from "../endpoints";
 import axios from "axios";
-import { getTotalAmount } from "../redux/features/cart/cartSlice";
+import { cartItems, getTotalAmount } from "../redux/features/cart/cartSlice";
 import { isLoading } from "../redux/features/loading/loadingSlice";
 
 export const updateItem = async (qty, cartId, lineItemId, dispatch) => {
@@ -22,11 +22,18 @@ export const updateItem = async (qty, cartId, lineItemId, dispatch) => {
   }
 };
 
-export const removeItem = async (cartId, lineItemId) => {
+export const removeItem = async (cartId, lineItemId, dispatch) => {
+  dispatch(isLoading(true));
   try {
-    await axios.delete(`${endpoints.cart}/${cartId}/items/${lineItemId}`, {
-      headers: headersPublic,
-    });
+    const { data } = await axios.delete(
+      `${endpoints.cart}/${cartId}/items/${lineItemId}`,
+      {
+        headers: headersPublic,
+      }
+    );
+    console.log(data);
+    dispatch(cartItems(data.cart.line_items));
+    dispatch(isLoading(false));
   } catch (error) {
     alert(error.message);
   }

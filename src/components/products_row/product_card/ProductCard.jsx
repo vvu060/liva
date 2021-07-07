@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import style from "./ProductCard.module.scss";
 import Button from "../../button/Button";
@@ -7,11 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectLoading } from "../../../redux/features/loading/loadingSlice";
 import BeatLoader from "react-spinners/BeatLoader";
 import { useHistory } from "react-router-dom";
+import StarIcon from "@material-ui/icons/Star";
+
+const MAX_RATING = 5;
+const MIN_RATING = 2;
 
 const ProductCard = ({ productId, image, name, price, colSpace }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const isLoading = useSelector(selectLoading);
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+  );
 
   const addItemToCart = () => {
     addToCart(productId, dispatch);
@@ -37,6 +44,13 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
       <h5 data-test="product-name" onClick={getProductId}>
         {name}
       </h5>
+      <div className={style.productCard__rating}>
+        {Array(rating)
+          .fill()
+          .map((_, i) => (
+            <StarIcon className={style.productCard__icon} />
+          ))}
+      </div>
       <p data-test="product-price">{price}</p>
       {isLoading ? (
         <div className={style.productCard__loader}>
