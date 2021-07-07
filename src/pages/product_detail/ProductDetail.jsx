@@ -109,12 +109,10 @@ const ProductDetail = (props) => {
                       <StarIcon className={style.product__iconStar} />
                     ))}
                 </div>
-                <p className={style.product__desc}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Nesciunt ipsam reiciendis quibusdam? Repellat, suscipit esse
-                  sapiente consectetur, recusandae quis optio fugiat alias
-                  asperiores saepe sint cupiditate porro fugit. Id, blanditiis!
-                </p>
+                <p
+                  className={style.product__desc}
+                  dangerouslySetInnerHTML={{ __html: details.description }}
+                />
                 <p className={style.product__unit}>
                   {details.sku}: {details.seo.title}
                 </p>

@@ -1,15 +1,17 @@
 import Button from "../button/Button";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { checkoutSession } from "../../helpers/checkoutSession";
 import { generateCheckoutToken } from "../../helpers/generateCheckoutToken";
 import { selectCartItems } from "../../redux/features/cart/cartSlice";
 import { selectUserEmail } from "../../redux/features/user/userSlice";
+import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import style from "./Address.module.scss";
 import { useHistory } from "react-router-dom";
 
 const Address = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const userEmail = useSelector(selectUserEmail);
   const cartId = localStorage.getItem("cart_id")
     ? localStorage.getItem("cart_id")
@@ -28,23 +30,27 @@ const Address = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem(
-      "shipping_address",
-      JSON.stringify({
-        name,
-        address1,
-        address2,
-        city,
-        state,
-        pincode,
-        payment,
-        phoneNumber,
-      })
-    );
-    if (payment === "online") {
-      checkoutSession(items, userEmail);
+    if (!userEmail) {
+      dispatch(openSidebar({ sidebar: true }));
     } else {
-      history.push("./payment?success=true");
+      localStorage.setItem(
+        "shipping_address",
+        JSON.stringify({
+          name,
+          address1,
+          address2,
+          city,
+          state,
+          pincode,
+          payment,
+          phoneNumber,
+        })
+      );
+      if (payment === "online") {
+        checkoutSession(items, userEmail);
+      } else {
+        history.push("./payment?success=true");
+      }
     }
   };
 
@@ -183,7 +189,7 @@ const Address = () => {
       </div>
 
       <button type="submit" className="btn btn-primary">
-        Checkout
+        {userEmail ? "Checkout" : "Sign in To Continue"}
       </button>
     </form>
   );

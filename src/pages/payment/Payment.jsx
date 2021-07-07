@@ -1,11 +1,12 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { endpoints, headersPublic } from "../../endpoints";
 import {
   selectUserEmail,
   selectUserFirstName,
   selectUserLastName,
 } from "../../redux/features/user/userSlice";
+import { cartItems } from "../../redux/features/cart/cartSlice";
 import { CheckCircle, Cancel } from "@material-ui/icons";
 import Button from "../../components/button/Button";
 import LatestProducts from "../../components/latest_products/LatestProducts";
@@ -15,6 +16,7 @@ import PaymentShimmer from "../../components/loading/payment/PaymentShimmer";
 
 const Payment = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const cartId = localStorage.getItem("cart_id");
   const shippingAddress = JSON.parse(localStorage.getItem("shipping_address"))
     ? JSON.parse(localStorage.getItem("shipping_address"))
@@ -107,6 +109,7 @@ const Payment = () => {
       .then((data) => {
         localStorage.removeItem("cart_id");
         localStorage.removeItem("checkoutTokenId");
+        // dispatch(cartItems([]));
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
