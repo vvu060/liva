@@ -1,18 +1,10 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
-import { Provider } from "react-redux";
-import { store } from "./redux/app/store";
+import { shallow } from "enzyme";
 import App from "./App";
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-
-test("renders without crashing", () => {
-  const wrapper = shallow(<App />);
-  console.log(wrapper.debug());
-});
+import { findByTestAttr, checkProps } from "./test/testUtils";
 
 test("renders non-empty component without crashing", () => {
   const wrapper = shallow(<App />);
-  expect(wrapper.exists()).toBe(true);
+  const component = findByTestAttr(wrapper, "component-app");
+  expect(component.length).toBe(1);
 });
