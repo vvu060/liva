@@ -4,6 +4,7 @@ import logoSrc from "../../resources/logo.png";
 const Logo = ({ alt, width, height, className }) => {
   return (
     <img
+      data-test="component-logo"
       src={logoSrc}
       loading="lazy"
       alt={alt}

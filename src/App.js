@@ -13,7 +13,7 @@ function App() {
   const sidebar = useSelector(selectSidebar);
 
   return (
-    <Fragment>
+    <Fragment data-test="component-app">
       <Router>
         <motion.div
           animate={{
@@ -26,7 +26,7 @@ function App() {
             Skip to main content
           </a>
           <Header />
-          <main data-test="component-app" id="main">
+          <main id="main">
             <Routes />
           </main>
           <Footer />

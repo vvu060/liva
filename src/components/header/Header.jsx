@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <header className={style.header}>
+    <header data-test="component-header" className={style.header}>
       <div className="container">
         <div className={`row ${style.header__row}`}>
           <Link to="/">
@@ -37,17 +37,20 @@ const Header = () => {
                 color="secondary"
               >
                 <ShoppingCart
+                  data-test="cart-icon"
                   className={style.header__icon}
                   onClick={() => history.push("/cart")}
                 />
               </Badge>
 
               <History
+                data-test="history-icon"
                 className={style.header__icon}
                 onClick={() => history.push("/orders")}
               />
 
               <Avatar
+                data-test="avatar"
                 src={userPhoto}
                 className={style.header__icon}
                 onClick={showSidebar}

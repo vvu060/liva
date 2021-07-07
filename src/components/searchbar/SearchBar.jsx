@@ -54,7 +54,7 @@ const SearchBar = () => {
   }, [debouncedTerm]);
 
   return (
-    <div className={style.search}>
+    <div data-test="component-searchbar" className={style.search}>
       <form
         className={style.search}
         role="search"
