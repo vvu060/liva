@@ -130,4 +130,14 @@
     flex-direction: row;
     align-items: center;
   }
+
+  &__rating {
+    @extend %fra;
+    margin-bottom: rem(10);
+  }
+
+  &__iconStar {
+    font-size: medium;
+    color: $starColor;
+  }
 }

@@ -71,4 +71,13 @@
       opacity: 1;
     }
   }
+
+  &__rating {
+    @extend %fra;
+  }
+
+  &__iconStar {
+    font-size: small;
+    color: $starColor;
+  }
 }

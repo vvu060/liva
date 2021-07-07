@@ -2,8 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import style from "./SearchBar.module.scss";
 import { endpoints, headersPublic } from "../../endpoints";
 import { useHistory } from "react-router-dom";
-import SearchIcon from "@material-ui/icons/Search";
+import { Search, Star } from "@material-ui/icons";
 import BeatLoader from "react-spinners/BeatLoader";
+
+const MAX_RATING = 5;
+const MIN_RATING = 2;
 
 const SearchBar = () => {
   const history = useHistory();
@@ -11,6 +14,9 @@ const SearchBar = () => {
   const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+  );
 
   const searchProducts = () => {
     setLoading(true);
@@ -67,7 +73,7 @@ const SearchBar = () => {
           onChange={(e) => setTerm(e.target.value)}
         />
         <button className={style.search__btn}>
-          <SearchIcon className={style.search__icon} />
+          <Search className={style.search__icon} />
         </button>
       </form>
 
@@ -101,6 +107,13 @@ const SearchBar = () => {
               <div className={style.search__detail}>
                 <p>{searchItem.name}</p>
                 <p>{searchItem.price.formatted_with_symbol}</p>
+                <div className={style.search__rating}>
+                  {Array(rating)
+                    .fill()
+                    .map((_, i) => (
+                      <Star className={style.search__iconStar} />
+                    ))}
+                </div>
               </div>
             </div>
           ))}

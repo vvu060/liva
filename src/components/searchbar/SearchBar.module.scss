@@ -42,6 +42,7 @@
     overflow: auto;
     width: 100%;
     background: $lightColor;
+    border: 2px solid $divider;
     border-bottom-left-radius: rem(3);
     border-bottom-right-radius: rem(3);
     align-items: center;
@@ -76,13 +77,24 @@
     p {
       margin: 0;
       padding: 0;
-      font-size: rem(14);
+      font-size: rem(13);
       color: $textColor;
+      margin-bottom: rem(5);
     }
   }
 
   &__loader {
     text-align: center;
     padding: rem(10);
+  }
+
+  &__rating {
+    @extend %fra;
+    margin-bottom: rem(10);
+  }
+
+  &__iconStar {
+    font-size: small;
+    color: $starColor;
   }
 }

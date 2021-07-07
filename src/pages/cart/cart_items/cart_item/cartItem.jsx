@@ -7,6 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectLoading } from "../../../../redux/features/loading/loadingSlice";
 import { useHistory } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
+import StarIcon from "@material-ui/icons/Star";
+
+const MAX_RATING = 5;
+const MIN_RATING = 2;
 
 const CartItem = ({
   name,
@@ -26,6 +30,9 @@ const CartItem = ({
   const [quantity, setQuantity] = useState(qty);
   const [debouncedQuantity, setDebouncedQuantity] = useState(quantity);
   const [amount, setAmount] = useState(totalPrice);
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+  );
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -82,6 +89,14 @@ const CartItem = ({
         <h3 className={style.cartItem__name} onClick={getProductId}>
           {name}
         </h3>
+
+        <div className={style.cartItem__rating}>
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <StarIcon className={style.cartItem__iconStar} />
+            ))}
+        </div>
 
         <p className={style.cartItem__size}>
           Per Piece: ₹<span>{price}</span>

@@ -8,6 +8,10 @@ import ProductDetailShimmer from "../../components/loading/product_detail/Produc
 import { endpoints, headersPublic } from "../../endpoints";
 import { addToCart } from "../../helpers/addToCart";
 import style from "./ProductDetail.module.scss";
+import StarIcon from "@material-ui/icons/Star";
+
+const MAX_RATING = 5;
+const MIN_RATING = 2;
 
 const ProductDetail = (props) => {
   const productId = props.match.params.productId;
@@ -17,6 +21,9 @@ const ProductDetail = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
   const myRef = useRef();
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+  );
 
   const getProduct = () => {
     setIsLoading(true);
@@ -95,6 +102,13 @@ const ProductDetail = (props) => {
                 <p className={style.product__price}>
                   {details.price.formatted_with_symbol}
                 </p>
+                <div className={style.product__rating}>
+                  {Array(rating)
+                    .fill()
+                    .map((_, i) => (
+                      <StarIcon className={style.product__iconStar} />
+                    ))}
+                </div>
                 <p className={style.product__desc}>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Nesciunt ipsam reiciendis quibusdam? Repellat, suscipit esse

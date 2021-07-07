@@ -105,4 +105,13 @@
     font-size: rem(16);
     font-weight: 600;
   }
+
+  &__rating {
+    @extend %fra;
+  }
+
+  &__iconStar {
+    font-size: medium;
+    color: $starColor;
+  }
 }

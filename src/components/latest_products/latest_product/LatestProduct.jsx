@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./LatestProduct.module.scss";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { addToCart } from "../../../helpers/addToCart";
 import { useDispatch } from "react-redux";
+import StarIcon from "@material-ui/icons/Star";
+
+const MAX_RATING = 5;
+const MIN_RATING = 2;
 
 const LatestProduct = ({ name, image, price, productId }) => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+  );
 
   const addItemToCart = () => {
     addToCart(productId, dispatch);
@@ -33,6 +40,13 @@ const LatestProduct = ({ name, image, price, productId }) => {
         >
           {name}
         </h5>
+        <div className={style.latestProduct__rating}>
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <StarIcon className={style.latestProduct__iconStar} />
+            ))}
+        </div>
         <p>
           {" "}
           <s>₹150.00</s>&nbsp;&nbsp;

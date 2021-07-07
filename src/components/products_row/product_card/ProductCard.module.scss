@@ -52,13 +52,11 @@
   }
 
   &__rating {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @extend %fra;
   }
 
   &__icon {
     font-size: medium;
-    color: rgb(235, 235, 101);
+    color: $starColor;
   }
 }

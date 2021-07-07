@@ -16,13 +16,15 @@ const PriceSummary = () => {
       <div className={style.price__details}>
         <div className={style.price__detail}>
           <p>Total Product Price ({cartItems && cartItems.length})</p>
-          <p className={style.price__amt}>₹{totalAmount + 100}</p>
+          <p className={style.price__amt}>₹{cartItems && totalAmount + 100}</p>
         </div>
         <div className={style.price__detail}>
-          Shipping Cost <p className={style.price__shipping}> - ₹100</p>{" "}
+          Shipping Cost{" "}
+          <p className={style.price__shipping}> {cartItems && `- ₹100`}</p>{" "}
         </div>
         <div className={style.price__detail}>
-          Total Amount <p className={style.price__amt}>₹{totalAmount}</p>{" "}
+          Total Amount{" "}
+          <p className={style.price__amt}>₹{cartItems && totalAmount}</p>{" "}
         </div>
       </div>
       <div className={style.price__button}></div>
