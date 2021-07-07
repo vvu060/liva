@@ -115,7 +115,9 @@ const ProductDetail = (props) => {
                   sapiente consectetur, recusandae quis optio fugiat alias
                   asperiores saepe sint cupiditate porro fugit. Id, blanditiis!
                 </p>
-                <p className={style.product__unit}>Size: 10g</p>
+                <p className={style.product__unit}>
+                  {details.sku}: {details.seo.title}
+                </p>
                 <div className={style.product__qty}>
                   <div className={style.product__qtyInput}>
                     <Remove

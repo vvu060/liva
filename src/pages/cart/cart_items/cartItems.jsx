@@ -65,8 +65,6 @@ const CartItems = () => {
                 price={cartItem.price.raw}
                 totalPrice={cartItem.line_total.raw}
                 image={cartItem.media.source}
-                // packetSize={cartItem.variant_groups[0].name}
-                // size={cartItem.variant_groups[0].options[0].name}
                 lineItemId={cartItem.id}
                 qty={cartItem.quantity}
                 productId={cartItem.product_id}

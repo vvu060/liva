@@ -57,7 +57,7 @@
 
   &__qty {
     @extend %fra;
-    margin-bottom: rem(5);
+    margin-block: rem(5);
 
     p {
       margin: 0;

@@ -103,10 +103,6 @@ const CartItem = ({
         </p>
 
         <p className={style.cartItem__size}>
-          {/* {packetSize}: <span>{size}</span> */}
-        </p>
-
-        <p className={style.cartItem__size}>
           Estimated Delivery by 31 Jul 2021
         </p>
         <div className={style.cartItem__qty}>
