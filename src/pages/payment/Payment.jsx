@@ -43,7 +43,6 @@ const Payment = () => {
         setTotalAmount(data.subtotal.formatted_with_symbol);
         setCartItems(data.line_items);
         captureOrder(data.line_items);
-        setIsLoading(false);
       })
       .catch((error) => console.error(error));
   };
@@ -62,6 +61,8 @@ const Payment = () => {
   };
 
   const captureOrder = (cartItems) => {
+    setIsLoading(true);
+
     const transformedLineItems = convertArrayToObject(cartItems, "id");
     console.log(transformedLineItems);
 
@@ -106,6 +107,7 @@ const Payment = () => {
       .then((data) => {
         localStorage.removeItem("cart_id");
         localStorage.removeItem("checkoutTokenId");
+        setIsLoading(false);
       })
       .catch((error) => console.error(error));
   };
