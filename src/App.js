@@ -9,6 +9,9 @@ import Sidebar from "./components/sidebar/Sidebar";
 import { motion } from "framer-motion";
 import { selectSidebar } from "./redux/features/sidebar/sidebarSlice";
 import { useSelector } from "react-redux";
+import { ErrorBoundary } from "react-error-boundary";
+import Fallback from "./components/errors/fallback/Fallback";
+import FallbackCart from "./components/errors/empty_cart/FallbackCart";
 
 function App() {
   const sidebar = useSelector(selectSidebar);
@@ -27,9 +30,13 @@ function App() {
             Skip to main content
           </a>
           <Header />
-          <main id="main">
-            <Routes />
-          </main>
+          <ErrorBoundary FallbackComponent={Fallback}>
+            {/* <Fallback />
+            <FallbackCart /> */}
+            <main id="main">
+              <Routes />
+            </main>
+          </ErrorBoundary>
           <Footer />
         </motion.div>
       </Router>
