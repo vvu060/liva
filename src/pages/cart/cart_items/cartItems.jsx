@@ -47,8 +47,8 @@ const CartItems = () => {
   console.log("CartItems", { isLoading });
 
   return (
-    <div className={`block ${style.cartItems}`}>
-      <h2>My Cart ({items && items.length})</h2>
+    <div data-test="component-cartItems" className={`block ${style.cartItems}`}>
+      <h2 data-test="component-items">My Cart ({items && items.length})</h2>
       {isLoading ? (
         <Fragment>
           <CartItemShimmer colSpace={10} />

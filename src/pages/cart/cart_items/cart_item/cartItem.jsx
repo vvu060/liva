@@ -8,6 +8,7 @@ import { selectLoading } from "../../../../redux/features/loading/loadingSlice";
 import { useHistory } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import StarIcon from "@material-ui/icons/Star";
+import PropTypes from "prop-types";
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
@@ -18,8 +19,6 @@ const CartItem = ({
   totalPrice,
   image,
   lineItemId,
-  packetSize,
-  size,
   qty,
   productId,
 }) => {
@@ -77,7 +76,7 @@ const CartItem = ({
   console.log("CartItem", { isLoading });
 
   return (
-    <div className={`block ${style.cartItem}`}>
+    <div data-test="component-cartItem" className={`block ${style.cartItem}`}>
       <img
         className={style.cartItem__img}
         src={image}
@@ -86,7 +85,11 @@ const CartItem = ({
         onClick={getProductId}
       />
       <div className={style.cartItem__details}>
-        <h3 className={style.cartItem__name} onClick={getProductId}>
+        <h3
+          data-test="product-name"
+          className={style.cartItem__name}
+          onClick={getProductId}
+        >
           {name}
         </h3>
 
@@ -99,7 +102,7 @@ const CartItem = ({
         </div>
 
         <p className={style.cartItem__size}>
-          Per Piece: ₹<span>{price}</span>
+          Per Piece: ₹<span data-test="product-price">{price}</span>
         </p>
 
         <p className={style.cartItem__size}>
@@ -118,6 +121,7 @@ const CartItem = ({
                 onClick={decreaseQuantity}
               />
               <input
+                data-test="product-quantity"
                 type="number"
                 min="1"
                 value={quantity}
@@ -130,9 +134,11 @@ const CartItem = ({
             </div>
           )}
         </div>
-        <h4 className={style.cartItem__amount}>Total Amount: ₹{amount}</h4>
+        <h4 className={style.cartItem__amount}>
+          Total Amount: ₹<span data-test="product-totalPrice">{amount}</span>{" "}
+        </h4>
       </div>
-      <div>
+      <div data-test="remove-button">
         <Button
           name="Remove"
           classes="btn btn-primary"
@@ -142,6 +148,27 @@ const CartItem = ({
       </div>
     </div>
   );
+};
+
+CartItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  totalPrice: PropTypes.number.isRequired,
+  lineItemId: PropTypes.string.isRequired,
+  qty: PropTypes.number.isRequired,
+  productId: PropTypes.string.isRequired,
+};
+
+CartItem.defaultProps = {
+  name: "Carrot Seeds",
+  image:
+    "https://cdn.chec.io/merchants/28500/assets/oMT4MY6wdR6TCIpX|Red-Gajar.jpg",
+  price: 88,
+  totalPrice: 88,
+  lineItemId: "item_7RyWOwmK5nEa2V",
+  qty: 1,
+  productId: "prod_bO6J5apRyXoEjp",
 };
 
 export default CartItem;
