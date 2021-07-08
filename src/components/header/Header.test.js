@@ -7,7 +7,7 @@ const setup = () => {
   return mount(<Header />);
 };
 
-test("renders header component without error", () => {
+test.skip("renders header component without error", () => {
   const wrapper = setup();
   const component = findByTestAttr(wrapper, "component-header");
   expect(component.length).toBe(1);

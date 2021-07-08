@@ -9,7 +9,7 @@ const mockStore = configureStore();
 const initialState = { output: 10 };
 let store;
 
-test("renders non-empty component without crashing", () => {
+test.skip("renders non-empty component without crashing", () => {
   store = mockStore(initialState);
   const wrapper = mount(
     <Provider store={store}>

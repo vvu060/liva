@@ -62,6 +62,7 @@ const SearchBar = () => {
         onSubmit={(e) => handleSubmit(e)}
       >
         <input
+          data-test="input-field"
           type="text"
           className={`form-control ${style.search__form}`}
           placeholder="Search"
@@ -72,7 +73,7 @@ const SearchBar = () => {
           value={term}
           onChange={(e) => setTerm(e.target.value)}
         />
-        <button className={style.search__btn}>
+        <button data-test="search-button" className={style.search__btn}>
           <Search className={style.search__icon} />
         </button>
       </form>
@@ -91,7 +92,7 @@ const SearchBar = () => {
       )}
 
       {term && searchResults.data?.length && (
-        <div className={style.search__result}>
+        <div data-test="search-results" className={style.search__result}>
           {searchResults.data.slice(0, 3).map((searchItem) => (
             <div
               className={style.search__results}
@@ -101,10 +102,11 @@ const SearchBar = () => {
               }}
             >
               <img
+                data-test="results-image"
                 src={searchItem.media.source}
                 className={style.search__image}
               />
-              <div className={style.search__detail}>
+              <div data-test="results-details" className={style.search__detail}>
                 <p>{searchItem.name}</p>
                 <p>{searchItem.price.formatted_with_symbol}</p>
                 <div className={style.search__rating}>
