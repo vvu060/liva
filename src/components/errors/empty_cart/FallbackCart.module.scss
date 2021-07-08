@@ -1,0 +1,12 @@
+@import "../../../scss/functions";
+@import "../../../scss/variables";
+@import "../../../scss/placeholder";
+
+.fallbackCart {
+  @extend %fca;
+
+  img {
+    width: rem(450);
+    object-fit: contain;
+  }
+}
