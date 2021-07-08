@@ -131,17 +131,26 @@ const Payment = () => {
 
   if (location.search.includes("success")) {
     return (
-      <main className={`container block ${style.payment}`}>
+      <main
+        data-test="component-payment"
+        className={`container block ${style.payment}`}
+      >
         <div className={style.payment__confirmation}>
-          <CheckCircle className={style.payment__successIcon} />
-          <h1>Thank You, your order has been confirmed!</h1>
+          <CheckCircle
+            data-test="success-icon"
+            className={style.payment__successIcon}
+          />
+          <h1 data-test="success-text">
+            Thank You, your order has been confirmed!
+          </h1>
         </div>
-        <p>
+        <p data-test="success-message">
           Thank you for shopping with us. We'll send a confirmation of item has
           shipped, if you would like to check the status of the order(s) please
           press the link below.
         </p>
         <button
+          data-test="order-button"
           name="Go to my orders"
           className="btn btn-primary"
           onClick={() => history.push("./orders")}
@@ -159,15 +168,22 @@ const Payment = () => {
     return (
       <main className={`container block ${style.payment}`}>
         <div className={style.payment__confirmation}>
-          <Cancel className={style.payment__cancelIcon} />
-          <h1>Payment Unsuccessful</h1>
+          <Cancel
+            data-test="failure-icon"
+            className={style.payment__cancelIcon}
+          />
+          <h1 data-test="failure-text">Payment Unsuccessful</h1>
         </div>
-        <p>
+        <p data-test="failure-message">
           There was some problem while processing your payment. Apologies for
           the inconvenience. Please click the below button to try payment again.
         </p>
-        <Button name="Try Again" classes="btn btn-primary" />
-        <div className="block">
+        <Button
+          data-test="failure-button"
+          name="Try Again"
+          classes="btn btn-primary"
+        />
+        <div data-test="component-latest" className="block">
           <LatestProducts />
         </div>
       </main>
