@@ -43,9 +43,6 @@ const CartItems = () => {
     setItems(cart);
   }, [cart]);
 
-  // console.log({ items, cart });
-  console.log("CartItems", { isLoading });
-
   return (
     <div data-test="component-cartItems" className={`block ${style.cartItems}`}>
       <h2 data-test="component-items">My Cart ({items && items.length})</h2>
