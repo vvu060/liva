@@ -97,7 +97,7 @@ const CartItem = ({
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <StarIcon className={style.cartItem__iconStar} />
+              <StarIcon key={i} className={style.cartItem__iconStar} />
             ))}
         </div>
 
@@ -153,7 +153,7 @@ const CartItem = ({
 CartItem.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
   totalPrice: PropTypes.number.isRequired,
   lineItemId: PropTypes.string.isRequired,
   qty: PropTypes.number.isRequired,

@@ -3,6 +3,12 @@ import { shallow } from "enzyme";
 import Address from "./Address";
 import { findByTestAttr, checkProps } from "../../test/testUtils";
 
+const mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch,
+}));
+
 const setup = () => {
   return shallow(<Address />);
 };

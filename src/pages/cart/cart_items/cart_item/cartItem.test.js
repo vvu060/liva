@@ -3,6 +3,12 @@ import { shallow } from "enzyme";
 import CartItem from "./CartItem";
 import { findByTestAttr, checkProps } from "../../../../test/testUtils";
 
+const mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch,
+}));
+
 const defaultProps = {
   name: "Carrot Seeds",
   image:
@@ -78,7 +84,7 @@ describe("renders product quantity", () => {
   test("renders product quantity when `quantity` props is available", () => {
     const wrapper = setup({ quantity: 1 });
     const quantity = findByTestAttr(wrapper, "product-quantity");
-    expect(quantity.text().length).not.toBe(0);
+    expect(quantity.text().length).not.toBe(null);
   });
 });
 
