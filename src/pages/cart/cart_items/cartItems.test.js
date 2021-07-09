@@ -24,3 +24,9 @@ test("renders my cart text ", () => {
   const component = findByTestAttr(wrapper, "component-items");
   expect(component.length).toBe(1);
 });
+
+test("renders empty cart button", () => {
+  const wrapper = setup();
+  const component = findByTestAttr(wrapper, "button-empty");
+  expect(component.length).toBe(1);
+});
