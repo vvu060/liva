@@ -13,6 +13,12 @@ test("renders without error", () => {
   expect(component.length).toBe(1);
 });
 
+test("renders heading", () => {
+  const wrapper = setup();
+  const component = findByTestAttr(wrapper, "latest-products-heading");
+  expect(component.length).toBe(1);
+});
+
 test("renders the Latest Product Shimmer component", () => {
   const wrapper = setup();
   const component = findByTestAttr(wrapper, "component-shimmer");
