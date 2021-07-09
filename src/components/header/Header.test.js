@@ -4,7 +4,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import { findByTestAttr } from "../../test/testUtils";
 
-mockDispatch();
+const mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch,
+}));
 
 const setup = () => {
   return mount(
@@ -36,7 +40,7 @@ describe("renders header elements", () => {
     expect(componentSearchbar.length).toBe(1);
   });
 
-  test("renders cart icon", () => {
+  test("renders header icons", () => {
     const headerIcons = findByTestAttr(wrapper, "header-icons");
     expect(headerIcons.length).toBe(1);
   });
