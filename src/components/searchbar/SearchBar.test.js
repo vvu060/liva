@@ -28,7 +28,10 @@ describe("renders form", () => {
 });
 
 describe("renders search results section", () => {
-  const wrapper = setup();
+  let wrapper;
+  beforeEach(() => {
+    wrapper = setup();
+  });
 
   test("renders search results div", () => {
     const searchResults = findByTestAttr(wrapper, "search-results");
@@ -42,6 +45,16 @@ describe("renders search results section", () => {
 
   test("renders search results details", () => {
     const resultsDetails = findByTestAttr(wrapper, "results-details");
+    expect(resultsDetails.length).toBe(1);
+  });
+
+  test("renders product name", () => {
+    const resultsDetails = findByTestAttr(wrapper, "product-name");
+    expect(resultsDetails.length).toBe(1);
+  });
+
+  test("renders product name", () => {
+    const resultsDetails = findByTestAttr(wrapper, "product-price");
     expect(resultsDetails.length).toBe(1);
   });
 });

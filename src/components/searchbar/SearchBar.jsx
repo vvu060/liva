@@ -107,13 +107,15 @@ const SearchBar = () => {
                 className={style.search__image}
               />
               <div data-test="results-details" className={style.search__detail}>
-                <p>{searchItem.name}</p>
-                <p>{searchItem.price.formatted_with_symbol}</p>
+                <p data-test="product-name">{searchItem.name}</p>
+                <p data-test="product-price">
+                  {searchItem.price.formatted_with_symbol}
+                </p>
                 <div className={style.search__rating}>
                   {Array(rating)
                     .fill()
                     .map((_, i) => (
-                      <Star className={style.search__iconStar} />
+                      <Star key={i} className={style.search__iconStar} />
                     ))}
                 </div>
               </div>
