@@ -38,7 +38,7 @@ const Sidebar = ({ sidebar = false }) => {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence data-test="component-sidebar">
       {sidebar && (
         <Fragment>
           <motion.div
@@ -52,14 +52,14 @@ const Sidebar = ({ sidebar = false }) => {
             transition={{ type: "spring", bounce: 0.1, duration: 0.5 }}
             className={style.sidebar}
           >
-            <div className={style.sidebar__header}>
+            <div data-test="sidebar-header" className={style.sidebar__header}>
               <h2 onClick={signOut}>{userEmail ? "Sign Out" : "Sign In"}</h2>
               <CancelIcon
                 onClick={hideSidebar}
                 className={style.sidebar__close}
               />
             </div>
-            <div className={style.sidebar__body}>
+            <div data-test="sidebar-body" className={style.sidebar__body}>
               <h3>Welcome to</h3>
               <Logo width={100} alt="Liva Logo" />
               <button onClick={signInWithGoogle}>

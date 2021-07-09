@@ -1,4 +1,3 @@
-import Button from "../button/Button";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { checkoutSession } from "../../helpers/checkoutSession";
@@ -13,6 +12,7 @@ const Address = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const userEmail = useSelector(selectUserEmail);
+  const items = useSelector(selectCartItems);
   const cartId = localStorage.getItem("cart_id")
     ? localStorage.getItem("cart_id")
     : "";
@@ -26,7 +26,6 @@ const Address = () => {
   const [pincode, setPincode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [payment, setPayment] = useState("online");
-  const items = useSelector(selectCartItems);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,9 +60,13 @@ const Address = () => {
   }, []);
 
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
+    <form
+      data-test="component-address"
+      className={style.form}
+      onSubmit={handleSubmit}
+    >
       <h2>Sipping Address</h2>
-      <div className={style.form__group}>
+      <div data-test="name-field" className={style.form__group}>
         <input
           type="text"
           className={style.form__control}
@@ -77,7 +80,7 @@ const Address = () => {
           Full Name
         </label>
       </div>
-      <div className={style.form__group}>
+      <div data-test="phoneNumber-field" className={style.form__group}>
         <input
           type="number"
           value={phoneNumber}
@@ -93,7 +96,7 @@ const Address = () => {
           Mobile Number
         </label>
       </div>
-      <div className={style.form__group}>
+      <div data-test="address1-field" className={style.form__group}>
         <input
           type="text"
           className={style.form__control}
@@ -107,7 +110,7 @@ const Address = () => {
           Address Line 1
         </label>
       </div>
-      <div className={style.form__group}>
+      <div data-test="address2-field" className={style.form__group}>
         <input
           type="text"
           className={style.form__control}
@@ -120,7 +123,7 @@ const Address = () => {
           Address Line 2
         </label>
       </div>
-      <div className={style.form__group}>
+      <div data-test="city-field" className={style.form__group}>
         <input
           type="text"
           value={city}
@@ -133,7 +136,7 @@ const Address = () => {
           City
         </label>
       </div>
-      <div className={style.form__group}>
+      <div data-test="pincode-field" className={style.form__group}>
         <input
           type="text"
           value={pincode}
@@ -146,7 +149,7 @@ const Address = () => {
           Pin Code
         </label>
       </div>
-      <div className={style.form__group}>
+      <div data-test="state-field" className={style.form__group}>
         <label htmlFor="state" className={style.form__selectLabel}>
           State
         </label>
@@ -162,7 +165,7 @@ const Address = () => {
           <option value="maharashtra">Maharashtra</option>
         </select>
       </div>
-      <div className={style.form__radio}>
+      <div data-test="payment-field" className={style.form__radio}>
         <span>Payment</span>
         <div className={style.form__radioInput}>
           <label htmlFor="cod" className={style.form__radioLabel}>
@@ -188,7 +191,11 @@ const Address = () => {
         </div>
       </div>
 
-      <button type="submit" className="btn btn-primary">
+      <button
+        data-test="checkout-button"
+        type="submit"
+        className="btn btn-primary"
+      >
         {userEmail ? "Checkout" : "Sign in To Continue"}
       </button>
     </form>

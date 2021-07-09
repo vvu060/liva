@@ -4,10 +4,9 @@ import useFetch from "../../hooks/useFetch";
 import Filters from "../../components/filters/Filters";
 import ProductCard from "../../components/products_row/product_card/ProductCard";
 import ProductCardShimmer from "../../components/loading/product_card/ProductCardShimmer";
-import BreadCrumb from "../../components/breadcrumb/BreadCrumb";
 import style from "./ProductListing.module.scss";
 
-const ProductListing = (props) => {
+const ProductListing = () => {
   const [categoryId, setCategoryId] = useState("cat_gvRjwOQmG54mNL");
 
   const {
@@ -25,8 +24,6 @@ const ProductListing = (props) => {
   } = useFetch(`${endpoints.products}?limit=10&category_id[]=${categoryId}`, {
     headers: headersPublic,
   });
-
-  const breadCrumbName = props.match.path.slice(1).toUpperCase();
 
   const parentCallback = (categoryId) => {
     setCategoryId(categoryId);

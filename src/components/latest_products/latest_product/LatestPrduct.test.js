@@ -10,6 +10,12 @@ const defaultProps = {
   price: "₹88",
 };
 
+const mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch,
+}));
+
 const setup = (props = {}) => {
   const setupProps = { ...defaultProps, ...props };
   return shallow(<LatestProduct {...setupProps} />);
@@ -62,6 +68,12 @@ describe("renders product price", () => {
     const price = findByTestAttr(wrapper, "product-price");
     expect(price.text().length).not.toBe(0);
   });
+});
+
+test("renders product rating ", () => {
+  const wrapper = setup();
+  const price = findByTestAttr(wrapper, "product-rating");
+  expect(price.text().length).not.toBe(null);
 });
 
 test("does not throw warning with expected props", () => {

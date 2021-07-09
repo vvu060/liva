@@ -1,18 +1,16 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
-import { Provider } from "react-redux";
-import { store } from "./redux/app/store";
+import { mount } from "enzyme";
 import App from "./App";
+import { findByTestAttr, checkProps } from "./test/testUtils";
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-
-test("renders without crashing", () => {
-  const wrapper = shallow(<App />);
-  console.log(wrapper.debug());
-});
+const mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch,
+}));
 
 test("renders non-empty component without crashing", () => {
-  const wrapper = shallow(<App />);
-  expect(wrapper.exists()).toBe(true);
+  const wrapper = mount(<App />);
+  const component = findByTestAttr(wrapper, "component-app");
+  expect(component.length).toBe(1);
 });
