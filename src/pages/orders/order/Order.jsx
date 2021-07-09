@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 
 const Order = ({ order }) => {
   console.log(order);
-
   return (
-    <div className={style.order}>
+    <div data-test="component-order" className={style.order}>
       <div className={style.order__details}>
         <div className={style.order__detail}>
           <p>Order Placed</p>
