@@ -11,23 +11,26 @@ const PriceSummary = () => {
   const cartItems = useSelector(selectCartItems);
 
   return (
-    <div className={`block ${style.price}`}>
+    <div data-test="component-price-summary" className={`block ${style.price}`}>
       <h2>Price Details</h2>
       <div className={style.price__details}>
         <div className={style.price__detail}>
           <p>Total Product Price ({cartItems && cartItems.length})</p>
-          <p className={style.price__amt}>₹{cartItems && totalAmount + 100}</p>
+          <p data-test="product-price" className={style.price__amt}>
+            ₹{cartItems && totalAmount + 100}
+          </p>
         </div>
-        <div className={style.price__detail}>
+        <div data-test="shipping-price" className={style.price__detail}>
           Shipping Cost{" "}
           <p className={style.price__shipping}> {cartItems && `- ₹100`}</p>{" "}
         </div>
         <div className={style.price__detail}>
           Total Amount{" "}
-          <p className={style.price__amt}>₹{cartItems && totalAmount}</p>{" "}
+          <p data-test="total-price" className={style.price__amt}>
+            ₹{cartItems && totalAmount}
+          </p>{" "}
         </div>
       </div>
-      <div className={style.price__button}></div>
     </div>
   );
 };

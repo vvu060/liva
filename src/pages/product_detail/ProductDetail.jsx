@@ -71,7 +71,7 @@ const ProductDetail = (props) => {
   console.log(details);
 
   return (
-    <div className="container block">
+    <div data-test="component-product-detail" className="container block">
       {isLoading ? (
         <Fragment>
           <ProductDetailShimmer />
@@ -98,7 +98,9 @@ const ProductDetail = (props) => {
               </div>
 
               <div className={style.product__details}>
-                <h2 className={style.product__name}>{details.name}</h2>
+                <h2 className={style.product__name} data-test="product-name">
+                  {details.name}
+                </h2>
                 <p className={style.product__price}>
                   {details.price.formatted_with_symbol}
                 </p>

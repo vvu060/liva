@@ -44,11 +44,11 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
       <h5 data-test="product-name" onClick={getProductId}>
         {name}
       </h5>
-      <div className={style.productCard__rating}>
+      <div data-test="product-rating" className={style.productCard__rating}>
         {Array(rating)
           .fill()
           .map((_, i) => (
-            <StarIcon className={style.productCard__icon} />
+            <StarIcon key={i} className={style.productCard__icon} />
           ))}
       </div>
       <p data-test="product-price">{price}</p>

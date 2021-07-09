@@ -23,7 +23,10 @@ const LatestProducts = () => {
       data-test="component-latest-products"
       className={`container ${style.latestProducts}`}
     >
-      <div className={style.latestProducts__title}>
+      <div
+        data-test="latest-products-heading"
+        className={style.latestProducts__title}
+      >
         <p>See Out Latest</p>
         <h2>Arrival Products</h2>
       </div>

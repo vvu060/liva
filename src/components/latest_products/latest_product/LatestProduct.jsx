@@ -40,11 +40,11 @@ const LatestProduct = ({ name, image, price, productId }) => {
         >
           {name}
         </h5>
-        <div className={style.latestProduct__rating}>
+        <div data-test="product-rating" className={style.latestProduct__rating}>
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <StarIcon className={style.latestProduct__iconStar} />
+              <StarIcon key={i} className={style.latestProduct__iconStar} />
             ))}
         </div>
         <p>

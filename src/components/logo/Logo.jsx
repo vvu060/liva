@@ -5,6 +5,7 @@ import style from "./Logo.module.scss";
 const Logo = ({ alt, width, height, className }) => {
   return (
     <img
+      data-test="component-logo"
       className={style.logo}
       src={logoSrc}
       loading="lazy"
