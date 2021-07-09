@@ -3,7 +3,7 @@ import Logo from "../logo/Logo";
 import SearchBar from "../searchbar/SearchBar";
 import style from "./Header.module.scss";
 import { Avatar, Badge } from "@material-ui/core";
-import { ShoppingCart, History } from "@material-ui/icons/";
+import { ShoppingCart, History, Search } from "@material-ui/icons/";
 import { useDispatch, useSelector } from "react-redux";
 import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import { selectUserPhoto } from "../../redux/features/user/userSlice";
@@ -26,8 +26,9 @@ const Header = () => {
           <Link to="/">
             <Logo width={125} alt="Liva Logo" className={style.header__logo} />
           </Link>
-          <div className="col-5">
-            <SearchBar />
+
+          <div className={`col-xs-3 ${style.header__search}`}>
+            {/* <SearchBar /> */}
           </div>
 
           <div>
@@ -54,6 +55,10 @@ const Header = () => {
               />
             </div>
           </div>
+        </div>
+
+        <div className="">
+          <SearchBar />
         </div>
       </div>
     </header>

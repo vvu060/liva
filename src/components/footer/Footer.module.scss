@@ -6,7 +6,7 @@
   margin-top: auto;
 
   &__top {
-    background: lighten($accentColor,72%);
+    background: lighten($accentColor, 72%);
     padding: rem(40) 0;
   }
 
@@ -56,21 +56,33 @@
   }
 
   &__logo,
-  &__item{
+  &__item {
     margin-bottom: rem(16);
   }
 
-  &__list{
+  &__list {
     @extend %d-flex;
     flex-direction: column;
   }
 
-  &__item{
+  &__item {
     @extend %d-flex;
     align-items: center;
 
-    svg{
+    svg {
       margin-right: rem(10);
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer {
+    &__column {
+      margin-bottom: rem(10);
+    }
+
+    &__companyDesc {
+      margin-top: rem(5);
     }
   }
 }

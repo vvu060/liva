@@ -24,7 +24,7 @@ const LatestProduct = ({ name, image, price, productId }) => {
   return (
     <div
       data-test="component-latest-product"
-      className={`col-4 ${style.latestProduct}`}
+      className={`col-xs-6 col-sm-4 col-md-4 col-lg-3 ${style.latestProduct}`}
     >
       <img
         data-test="product-image"

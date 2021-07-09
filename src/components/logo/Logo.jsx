@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import logoSrc from "../../resources/logo.png";
+import style from "./Logo.module.scss";
 
 const Logo = ({ alt, width, height, className }) => {
   return (
     <img
+      className={style.logo}
       src={logoSrc}
       loading="lazy"
       alt={alt}
       width={width}
       height={height}
-      className={className}
     />
   );
 };

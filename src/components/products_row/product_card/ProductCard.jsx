@@ -31,7 +31,7 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
   return (
     <div
       data-test="component-product-card"
-      className={`col-${colSpace} ${style.productCard}`}
+      className={`col-xs-6 col-sm-4 col-md-4 col-lg-3 ${style.productCard}`}
     >
       <img
         data-test="product-image"

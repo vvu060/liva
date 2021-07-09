@@ -49,3 +49,10 @@
     margin: rem(2);
   }
 }
+
+@media (max-width: 575.98px) {
+  .productsRow__card {
+    margin-bottom: rem(10);
+    padding-inline: rem(10);
+  }
+}

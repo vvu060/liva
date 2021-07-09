@@ -6,3 +6,13 @@
   padding: rem(15);
   justify-content: space-between;
 }
+
+@media (max-width: 575.98px) {
+  .icon {
+    &__row {
+      div {
+        margin-block: rem(10);
+      }
+    }
+  }
+}

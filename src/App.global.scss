@@ -52,19 +52,62 @@ body {
 
   @extend %w-100;
 }
+
 .row {
   margin-inline: rem(-15);
   @extend %d-flex;
   @extend %f-frw;
 }
+
+.block {
+  padding: rem(50) 0;
+}
+
 [class*="col-"],
 .container {
   padding-inline: rem(15);
 }
+
 @for $i from 1 through 12 {
   .col-#{$i} {
     flex: 0 0 math.div(100, math.div(12, $i)) * 1%;
     max-width: math.div(100, math.div(12, $i)) * 1%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  @for $i from 1 through 12 {
+    .col-sm-#{$i} {
+      flex: 0 0 math.div(100, math.div(12, $i)) * 1%;
+      max-width: math.div(100, math.div(12, $i)) * 1%;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  @for $i from 1 through 12 {
+    .col-xs-#{$i} {
+      flex: 0 0 math.div(100, math.div(12, $i)) * 1%;
+      max-width: math.div(100, math.div(12, $i)) * 1%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  @for $i from 1 through 12 {
+    .col-md-#{$i} {
+      flex: 0 0 math.div(100, math.div(12, $i)) * 1%;
+      max-width: math.div(100, math.div(12, $i)) * 1%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} {
+      flex: 0 0 math.div(100, math.div(12, $i)) * 1%;
+      max-width: math.div(100, math.div(12, $i)) * 1%;
+    }
   }
 }
 
@@ -129,6 +172,7 @@ body {
     display: flex;
   }
 }
+
 .skipnav {
   background: transparent;
   color: $textColor;
@@ -147,10 +191,6 @@ body {
     top: 0;
     transition: all 0.2s ease-in-out;
   }
-}
-
-.block {
-  padding: rem(50) 0;
 }
 
 #active {
