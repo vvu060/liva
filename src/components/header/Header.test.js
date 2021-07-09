@@ -1,43 +1,43 @@
 import React from "react";
 import { mount } from "enzyme";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import { findByTestAttr } from "../../test/testUtils";
 
+mockDispatch();
+
 const setup = () => {
-  return mount(<Header />);
+  return mount(
+    <Router>
+      <Header />
+    </Router>
+  );
 };
 
-test.skip("renders header component without error", () => {
+test("renders header component without error", () => {
   const wrapper = setup();
   const component = findByTestAttr(wrapper, "component-header");
   expect(component.length).toBe(1);
 });
 
 describe("renders header elements", () => {
-  const wrapper = setup();
+  let wrapper;
+  beforeEach(() => {
+    wrapper = setup();
+  });
 
   test("renders logo component", () => {
     const componentLogo = findByTestAttr(wrapper, "component-logo");
     expect(componentLogo.length).toBe(1);
   });
 
-  test("renders logo component", () => {
+  test("renders searchbar component", () => {
     const componentSearchbar = findByTestAttr(wrapper, "component-searchbar");
     expect(componentSearchbar.length).toBe(1);
   });
 
   test("renders cart icon", () => {
-    const cartIcon = findByTestAttr(wrapper, "cart-icon");
-    expect(cartIcon.length).toBe(1);
-  });
-
-  test("renders history icon", () => {
-    const historyIcon = findByTestAttr(wrapper, "history-icon");
-    expect(historyIcon.length).toBe(1);
-  });
-
-  test("renders avatar", () => {
-    const avatar = findByTestAttr(wrapper, "avatar");
-    expect(avatar.length).toBe(1);
+    const headerIcons = findByTestAttr(wrapper, "header-icons");
+    expect(headerIcons.length).toBe(1);
   });
 });

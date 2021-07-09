@@ -31,7 +31,7 @@ const Header = () => {
           </div>
 
           <div>
-            <div className={style.header__right}>
+            <div data-test="header-icons" className={style.header__right}>
               <Badge
                 badgeContent={cartItems && cartItems.length}
                 color="secondary"
