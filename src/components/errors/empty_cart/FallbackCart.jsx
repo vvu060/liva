@@ -3,7 +3,7 @@ import style from "./FallbackCart.module.scss";
 
 const FallbackCart = () => {
   return (
-    <div className={style.fallbackCart}>
+    <div data-test="component-fallback-cart" className={style.fallbackCart}>
       <img
         src="https://image.shutterstock.com/image-vector/vector-illustration-icon-shopping-concept-600w-502037047.jpg"
         alt=""
