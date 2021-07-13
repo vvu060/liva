@@ -69,11 +69,6 @@ const CartItems = () => {
             ))}
         </Fragment>
       )}
-      <Button
-        data-test="button-empty"
-        name="Empty Cart"
-        classes="btn btn-primary"
-      />
     </div>
   );
 };

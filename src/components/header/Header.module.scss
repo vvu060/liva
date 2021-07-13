@@ -9,6 +9,7 @@
   background: $lightColor;
   z-index: 9;
   border-bottom: 3px solid $divider;
+  flex: 1;
 
   &__row {
     @extend %d-jsb;
@@ -23,5 +24,28 @@
     margin-left: rem(30);
     cursor: pointer;
     font-size: x-large;
+  }
+
+  &__searchMob {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header {
+    padding-inline: rem(10);
+
+    &__search {
+      display: none;
+    }
+
+    &__icon {
+      margin-left: rem(20);
+      font-size: large;
+    }
+
+    &__searchMob {
+      display: block;
+    }
   }
 }

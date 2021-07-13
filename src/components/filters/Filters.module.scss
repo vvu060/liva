@@ -35,3 +35,15 @@
     background-color: $accentColor;
   }
 }
+
+@media (max-width: 575.98px) {
+  .filters {
+    img {
+      display: none;
+    }
+
+    h5 {
+      font-size: rem(12);
+    }
+  }
+}

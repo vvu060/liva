@@ -31,7 +31,7 @@ export const checkoutSession = async (items, userEmail) => {
 
   // Call the backend to create a checkout session...
   const checkoutSession = await axios.post(
-    "http://localhost:5000/create-checkout-session",
+    "https://us-central1-liva-backend.cloudfunctions.net/app/create-checkout-session",
     body,
     headers
   );

@@ -84,67 +84,71 @@ const CartItem = ({
         alt={name}
         onClick={getProductId}
       />
-      <div className={style.cartItem__details}>
-        <h3
-          data-test="product-name"
-          className={style.cartItem__name}
-          onClick={getProductId}
-        >
-          {name}
-        </h3>
 
-        <div className={style.cartItem__rating}>
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <StarIcon key={i} className={style.cartItem__iconStar} />
-            ))}
+      <div className={style.cartItem__right}>
+        <div className={style.cartItem__details}>
+          <h3
+            data-test="product-name"
+            className={style.cartItem__name}
+            onClick={getProductId}
+          >
+            {name}
+          </h3>
+
+          <div className={style.cartItem__rating}>
+            {Array(rating)
+              .fill()
+              .map((_, i) => (
+                <StarIcon key={i} className={style.cartItem__iconStar} />
+              ))}
+          </div>
+
+          <p className={style.cartItem__size}>
+            Per Piece: ₹<span data-test="product-price">{price}</span>
+          </p>
+
+          <p className={style.cartItem__size}>
+            Estimated Delivery by 31 Jul 2021
+          </p>
+          <div className={style.cartItem__qty}>
+            <p>Quantity :</p>
+            {isLoading ? (
+              <div className={style.cartItem__loader}>
+                <ClipLoader color="green" size={30} />
+              </div>
+            ) : (
+              <div className={style.cartItem__qtyInput}>
+                <Remove
+                  className={style.cartItem__icon}
+                  onClick={decreaseQuantity}
+                />
+                <input
+                  data-test="product-quantity"
+                  type="number"
+                  min="1"
+                  value={quantity}
+                  onChange={(e) => updateQuantity(e)}
+                />
+                <Add
+                  className={style.cartItem__icon}
+                  onClick={increaseQuantity}
+                />
+              </div>
+            )}
+          </div>
+          <h4 className={style.cartItem__amount}>
+            Total Amount: ₹<span data-test="product-totalPrice">{amount}</span>{" "}
+          </h4>
         </div>
 
-        <p className={style.cartItem__size}>
-          Per Piece: ₹<span data-test="product-price">{price}</span>
-        </p>
-
-        <p className={style.cartItem__size}>
-          Estimated Delivery by 31 Jul 2021
-        </p>
-        <div className={style.cartItem__qty}>
-          <p>Quantity :</p>
-          {isLoading ? (
-            <div className={style.cartItem__loader}>
-              <ClipLoader color="green" size={30} />
-            </div>
-          ) : (
-            <div className={style.cartItem__qtyInput}>
-              <Remove
-                className={style.cartItem__icon}
-                onClick={decreaseQuantity}
-              />
-              <input
-                data-test="product-quantity"
-                type="number"
-                min="1"
-                value={quantity}
-                onChange={(e) => updateQuantity(e)}
-              />
-              <Add
-                className={style.cartItem__icon}
-                onClick={increaseQuantity}
-              />
-            </div>
-          )}
+        <div data-test="remove-button">
+          <Button
+            name="Remove"
+            classes="btn btn-primary"
+            disabled={isLoading}
+            onClick={removeFromCart}
+          />
         </div>
-        <h4 className={style.cartItem__amount}>
-          Total Amount: ₹<span data-test="product-totalPrice">{amount}</span>{" "}
-        </h4>
-      </div>
-      <div data-test="remove-button">
-        <Button
-          name="Remove"
-          classes="btn btn-primary"
-          disabled={isLoading}
-          onClick={removeFromCart}
-        />
       </div>
     </div>
   );

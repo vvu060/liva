@@ -81,3 +81,19 @@
     color: $starColor;
   }
 }
+
+@media (max-width: 575.98px) {
+  .latestProduct {
+    &__details {
+      h5 {
+        font-size: rem(14);
+      }
+    }
+
+    &__icon {
+      opacity: 1;
+      padding: rem(3);
+      font-size: x-small;
+    }
+  }
+}

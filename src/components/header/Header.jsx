@@ -28,7 +28,7 @@ const Header = () => {
           </Link>
 
           <div className={`col-xs-3 ${style.header__search}`}>
-            {/* <SearchBar /> */}
+            <SearchBar />
           </div>
 
           <div>
@@ -60,7 +60,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="">
+        <div className={style.header__searchMob}>
           <SearchBar />
         </div>
       </div>

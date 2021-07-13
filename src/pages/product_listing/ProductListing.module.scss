@@ -24,3 +24,14 @@
     color: $textColor;
   }
 }
+
+@media (max-width: 575.98px) {
+  .productListing {
+    overflow: hidden;
+
+    &__filter {
+      overflow-x: scroll;
+      border: 1px solid black;
+    }
+  }
+}

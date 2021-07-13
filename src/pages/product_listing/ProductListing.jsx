@@ -30,7 +30,7 @@ const ProductListing = () => {
   };
 
   return (
-    <div className={`container ${style.productListing}`}>
+    <div className={`container block ${style.productListing}`}>
       <h3>Categories</h3>
       <div className={`${style.productListing__filter}`}>
         {/* Category Filter  */}
@@ -46,7 +46,7 @@ const ProductListing = () => {
             />
           ))}
       </div>
-      <div className={`row ${style.productListing__product}`}>
+      <div className={`row col-xs-12  ${style.productListing__product}`}>
         {/* Products */}
         {productsLoading ? (
           <Fragment>
