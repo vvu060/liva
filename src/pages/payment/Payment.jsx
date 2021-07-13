@@ -116,8 +116,8 @@ const Payment = () => {
   };
 
   useEffect(() => {
-    getCartItems();
-  }, []);
+    // userEmail && getCartItems();
+  }, [userEmail]);
 
   console.log(cartItems);
 

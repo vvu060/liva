@@ -33,3 +33,13 @@
     margin-right: rem(5);
   }
 }
+
+@media (max-width: 575.98px) {
+  .payment {
+    text-align: center;
+
+    &__confirmation {
+      flex-direction: column;
+    }
+  }
+}

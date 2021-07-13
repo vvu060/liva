@@ -2,7 +2,7 @@ import { Link, useHistory } from "react-router-dom";
 import Logo from "../logo/Logo";
 import SearchBar from "../searchbar/SearchBar";
 import style from "./Header.module.scss";
-import { Avatar, Badge } from "@material-ui/core";
+import { Avatar, Badge, Button } from "@material-ui/core";
 import { ShoppingCart, History, Search } from "@material-ui/icons/";
 import { useDispatch, useSelector } from "react-redux";
 import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
@@ -33,22 +33,26 @@ const Header = () => {
 
           <div>
             <div data-test="header-icons" className={style.header__right}>
-              <Badge
-                badgeContent={cartItems && cartItems.length}
-                color="secondary"
-              >
-                <ShoppingCart
-                  data-test="cart-icon"
-                  className={style.header__icon}
-                  onClick={() => history.push("/cart")}
-                />
-              </Badge>
+              <Button>
+                <Badge
+                  badgeContent={cartItems && cartItems.length}
+                  color="secondary"
+                >
+                  <ShoppingCart
+                    data-test="cart-icon"
+                    className={style.header__icon}
+                    onClick={() => history.push("/cart")}
+                  />
+                </Badge>
+              </Button>
 
-              <History
-                data-test="history-icon"
-                className={style.header__icon}
-                onClick={() => history.push("/orders")}
-              />
+              <Button>
+                <History
+                  data-test="history-icon"
+                  className={style.header__icon}
+                  onClick={() => history.push("/orders")}
+                />
+              </Button>
 
               <Avatar
                 data-test="avatar"
