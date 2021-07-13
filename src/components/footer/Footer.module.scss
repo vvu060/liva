@@ -4,6 +4,9 @@
 
 .footer {
   margin-top: auto;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 
   &__top {
     background: lighten($accentColor, 72%);
@@ -54,6 +57,9 @@
     padding-block: rem(16);
     @extend %text-center;
   }
+  &__companyDesc {
+    margin-top: rem(5);
+  }
 
   &__logo,
   &__item {
@@ -79,10 +85,6 @@
   .footer {
     &__column {
       margin-bottom: rem(10);
-    }
-
-    &__companyDesc {
-      margin-top: rem(5);
     }
   }
 }

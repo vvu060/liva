@@ -48,7 +48,7 @@ const CartItem = ({
       updateItem(debouncedQuantity, cartId, lineItemId, dispatch);
       setAmount(+debouncedQuantity * +price);
     }
-  }, [debouncedQuantity]);
+  }, [debouncedQuantity, lineItemId]);
 
   const increaseQuantity = () => {
     setQuantity((quantity) => (quantity += 1));

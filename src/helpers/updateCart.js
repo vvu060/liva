@@ -31,8 +31,8 @@ export const removeItem = async (cartId, lineItemId, dispatch) => {
         headers: headersPublic,
       }
     );
-    console.log(data);
     dispatch(cartItems(data.cart.line_items));
+    dispatch(getTotalAmount(data.cart.subtotal.raw));
     dispatch(isLoading(false));
   } catch (error) {
     alert(error.message);
