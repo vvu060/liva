@@ -116,7 +116,7 @@ const Payment = () => {
   };
 
   useEffect(() => {
-    // userEmail && getCartItems();
+    userEmail && getCartItems();
   }, [userEmail]);
 
   console.log(cartItems);
