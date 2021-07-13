@@ -2,10 +2,11 @@ import React, { Fragment } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import style from "./Order.module.scss";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Order = ({ order }) => {
   console.log(order);
+  const history = useHistory();
   return (
     <div data-test="component-order" className={style.order}>
       {order && (
@@ -33,20 +34,40 @@ const Order = ({ order }) => {
 
           <div className={style.order__info}>
             <div className={style.order__cart}>
-              {order.order.line_items.map((item) => (
-                <Link to={`/products/${item.product_name}/${item.product_id}`}>
-                  <div className={style.order__items}>
-                    <p data-test="product-name">{item.product_name}</p>
-                    <p data-test="product-price">
-                      {item.price.formatted_with_symbol}
-                    </p>
-                    <p data-test="product-quantity">{item.quantity}</p>
-                    <p data-test="product-total">
-                      {item.line_total.formatted_with_symbol}
-                    </p>
-                  </div>
-                </Link>
-              ))}
+              <table className={style.order__table}>
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th className={style.order__tableCell}>Unit Price</th>
+                    <th className={style.order__tableCell}>Qty</th>
+                    <th className={style.order__tableCell}>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody className={style.order__tableRow}>
+                  {order.order.line_items.map((item) => (
+                    <tr
+                      onClick={() =>
+                        history.push(
+                          `/products/${item.product_name}/${item.product_id}`
+                        )
+                      }
+                    >
+                      <td className={style.order__tableProduct}>
+                        {item.product_name}
+                      </td>
+                      <td className={style.order__tableCell}>
+                        {item.price.formatted_with_symbol}
+                      </td>
+                      <td className={style.order__tableCell}>
+                        {item.quantity}
+                      </td>
+                      <td className={style.order__tableCell}>
+                        {item.line_total.formatted_with_symbol}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
             <div className={style.order__address}>

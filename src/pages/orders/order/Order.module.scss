@@ -44,30 +44,6 @@
     }
   }
 
-  &__items {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: rem(15) rem(5);
-    transition: all 0.4s ease-in-out;
-    color: $textColor;
-
-    p {
-      margin-right: rem(10);
-      margin: 0;
-      padding: 0;
-      font-size: 13px;
-    }
-
-    &:hover {
-      cursor: pointer;
-      background: lighten($accentColor, 55%);
-      transform: scale(1.02);
-      border-radius: rem(5);
-    }
-  }
-
   &__info {
     display: flex;
     flex-direction: row;
@@ -77,15 +53,15 @@
   }
 
   &__cart {
-    flex: 1;
+    flex: 0.8;
   }
 
   &__address {
     flex-flow: row wrap;
-    font-size: rem(13);
-    padding: rem(5);
-    margin-top: rem(10);
-    margin-left: rem(10);
+    flex: 0.2;
+    width: 100%;
+    font-size: rem(16);
+    padding: 0 rem(5);
     color: $textColor;
 
     h5 {
@@ -94,7 +70,43 @@
 
     p {
       margin: 0;
-      font-size: rem(12);
+      font-size: rem(14);
+    }
+  }
+
+  &__table {
+    width: 100%;
+  }
+
+  &__tableRow {
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+
+    :hover {
+      background: lighten($accentColor, 55%);
+      transform: scale(1.02);
+      border-radius: rem(5);
+    }
+  }
+
+  &__tableProduct {
+    width: 40%;
+  }
+
+  &__tableCell {
+    text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .order {
+    &__info {
+      flex-direction: column;
+      line-height: 1.7;
+    }
+
+    &__address {
+      background: lighten($accentColor, 60%);
     }
   }
 }
