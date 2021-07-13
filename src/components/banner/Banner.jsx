@@ -17,7 +17,8 @@ const Banner = () => {
         <div className={style.banner__right}>
           <img
             src="https://cdn.shopify.com/s/files/1/0011/9868/6266/files/1-3-601x534.png?v=1621424321"
-            alt=""
+            loading="lazy"
+            alt="banner"
           />
         </div>
       </div>

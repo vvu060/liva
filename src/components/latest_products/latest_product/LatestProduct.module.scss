@@ -10,6 +10,7 @@
   img {
     height: rem(100);
     width: rem(100);
+    object-fit: contain;
     margin-right: rem(15);
     transform: scale(1);
     transition: all 0.4s ease-in-out;

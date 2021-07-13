@@ -66,7 +66,8 @@ const Sidebar = ({ sidebar = false }) => {
                 <div className={style.sidebar__button}>
                   <img
                     src="https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_google-256.png"
-                    alt=""
+                    loading="lazy"
+                    alt="google logo"
                   />{" "}
                   Sign In With Google
                 </div>
@@ -75,7 +76,8 @@ const Sidebar = ({ sidebar = false }) => {
                 <div className={style.sidebar__button}>
                   <img
                     src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-256.png"
-                    alt=""
+                    loading="lazy"
+                    alt="facebook logo"
                   />{" "}
                   Sign In With Facebook
                 </div>

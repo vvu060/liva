@@ -84,7 +84,8 @@ const ProductDetail = (props) => {
                 <div className={style.product__thumb} ref={myRef}>
                   {details.assets.map((image, index) => (
                     <img
-                      id=""
+                      id={index}
+                      loading="lazy"
                       key={index}
                       src={image.url}
                       alt={index}
@@ -93,7 +94,11 @@ const ProductDetail = (props) => {
                   ))}
                 </div>
                 <div className={style.product__bigImage}>
-                  <img src={details.assets[index].url} alt="" />
+                  <img
+                    src={details.assets[index].url}
+                    alt="image"
+                    loading="lazy"
+                  />
                 </div>
               </div>
 
@@ -145,19 +150,22 @@ const ProductDetail = (props) => {
                   <a href="https://www.facebook.com/" target="_blank">
                     <img
                       src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-256.png"
-                      alt=""
+                      loading="lazy"
+                      alt="facebook"
                     />
                   </a>
                   <a href="https://www.whatsapp.com/" target="_blank">
                     <img
                       src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/13-whatsapp-256.png"
-                      alt=""
+                      alt="whatsapp"
+                      loading="lazy"
                     />
                   </a>
                   <a href="https://www.google.com/" target="_blank">
                     <img
                       src="https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_google-256.png"
-                      alt=""
+                      loading="lazy"
+                      alt="google"
                     />
                   </a>
                 </div>

@@ -103,6 +103,7 @@ const SearchBar = () => {
             >
               <img
                 data-test="results-image"
+                loading="lazy"
                 src={searchItem.media.source}
                 className={style.search__image}
               />

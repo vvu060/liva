@@ -6,7 +6,8 @@ const FallbackCart = () => {
     <div data-test="component-fallback-cart" className={style.fallbackCart}>
       <img
         src="https://image.shutterstock.com/image-vector/vector-illustration-icon-shopping-concept-600w-502037047.jpg"
-        alt=""
+        loading="lazy"
+        alt="Something went wrong"
       />
     </div>
   );
