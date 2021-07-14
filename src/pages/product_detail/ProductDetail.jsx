@@ -17,13 +17,15 @@ const ProductDetail = (props) => {
   const productId = props.match.params.productId;
   const dispatch = useDispatch();
   const [details, setDetails] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
   const myRef = useRef();
   const [rating] = useState(
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
+
+  console.log(props.match);
 
   const getProduct = () => {
     setIsLoading(true);
@@ -68,8 +70,6 @@ const ProductDetail = (props) => {
     getProduct();
   }, [productId]);
 
-  console.log(details);
-
   return (
     <div data-test="component-product-detail" className="container block">
       {isLoading ? (
@@ -81,7 +81,11 @@ const ProductDetail = (props) => {
           {details && (
             <div className={style.product}>
               <div className={style.product__images}>
-                <div className={style.product__thumb} ref={myRef}>
+                <div
+                  data-test="product-thumb"
+                  className={style.product__thumb}
+                  ref={myRef}
+                >
                   {details.assets.map((image, index) => (
                     <img
                       id={index}
@@ -95,6 +99,7 @@ const ProductDetail = (props) => {
                 </div>
                 <div className={style.product__bigImage}>
                   <img
+                    data-test="product-image"
                     src={details.assets[index].url}
                     alt="image"
                     loading="lazy"
@@ -103,27 +108,34 @@ const ProductDetail = (props) => {
               </div>
 
               <div className={style.product__details}>
-                <h2 className={style.product__name} data-test="product-name">
+                <h2 data-test="product-name" className={style.product__name}>
                   {details.name}
                 </h2>
-                <p className={style.product__price}>
+                <p data-test="product-price" className={style.product__price}>
                   {details.price.formatted_with_symbol}
                 </p>
-                <div className={style.product__rating}>
+                <div
+                  data-test="product-rating"
+                  className={style.product__rating}
+                >
                   {Array(rating)
                     .fill()
                     .map((_, i) => (
-                      <StarIcon className={style.product__iconStar} />
+                      <StarIcon key={i} className={style.product__iconStar} />
                     ))}
                 </div>
                 <p
+                  data-test="product-desc"
                   className={style.product__desc}
                   dangerouslySetInnerHTML={{ __html: details.description }}
                 />
-                <p className={style.product__unit}>
+                <p data-test="product-size" className={style.product__unit}>
                   {details.sku}: {details.seo.title}
                 </p>
-                <div className={style.product__qty}>
+                <div
+                  data-test="product-quantity"
+                  className={style.product__qty}
+                >
                   <div className={style.product__qtyInput}>
                     <Remove
                       className={style.product__icon}
@@ -146,7 +158,7 @@ const ProductDetail = (props) => {
                     onClick={addItemToCart}
                   />
                 </div>
-                <div className={style.product__share}>
+                <div data-test="product-share" className={style.product__share}>
                   <a href="https://www.facebook.com/" target="_blank">
                     <img
                       src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-256.png"
@@ -175,8 +187,11 @@ const ProductDetail = (props) => {
         </Fragment>
       )}
 
-      <div class={`block ${style.product__related}`}>
-        <h3>Related Products</h3>
+      <div
+        data-test="product-related"
+        class={`block ${style.product__related}`}
+      >
+        <h3 data-test="related-text">Related Products</h3>
         <div className={style.product__relatedProduct}>
           {isLoading ? (
             <Fragment>

@@ -8,5 +8,24 @@
   img {
     width: rem(450);
     object-fit: contain;
+    margin-bottom: rem(30);
+  }
+
+  h2 {
+    margin-bottom: rem(30);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .fallbackCart {
+    img {
+      width: rem(250);
+      object-fit: contain;
+      margin-bottom: rem(20);
+    }
+
+    h2 {
+      margin-bottom: rem(20);
+    }
   }
 }

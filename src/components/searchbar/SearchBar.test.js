@@ -28,12 +28,12 @@ describe("renders form", () => {
 });
 
 describe("renders search results section", () => {
-  // let wrapper;
-  // beforeEach(() => {
-  //   wrapper = setup();
-  // });
-
-  const wrapper = setup();
+  let wrapper;
+  beforeEach(() => {
+    wrapper = setup();
+    const input = findByTestAttr(wrapper, "input-field");
+    input.simulate("onChange", { target: { value: "Seeds" } });
+  });
 
   test("renders search results div", () => {
     const searchResults = findByTestAttr(wrapper, "search-results");

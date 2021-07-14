@@ -27,7 +27,6 @@ const CartItems = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.line_items);
         setItems(data.line_items);
         dispatch(cartItems(data.line_items));
         setIsLoading(false);
