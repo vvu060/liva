@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectLoading } from "../../../redux/features/loading/loadingSlice";
 import BeatLoader from "react-spinners/BeatLoader";
 import { useHistory } from "react-router-dom";
-import StarIcon from "@material-ui/icons/Star";
+import { Star, FavoriteBorder, Favorite } from "@material-ui/icons";
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
@@ -16,6 +16,7 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const isLoading = useSelector(selectLoading);
+  const [liked, setLiked] = useState(false);
   const [rating] = useState(
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
@@ -41,6 +42,21 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
         className={style.productCard__image}
         onClick={getProductId}
       />
+      {liked ? (
+        <div className={style.productCard__fav}>
+          <Favorite
+            className={style.productCard__favIcon}
+            onClick={() => setLiked(false)}
+          />
+        </div>
+      ) : (
+        <div className={style.productCard__fav}>
+          <FavoriteBorder
+            className={style.productCard__favIcon}
+            onClick={() => setLiked(true)}
+          />
+        </div>
+      )}
       <h5 data-test="product-name" onClick={getProductId}>
         {name}
       </h5>
@@ -48,7 +64,7 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
         {Array(rating)
           .fill()
           .map((_, i) => (
-            <StarIcon key={i} className={style.productCard__icon} />
+            <Star key={i} className={style.productCard__icon} />
           ))}
       </div>
       <p data-test="product-price">{price}</p>
