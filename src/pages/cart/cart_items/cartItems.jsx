@@ -2,7 +2,6 @@ import React, { useState, useEffect, Fragment } from "react";
 import CartItem from "./cart_item/CartItem";
 import { endpoints, headersPublic } from "../../../endpoints";
 import style from "./CartItems.module.scss";
-import Button from "../../../components/button/Button";
 import CartItemShimmer from "../../../components/loading/cart_item/CartItemShimmer";
 import {
   cartItems,
