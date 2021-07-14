@@ -1,33 +1,24 @@
-// import counterReducer, {
-//   increment,
-//   decrement,
-//   incrementByAmount,
-// } from './cartSlice';
+import cartReducer, { cartItems, getTotalAmount } from "./cartSlice";
 
-// describe('counter reducer', () => {
-//   const initialState = {
-//     value: 3,
-//     status: 'idle',
-//   };
-//   it('should handle initial state', () => {
-//     expect(counterReducer(undefined, { type: 'unknown' })).toEqual({
-//       value: 0,
-//       status: 'idle',
-//     });
-//   });
+describe("cart reducer", () => {
+  const initialState = {
+    items: null,
+    totalAmount: "0",
+  };
+  test("should handle initial state", () => {
+    expect(cartReducer(undefined, { type: "unknown" })).toStrictEqual({
+      items: null,
+      totalAmount: "0",
+    });
+  });
 
-//   it('should handle increment', () => {
-//     const actual = counterReducer(initialState, increment());
-//     expect(actual.value).toEqual(4);
-//   });
+  test("should handle cart modifications", () => {
+    const actual = cartReducer(initialState, cartItems());
+    expect(actual.length).not.toBe(0);
+  });
 
-//   it('should handle decrement', () => {
-//     const actual = counterReducer(initialState, decrement());
-//     expect(actual.value).toEqual(2);
-//   });
-
-//   it('should handle incrementByAmount', () => {
-//     const actual = counterReducer(initialState, incrementByAmount(2));
-//     expect(actual.value).toEqual(5);
-//   });
-// });
+  test("should handle amount modifications", () => {
+    const actual = cartReducer(initialState, getTotalAmount());
+    expect(actual.value).not.toBe("0");
+  });
+});

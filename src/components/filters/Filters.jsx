@@ -4,7 +4,9 @@ import style from "./Filters.module.scss";
 const Filters = ({ name, image, id, parentCallback }) => {
   const handleCallback = () => {
     parentCallback(id);
+    
   };
+
 
   return (
     <div
