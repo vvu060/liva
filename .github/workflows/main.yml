@@ -23,9 +23,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@master
 
-      # Runs a single command using the runners shell to checkout mater repository
-      - name: Checkout repository
-        run: echo Hello, world!
+#       # Runs a single command using the runners shell to checkout mater repository
+#       - name: Checkout repository
+#         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell for intalling dependencies
 #       - name: Install dependencies
@@ -33,9 +33,9 @@ jobs:
         
         # Runs a set of commands using the runners shell for intalling dependencies
       - name: Build dependencies
-        run: yarn build
+        run: npm run build
         
-          # Runs a set of commands using the runners shell for intalling dependencies
+        # Runs a set of commands using the runners shell for intalling dependencies
       - name: Archive production artifact
         run: actions/upload-artifact@master
           
