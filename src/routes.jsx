@@ -13,6 +13,7 @@ const Orders = lazy(() => import("./pages/orders/Orders"));
 const Payment = lazy(() => import("./pages/payment/Payment"));
 import { useDispatch } from "react-redux";
 import { persistUser } from "./helpers/persistUser";
+import Transition from "./components/loading/transition/Transition";
 
 const Routes = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const Routes = () => {
   }, []);
 
   return (
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={Transition}>
       <Switch>
         <Route exact path="/orders" component={Orders} />
         <Route exact path="/payment" component={Payment} />
