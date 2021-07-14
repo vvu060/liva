@@ -12,6 +12,17 @@ describe("user reducer", () => {
     checUserId: "",
   };
 
+  const loggedInState = {
+    email: "vvo060@gmail.com",
+    phone: "",
+    firstname: "",
+    lastname: "",
+    external_id: "",
+    photoUrl: "",
+    userId: "",
+    checUserId: "abcjsakhj",
+  };
+
   test("should handle initial state", () => {
     expect(userReducer(undefined, { type: "unknown" })).toStrictEqual({
       email: "",
@@ -26,17 +37,13 @@ describe("user reducer", () => {
   });
 
   test("should handle user login", () => {
-    const actual = userReducer(initialState.email, login());
-    expect(actual.length).not.toBe("");
+    const actual = userReducer(loggedInState, login());
+    console.log(actual.debug());
+    expect(actual.email.value).not.toBe("");
   });
 
   test("should handle user logout", () => {
     const actual = userReducer(initialState.email, logout());
     expect(actual.value).toBe("");
-  });
-
-  test("should handle amount modifications", () => {
-    const actual = userReducer(initialState.checUserId, loginCommerceJS());
-    expect(actual.value).not.toBe("");
   });
 });
