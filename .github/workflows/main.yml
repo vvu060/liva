@@ -33,7 +33,7 @@ jobs:
         
         # Runs a set of commands using the runners shell for intalling dependencies
       - name: Build dependencies
-        run: yarn run build
+        run: yarn build
         
           # Runs a set of commands using the runners shell for intalling dependencies
       - name: Archive production artifact
