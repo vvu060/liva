@@ -12,17 +12,6 @@ describe("user reducer", () => {
     checUserId: "",
   };
 
-  const loggedInState = {
-    email: "vvo060@gmail.com",
-    phone: "",
-    firstname: "",
-    lastname: "",
-    external_id: "",
-    photoUrl: "",
-    userId: "",
-    checUserId: "abcjsakhj",
-  };
-
   test("should handle initial state", () => {
     expect(userReducer(undefined, { type: "unknown" })).toStrictEqual({
       email: "",
@@ -37,13 +26,51 @@ describe("user reducer", () => {
   });
 
   test("should handle user login", () => {
-    const actual = userReducer(loggedInState, login());
-    console.log(actual.debug());
-    expect(actual.email.value).not.toBe("");
+    expect(
+      userReducer(
+        initialState,
+        login({
+          email: "vvu060@gmail.com",
+          phone: "9902036899",
+          firstname: "Vishal",
+          lastname: "Urankar",
+          external_id: "afsdfsd",
+          photoUrl: "sdfsdf",
+          userId: "sdfsdfsdf",
+          checUserId: "fdsfdsf",
+        })
+      )
+    ).not.toBe({});
   });
 
   test("should handle user logout", () => {
-    const actual = userReducer(initialState.email, logout());
-    expect(actual.value).toBe("");
+    expect(userReducer(initialState, logout())).toEqual({
+      email: "",
+      phone: "",
+      firstname: "",
+      lastname: "",
+      external_id: "",
+      photoUrl: "",
+      userId: "",
+      checUserId: "",
+    });
+  });
+
+  test("should handle user commerce js id", () => {
+    expect(
+      userReducer(
+        initialState,
+        loginCommerceJS({
+          email: "vvu060@gmail.com",
+          phone: "9902036899",
+          firstname: "Vishal",
+          lastname: "Urankar",
+          external_id: "afsdfsd",
+          photoUrl: "sdfsdf",
+          userId: "sdfsdfsdf",
+          checUserId: "fdsfdsf",
+        })
+      )
+    ).not.toBe({});
   });
 });
