@@ -1,24 +1,36 @@
 import React, { Fragment } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import style from "./Sidebar.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { closeSidebar } from "../../redux/features/sidebar/sidebarSlice";
-import CancelIcon from "@material-ui/icons/Cancel";
-import Logo from "../logo/Logo";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import CancelIcon from "@material-ui/icons/Cancel";
+import { AnimatePresence, motion } from "framer-motion";
+import { closeSidebar } from "../../redux/features/sidebar/sidebarSlice";
+import { logout, selectUserEmail } from "../../redux/features/user/userSlice";
 import { signIn } from "../../helpers/signIn";
 import { auth, providerFacebook, providerGoogle } from "../../firebase";
-import { logout, selectUserEmail } from "../../redux/features/user/userSlice";
+import Logo from "../logo/Logo";
+import style from "./Sidebar.module.scss";
 
 const Sidebar = ({ sidebar = false }) => {
   const dispatch = useDispatch();
   const userEmail = useSelector(selectUserEmail);
   const history = useHistory();
 
+  /**
+   * Function to dispatch closeSidebar action to redux store.
+   * @function hideSidebar
+   * @param {}
+   * @returns {}
+   */
   const hideSidebar = () => {
     dispatch(closeSidebar({ sidebar: false }));
   };
 
+  /**
+   * Functions to handle user login with Google and Facebook.
+   * @function signInWithGoogle,signInWithFacebook
+   * @param {}
+   * @returns {}
+   */
   const signInWithGoogle = () => {
     signIn(providerGoogle, dispatch);
   };
@@ -27,6 +39,12 @@ const Sidebar = ({ sidebar = false }) => {
     signIn(providerFacebook, dispatch, history);
   };
 
+  /**
+   * Functions to handle user logout.
+   * @function signOut
+   * @param {}
+   * @returns {} - user signed out.
+   */
   const signOut = () => {
     if (userEmail) {
       auth.signOut().then(() => {

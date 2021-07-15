@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import style from "./LatestProduct.module.scss";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { ShoppingCartOutlined, Star } from "@material-ui/icons";
 import { addToCart } from "../../../helpers/addToCart";
 import { useDispatch } from "react-redux";
-import StarIcon from "@material-ui/icons/Star";
+import style from "./LatestProduct.module.scss";
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
@@ -17,6 +16,12 @@ const LatestProduct = ({ name, image, price, productId }) => {
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
 
+  /**
+   * Function to add items to the cart.
+   * @function addItemToCart
+   * @param {}
+   * @returns {}
+   */
   const addItemToCart = () => {
     addToCart(productId, dispatch);
   };
@@ -44,7 +49,7 @@ const LatestProduct = ({ name, image, price, productId }) => {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <StarIcon key={i} className={style.latestProduct__iconStar} />
+              <Star key={i} className={style.latestProduct__iconStar} />
             ))}
         </div>
         <p>
@@ -54,7 +59,7 @@ const LatestProduct = ({ name, image, price, productId }) => {
         </p>
       </div>
       <div className={style.latestProduct__icon} onClick={addItemToCart}>
-        <ShoppingCartOutlinedIcon />
+        <ShoppingCartOutlined />
       </div>
     </div>
   );

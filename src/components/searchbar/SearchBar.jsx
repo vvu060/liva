@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from "react";
-import style from "./SearchBar.module.scss";
-import { endpoints, headersPublic } from "../../endpoints";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Search, Star } from "@material-ui/icons";
 import BeatLoader from "react-spinners/BeatLoader";
+import { endpoints, headersPublic } from "../../endpoints";
+import style from "./SearchBar.module.scss";
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
@@ -32,11 +32,23 @@ const SearchBar = () => {
       .catch((error) => console.error(error));
   };
 
+  /**
+   * Function to handle search form submission.
+   * @function handleSubmit
+   * @param {event} e - takes the event as parameter.
+   * @returns {} submits form.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     searchProducts();
   };
 
+  /**
+   * Function for debounce search.
+   * @function useEffect
+   * @param {}
+   * @returns {}
+   */
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedTerm(term);

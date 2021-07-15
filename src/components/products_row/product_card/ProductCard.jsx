@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
-import style from "./ProductCard.module.scss";
-import Button from "../../button/Button";
+import BeatLoader from "react-spinners/BeatLoader";
+import { Star, FavoriteBorder, Favorite } from "@material-ui/icons";
 import { addToCart } from "../../../helpers/addToCart";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoading } from "../../../redux/features/loading/loadingSlice";
-import BeatLoader from "react-spinners/BeatLoader";
-import { useHistory } from "react-router-dom";
-import { Star, FavoriteBorder, Favorite } from "@material-ui/icons";
+import Button from "../../button/Button";
+import style from "./ProductCard.module.scss";
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
@@ -21,10 +21,22 @@ const ProductCard = ({ productId, image, name, price, colSpace }) => {
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
 
+  /**
+   * Function to add items to the cart.
+   * @function addItemToCart
+   * @param {}
+   * @returns {}
+   */
   const addItemToCart = () => {
     addToCart(productId, dispatch);
   };
 
+  /**
+   * Function to push user to correct product detail page.
+   * @function addItemToCart
+   * @param {}
+   * @returns {}
+   */
   const getProductId = () => {
     history.push(`/products/${name}/${productId}`);
   };

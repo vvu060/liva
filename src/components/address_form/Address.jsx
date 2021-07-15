@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { checkoutSession } from "../../helpers/checkoutSession";
 import { generateCheckoutToken } from "../../helpers/generateCheckoutToken";
 import { selectCartItems } from "../../redux/features/cart/cartSlice";
 import { selectUserEmail } from "../../redux/features/user/userSlice";
 import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import style from "./Address.module.scss";
-import { useHistory } from "react-router-dom";
 
 const Address = () => {
   const history = useHistory();
@@ -27,6 +27,12 @@ const Address = () => {
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [payment, setPayment] = useState("online");
 
+  /**
+   * Function to handle shipping address form submission.
+   * @function handleSubmit
+   * @param {event} e - takes the event as parameter.
+   * @returns {} submits form.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userEmail) {
@@ -55,6 +61,12 @@ const Address = () => {
 
   useEffect(() => {
     if (!checkoutTokenId) {
+      /**
+       * Function to generate commerce JS checkout token.
+       * @function generateCheckoutToken
+       * @param {cartId} - takes the cartId as parameter.
+       * @returns {token} - returns the checkout token.
+       */
       generateCheckoutToken(cartId);
     }
   }, []);

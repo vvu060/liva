@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { endpoints, headersPublic } from "../../endpoints";
-import style from "./ProductsRow.module.scss";
+import useFetch from "../../hooks/useFetch";
 import ArrowForwardRoundedIcon from "@material-ui/icons/ArrowForwardRounded";
 import ProductCard from "./product_card/ProductCard";
 import ProductCardShimmer from "../loading/product_card/ProductCardShimmer";
-import useFetch from "../../hooks/useFetch";
+import style from "./ProductsRow.module.scss";
 
 const ProductsRow = ({ category, name }) => {
   const {

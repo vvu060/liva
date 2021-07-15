@@ -1,5 +1,7 @@
 import React from "react";
+import bannerImage from "../../assets/images/bannerImage.png";
 import style from "./Banner.module.scss";
+
 const Banner = () => {
   return (
     <section
@@ -15,11 +17,7 @@ const Banner = () => {
         </div>
 
         <div className={style.banner__right}>
-          <img
-            src="https://cdn.shopify.com/s/files/1/0011/9868/6266/files/1-3-601x534.png?v=1621424321"
-            loading="lazy"
-            alt="banner"
-          />
+          <img src={bannerImage} loading="lazy" alt="banner" />
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React from "react";
+import fallback from "../../../assets/images/fallback.jpg";
 import style from "./Fallback.module.scss";
 
 const Fallback = () => {
@@ -14,7 +15,7 @@ const Fallback = () => {
       <img
         data-test="fallback-image"
         loading="lazy"
-        src="https://image.freepik.com/free-vector/no-data-illustration-concept_108061-573.jpg"
+        src={fallback}
         alt="Something went Wrong"
       />
       <h2 data-test="fallback-text">Oops! Something Went Wrong</h2>

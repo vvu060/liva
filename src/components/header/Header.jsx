@@ -1,21 +1,27 @@
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import Logo from "../logo/Logo";
-import SearchBar from "../searchbar/SearchBar";
-import style from "./Header.module.scss";
-import { Avatar, Badge, Button } from "@material-ui/core";
-import { ShoppingCart, History, Search } from "@material-ui/icons/";
 import { useDispatch, useSelector } from "react-redux";
+import { Avatar, Badge, Button } from "@material-ui/core";
+import { ShoppingCart, History } from "@material-ui/icons/";
 import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import { selectUserPhoto } from "../../redux/features/user/userSlice";
 import { selectCartItems } from "../../redux/features/cart/cartSlice";
+import Logo from "../logo/Logo";
+import SearchBar from "../searchbar/SearchBar";
+import style from "./Header.module.scss";
 
 const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const cartItems = useSelector(selectCartItems);
   const userPhoto = useSelector(selectUserPhoto);
-  const cartId = localStorage.getItem("cartId");
 
+  /**
+   * Function to dispatch openSidebar to redux store.
+   * @function showSidebar
+   * @param {}
+   * @returns {}
+   */
   const showSidebar = () => {
     dispatch(openSidebar({ sidebar: true }));
   };

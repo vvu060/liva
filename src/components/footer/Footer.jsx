@@ -1,8 +1,7 @@
 import React from "react";
-import style from "./Footer.module.scss";
-import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
-import MailOutlinedIcon from "@material-ui/icons/MailOutlined";
+import { LocationOnOutlined, MailOutlined } from "@material-ui/icons";
 import Logo from "../logo/Logo";
+import style from "./Footer.module.scss";
 
 const Footer = () => {
   return (
@@ -20,15 +19,15 @@ const Footer = () => {
                 className={style.footer__logo}
               />
               <p className={style.footer__companyDesc}>
-                lorem ipsum dolor sit amet, consectetur adip consectetur adip
+                Agricultural Products at your doorstep
               </p>
               <div role="list" className={style.footer__list}>
                 <div className={style.footer__item}>
-                  <LocationOnOutlinedIcon />
+                  <LocationOnOutlined />
                   Whitefield, Bengaluru
                 </div>
                 <div className={style.footer__item}>
-                  <MailOutlinedIcon />
+                  <MailOutlined />
                   info@liva.com
                 </div>
               </div>
@@ -80,7 +79,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className={style.footer__bottom} data-testid="footerbottom">
+      <div className={style.footer__bottom} data-test="footer-bottom">
         <div className="container">
           Copyright &copy; 2021 | Liva all rights reserved
         </div>

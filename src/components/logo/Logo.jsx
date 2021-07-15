@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import logoSrc from "../../resources/logo.png";
 import style from "./Logo.module.scss";
 
-const Logo = ({ alt, width, height, className }) => {
+const Logo = ({ alt, width, height }) => {
   return (
     <img
       data-test="component-logo"
@@ -19,7 +19,6 @@ const Logo = ({ alt, width, height, className }) => {
 Logo.propTypes = {
   alt: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
-  className: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
@@ -28,4 +27,5 @@ Logo.defaultProps = {
   width: 50,
   height: "auto",
 };
+
 export default Logo;
