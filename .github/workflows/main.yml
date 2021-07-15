@@ -23,10 +23,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@master
 
-#       # Runs a single command using the runners shell to checkout mater repository
-#       - name: Checkout repository
-#         run: echo Hello, world!
-
       #Runs a set of commands using the runners shell for intalling dependencies
       - name: Install dependencies
         run: npm install
@@ -35,9 +31,6 @@ jobs:
       - name: Build dependencies
         run: npm run build
         
-        # Runs a set of commands using the runners shell for intalling dependencies
-      - name: Archive production artifact
-        run: actions/upload-artifact@master
           
   # This workflow contains a single job called "build"
   deploy:
@@ -48,13 +41,7 @@ jobs:
     steps:
       - name: Checout repository
         uses: actions/checkout@master
-        
-      - name: Download artifact
-        uses: actions/download-artifact@master
-        with:
-          name: build
-          path: build
-          
+                
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         env:
