@@ -30,7 +30,7 @@ export const getCustomerId = async (email, dispatch) => {
     const { data } = await axios.get(`${endpoints.customers}?query=${email}`, {
       headers: headersSecret,
     });
-    console.log(data);
+
     localStorage.setItem("chec_user_id", data.data[0].id);
     dispatch(loginCommerceJS(data.data[0].id));
   } catch (error) {

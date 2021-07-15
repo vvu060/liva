@@ -5,8 +5,8 @@ import style from "./Order.module.scss";
 import { useHistory } from "react-router-dom";
 
 const Order = ({ order }) => {
-  console.log(order);
   const history = useHistory();
+
   return (
     <div data-test="component-order" className={style.order}>
       {order && (
@@ -46,6 +46,7 @@ const Order = ({ order }) => {
                 <tbody className={style.order__tableRow}>
                   {order.order.line_items.map((item) => (
                     <tr
+                      key={item.product_id}
                       onClick={() =>
                         history.push(
                           `/products/${item.product_name}/${item.product_id}`

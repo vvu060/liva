@@ -20,19 +20,19 @@ const Cart = () => {
   }
 
   return (
-    <div className={`container ${style.cart}`}>
-      <div className="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-        <ErrorBoundary FallbackComponent={FallbackCart}>
+    <ErrorBoundary FallbackComponent={FallbackCart}>
+      <div className={`container ${style.cart}`}>
+        <div className="col-xs-12 col-sm-12 col-md-8 col-lg-9">
           <CartItems />
-        </ErrorBoundary>
+        </div>
+        <div
+          className={`col-xs-12 col-sm-12 col-md-4 col-lg-3 ${style.cart__info}`}
+        >
+          <PriceSummary />
+          <Address />
+        </div>
       </div>
-      <div
-        className={`col-xs-12 col-sm-12 col-md-4 col-lg-3 ${style.cart__info}`}
-      >
-        <PriceSummary />
-        <Address />
-      </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 

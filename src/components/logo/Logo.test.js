@@ -2,7 +2,6 @@ import Enzyme, { shallow } from "enzyme";
 import Logo from "./Logo";
 test("renders without crashing", () => {
   const wrapper = shallow(<Logo />);
-  console.log(wrapper.debug());
   expect(wrapper.prop("alt")).toBe("Company Logo");
 });
 test("Logo have alt prop", () => {

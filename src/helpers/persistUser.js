@@ -7,7 +7,6 @@ export const persistUser = (dispatch) => {
 
   auth.onAuthStateChanged((authUser) => {
     if (authUser) {
-      console.log(authUser);
       const userData = {
         email: authUser.email,
         phone: authUser.phoneNumber,

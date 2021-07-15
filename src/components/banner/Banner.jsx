@@ -10,7 +10,7 @@ const Banner = () => {
       <div className={`${style.banner__container}`}>
         <div className={style.banner__left}>
           <h4>Natural & Organic</h4>
-          <h2>-30% offer on Latest Products</h2>
+          <h2>30% off on Latest Products</h2>
           <button>Shop Now</button>
         </div>
 

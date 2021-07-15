@@ -29,9 +29,11 @@ const Orders = () => {
         </Fragment>
       ) : (
         <Fragment>
-          {orders.map((order) => (
-            <Order key={order.id} order={order} />
-          ))}
+          {orders
+            .sort((a, b) => b.created - a.created)
+            .map((order) => (
+              <Order key={order.id} order={order} />
+            ))}
         </Fragment>
       )}
     </div>

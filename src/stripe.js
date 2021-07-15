@@ -19,8 +19,6 @@ const YOUR_DOMAIN = "https://liva-3ec01.web.app/payment";
 app.post("/create-checkout-session", async (req, res) => {
   const { items, email } = req.body;
 
-  console.log("transformedItems", items);
-
   const session = await stripe.checkout.sessions.create({
     customer_email: email,
     payment_method_types: ["card"],

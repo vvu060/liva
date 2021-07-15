@@ -25,8 +25,6 @@ const ProductDetail = (props) => {
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
 
-  console.log(props.match);
-
   const getProduct = () => {
     setIsLoading(true);
     fetch(`${endpoints.products}/${productId}`, {
@@ -38,7 +36,7 @@ const ProductDetail = (props) => {
         setDetails(data);
         setIsLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   const decreaseQuantity = () => {
@@ -55,7 +53,6 @@ const ProductDetail = (props) => {
     const images = myRef.current.children;
 
     for (let i = 0; i < images.length; i++) {
-      console.log(images[i].className);
       images[i].id = images[i].id.replace("active", "");
     }
 
@@ -189,7 +186,7 @@ const ProductDetail = (props) => {
 
       <div
         data-test="product-related"
-        class={`block ${style.product__related}`}
+        className={`block ${style.product__related}`}
       >
         <h3 data-test="related-text">Related Products</h3>
         <div className={style.product__relatedProduct}>

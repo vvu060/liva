@@ -65,7 +65,7 @@ const Address = () => {
       className={style.form}
       onSubmit={handleSubmit}
     >
-      <h2>Sipping Address</h2>
+      <h2>Shipping Address</h2>
       <div data-test="name-field" className={style.form__group}>
         <input
           type="text"
@@ -172,7 +172,7 @@ const Address = () => {
             <input
               type="radio"
               name="cod"
-              Value="cod"
+              value="cod"
               checked={payment === "cod"}
               onChange={(e) => setPayment(e.target.value)}
             />
@@ -182,7 +182,7 @@ const Address = () => {
             <input
               type="radio"
               name="online"
-              Value="online"
+              value="online"
               checked={payment === "online"}
               onChange={(e) => setPayment(e.target.value)}
             />

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import React, { Suspense, lazy, useEffect } from "react";
 const Home = lazy(() => import("./pages/home/Home"));
 const ProductListing = lazy(() =>
@@ -25,7 +25,7 @@ const Routes = () => {
   }, []);
 
   return (
-    <Suspense fallback={Transition}>
+    <Suspense fallback={<Transition />}>
       <Switch>
         <Route exact path="/orders" component={Orders} />
         <Route exact path="/payment" component={Payment} />

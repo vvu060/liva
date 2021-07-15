@@ -9,9 +9,8 @@ export const generateCheckoutToken = async (cartId) => {
         headers: headersPublic,
       }
     );
-    console.log(data);
+
     localStorage.setItem("checkoutTokenId", data.id);
-    console.log(data);
   } catch (error) {
     alert(error.message);
   }

@@ -29,7 +29,6 @@ const Sidebar = ({ sidebar = false }) => {
 
   const signOut = () => {
     if (userEmail) {
-      console.log("coming here");
       auth.signOut().then(() => {
         dispatch(logout());
         dispatch(closeSidebar({ sidebar: false }));

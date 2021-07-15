@@ -40,7 +40,6 @@ describe("payment successful", () => {
   const wrapper = setup();
   test("renders success icon", () => {
     const successIcon = findByTestAttr(wrapper, "success-icon");
-    console.log(successIcon.debug());
     expect(successIcon.length).toBe(1);
   });
 

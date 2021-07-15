@@ -26,13 +26,10 @@ const Payment = () => {
   const userFirstName = useSelector(selectUserFirstName);
   const userLastName = useSelector(selectUserLastName);
   const userEmail = useSelector(selectUserEmail);
-  const [cartItems, setCartItems] = useState([]);
+  const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [totalAmount, setTotalAmount] = useState("");
-
   const location = useLocation();
-
-  console.log({ location });
 
   const getCartItems = () => {
     setIsLoading(true);
@@ -43,7 +40,7 @@ const Payment = () => {
       .then((response) => response.json())
       .then((data) => {
         setTotalAmount(data.subtotal.formatted_with_symbol);
-        setCartItems(data.line_items);
+        setItems(data.line_items);
         captureOrder(data.line_items);
       })
       .catch((error) => console.error(error));
@@ -52,7 +49,6 @@ const Payment = () => {
   const convertArrayToObject = (array, key) => {
     const initialValue = {};
     return array.reduce((obj, item) => {
-      console.log({ obj, item });
       return {
         ...obj,
         [item[key]]: {
@@ -62,11 +58,10 @@ const Payment = () => {
     }, initialValue);
   };
 
-  const captureOrder = (cartItems) => {
+  const captureOrder = (items) => {
     setIsLoading(true);
 
-    const transformedLineItems = convertArrayToObject(cartItems, "id");
-    console.log(transformedLineItems);
+    const transformedLineItems = convertArrayToObject(items, "id");
 
     let body = JSON.stringify({
       line_items: transformedLineItems,
@@ -109,7 +104,7 @@ const Payment = () => {
       .then((data) => {
         localStorage.removeItem("cart_id");
         localStorage.removeItem("checkoutTokenId");
-        // dispatch(cartItems([]));
+        dispatch(cartItems());
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
@@ -118,8 +113,6 @@ const Payment = () => {
   useEffect(() => {
     userEmail && getCartItems();
   }, [userEmail]);
-
-  console.log(cartItems);
 
   if (isLoading) {
     return (

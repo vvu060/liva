@@ -34,7 +34,9 @@ const CartItems = () => {
   };
 
   useEffect(() => {
+    const ac = new AbortController();
     getCart();
+    return () => ac.abort();
   }, []);
 
   useEffect(() => {

@@ -73,8 +73,6 @@ const CartItem = ({
     history.push(`/products/${name}/${productId}`);
   };
 
-  console.log("CartItem", { isLoading });
-
   return (
     <div data-test="component-cartItem" className={`block ${style.cartItem}`}>
       <img
@@ -157,7 +155,7 @@ const CartItem = ({
 CartItem.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   totalPrice: PropTypes.number.isRequired,
   lineItemId: PropTypes.string.isRequired,
   qty: PropTypes.number.isRequired,

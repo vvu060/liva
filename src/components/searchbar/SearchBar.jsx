@@ -26,11 +26,10 @@ const SearchBar = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setSearchResults(data);
         setLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   const handleSubmit = (e) => {

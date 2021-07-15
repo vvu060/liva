@@ -22,6 +22,5 @@ test("renders without error", () => {
 test("renders `image` passed as a prop", () => {
   const wrapper = setup({ image: "url" });
   const component = findByTestAttr(wrapper, "component-banner-image");
-  console.log(component);
   expect(component.length).toBe(1);
 });

@@ -14,6 +14,7 @@ const Header = () => {
   const history = useHistory();
   const cartItems = useSelector(selectCartItems);
   const userPhoto = useSelector(selectUserPhoto);
+  const cartId = localStorage.getItem("cartId");
 
   const showSidebar = () => {
     dispatch(openSidebar({ sidebar: true }));
