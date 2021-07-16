@@ -1,5 +1,9 @@
 import { Switch, Route } from "react-router-dom";
 import React, { Suspense, lazy, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { persistUser } from "./helpers/persistUser";
+
 const Home = lazy(() => import("./pages/home/Home"));
 const ProductListing = lazy(() =>
   import("./pages/product_listing/ProductListing")
@@ -10,9 +14,9 @@ const ProductDetail = lazy(() =>
 const Cart = lazy(() => import("./pages/cart/Cart"));
 const Orders = lazy(() => import("./pages/orders/Orders"));
 const Payment = lazy(() => import("./pages/payment/Payment"));
-import { useDispatch } from "react-redux";
-import { persistUser } from "./helpers/persistUser";
-import Transition from "./components/loading/transition/Transition";
+const Transition = lazy(() =>
+  import("./components/loading/transition/Transition")
+);
 
 const Routes = () => {
   const dispatch = useDispatch();

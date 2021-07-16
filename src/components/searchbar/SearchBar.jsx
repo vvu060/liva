@@ -20,6 +20,27 @@ const SearchBar = () => {
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
 
+  /**
+   * Function for debounce search.
+   * @function useEffect
+   * @param {}
+   * @returns {}
+   */
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedTerm(term);
+    }, 1000);
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [term]);
+
+  useEffect(() => {
+    if (debouncedTerm) {
+      searchProducts();
+    }
+  }, [debouncedTerm]);
+
   const searchProducts = () => {
     setLoading(true);
     fetch(`${endpoints.products}?query=${term}`, {
@@ -44,27 +65,6 @@ const SearchBar = () => {
     e.preventDefault();
     searchProducts();
   };
-
-  /**
-   * Function for debounce search.
-   * @function useEffect
-   * @param {}
-   * @returns {}
-   */
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedTerm(term);
-    }, 1000);
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [term]);
-
-  useEffect(() => {
-    if (debouncedTerm) {
-      searchProducts();
-    }
-  }, [debouncedTerm]);
 
   return (
     <div data-test="component-searchbar" className={style.search}>

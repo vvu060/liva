@@ -19,16 +19,6 @@ const Sidebar = ({ sidebar = false }) => {
   const history = useHistory();
 
   /**
-   * Function to dispatch closeSidebar action to redux store.
-   * @function hideSidebar
-   * @param {}
-   * @returns {}
-   */
-  const hideSidebar = () => {
-    dispatch(closeSidebar({ sidebar: false }));
-  };
-
-  /**
    * Functions to handle user login with Google and Facebook.
    * @function signInWithGoogle,signInWithFacebook
    * @param {}
@@ -55,6 +45,16 @@ const Sidebar = ({ sidebar = false }) => {
         dispatch(closeSidebar({ sidebar: false }));
       });
     }
+  };
+
+  /**
+   * Function to dispatch closeSidebar action to redux store.
+   * @function hideSidebar
+   * @param {}
+   * @returns {}
+   */
+  const hideSidebar = () => {
+    dispatch(closeSidebar({ sidebar: false }));
   };
 
   return (

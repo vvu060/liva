@@ -1,7 +1,8 @@
 @use 'sass:math';
 @import "variables";
+
 @function rem($target) {
-  @return math.div($target , 16) * 1rem;
+  @return math.div($target, 16) * 1rem;
 }
 
 @function set-textcolor($bg) {
