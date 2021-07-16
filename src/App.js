@@ -1,15 +1,18 @@
 import React, { Fragment } from "react";
-import "./App.global.scss";
 import { BrowserRouter as Router } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { ErrorBoundary } from "react-error-boundary";
+import { motion } from "framer-motion";
+
+import { selectSidebar } from "./redux/features/sidebar/sidebarSlice";
+
 import Routes from "./routes";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
-import { motion } from "framer-motion";
-import { selectSidebar } from "./redux/features/sidebar/sidebarSlice";
-import { useSelector } from "react-redux";
-import { ErrorBoundary } from "react-error-boundary";
 import Fallback from "./components/errors/fallback/Fallback";
+
+import "./App.global.scss";
 
 function App() {
   const sidebar = useSelector(selectSidebar);

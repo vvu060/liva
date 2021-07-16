@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import style from "./Filters.module.scss";
 
 const Filters = ({ name, image, id, parentCallback }) => {
@@ -12,8 +13,8 @@ const Filters = ({ name, image, id, parentCallback }) => {
   const handleCallback = () => {
     parentCallback(id);
     document
-      .getElementById("filters")
-      .classList.add(`${style.filters__current}`);
+      .getElementBy("filters")
+      .classList.replace(`${style.filters__current}`);
   };
 
   return (

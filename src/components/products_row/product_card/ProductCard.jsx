@@ -3,10 +3,13 @@ import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import BeatLoader from "react-spinners/BeatLoader";
 import { Star, FavoriteBorder, Favorite } from "@material-ui/icons";
+
 import { addToCart } from "../../../helpers/addToCart";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoading } from "../../../redux/features/loading/loadingSlice";
+
 import Button from "../../button/Button";
+
 import style from "./ProductCard.module.scss";
 
 const MAX_RATING = 5;

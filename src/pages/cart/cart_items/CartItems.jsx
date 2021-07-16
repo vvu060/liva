@@ -1,14 +1,17 @@
 import React, { useState, useEffect, Fragment } from "react";
-import CartItem from "./cart_item/CartItem";
+import { useDispatch, useSelector } from "react-redux";
+
 import { endpoints, headersPublic } from "../../../endpoints";
-import style from "./CartItems.module.scss";
-import CartItemShimmer from "../../../components/loading/cart_item/CartItemShimmer";
 import {
   cartItems,
   selectCartItems,
 } from "../../../redux/features/cart/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
 import { selectLoading } from "../../../redux/features/loading/loadingSlice";
+
+import CartItem from "./cart_item/CartItem";
+import CartItemShimmer from "../../../components/loading/cart_item/CartItemShimmer";
+
+import style from "./CartItems.module.scss";
 
 const CartItems = () => {
   const cartId = localStorage.getItem("cart_id");
@@ -18,6 +21,12 @@ const CartItems = () => {
   const [items, setItems] = useState(cart);
   const [isLoading, setIsLoading] = useState(loading);
 
+  /**
+   * Function to get cart items.
+   * @function getCart
+   * @param {}
+   * @returns {} all cart items.
+   */
   const getCart = () => {
     setIsLoading(true);
     fetch(`${endpoints.cart}/${cartId}`, {

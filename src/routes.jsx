@@ -7,7 +7,6 @@ const ProductListing = lazy(() =>
 const ProductDetail = lazy(() =>
   import("./pages/product_detail/ProductDetail")
 );
-const Login = lazy(() => import("./pages/login/Login"));
 const Cart = lazy(() => import("./pages/cart/Cart"));
 const Orders = lazy(() => import("./pages/orders/Orders"));
 const Payment = lazy(() => import("./pages/payment/Payment"));
@@ -30,7 +29,6 @@ const Routes = () => {
         <Route exact path="/orders" component={Orders} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/cart" component={Cart} />
-        <Route exact path="/login" component={Login} />
         <Route
           exact
           path="/products/:name/:productId"

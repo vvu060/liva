@@ -1,8 +1,14 @@
-import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
+/**
+ * Function to create a stripe checkout session.
+ * @function checkoutSession
+ * @param {items, userEmail} - takes items, userEmail as parameter.
+ * @returns {} redirects user to stripe page.
+ */
 export const checkoutSession = async (items, userEmail) => {
   const stripe = await stripePromise;
 

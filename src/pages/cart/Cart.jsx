@@ -1,12 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { ErrorBoundary } from "react-error-boundary";
+
+import { selectCartItems } from "../../redux/features/cart/cartSlice";
+
 import CartItems from "./cart_items/CartItems";
 import PriceSummary from "./price_summary/PriceSummary";
-import style from "./Cart.module.scss";
 import Address from "../../components/address_form/Address";
 import FallbackCart from "../../components/errors/empty_cart/FallbackCart";
-import { ErrorBoundary } from "react-error-boundary";
-import { selectCartItems } from "../../redux/features/cart/cartSlice";
-import { useSelector } from "react-redux";
+
+import style from "./Cart.module.scss";
 
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);

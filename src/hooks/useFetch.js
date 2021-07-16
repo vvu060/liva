@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+/**
+ * Function to fetch data from APIs.
+ * @function useFetch
+ * @param { url, options } - takes url, options as parameter.
+ * @returns { response, isError, isLoading }
+ */
 const useFetch = (url, options) => {
   if (url === undefined && options === undefined) return;
 

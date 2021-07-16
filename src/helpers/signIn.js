@@ -2,6 +2,12 @@ import { auth } from "../firebase";
 import { login } from "../redux/features/user/userSlice";
 import { checkNewUser } from "./checkNewUser";
 
+/**
+ * Function to persist user on page reload.
+ * @function signIn
+ * @param { provider, dispatch } - takes provider, dispatch as parameter.
+ * @returns {} user info from google.
+ */
 export const signIn = (provider, dispatch) => {
   if (!provider && !dispatch && !history) return;
 

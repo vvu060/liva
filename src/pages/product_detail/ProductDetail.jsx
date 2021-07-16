@@ -1,14 +1,16 @@
-import { Remove, Add } from "@material-ui/icons";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Remove, Add, Star } from "@material-ui/icons";
+
+import { endpoints, headersPublic } from "../../endpoints";
+import { addToCart } from "../../helpers/addToCart";
+
 import Button from "../../components/button/Button";
 import ProductCard from "../../components/products_row/product_card/ProductCard";
 import ProductCardShimmer from "../../components/loading/product_card/ProductCardShimmer";
 import ProductDetailShimmer from "../../components/loading/product_detail/ProductDetailShimmer";
-import { endpoints, headersPublic } from "../../endpoints";
-import { addToCart } from "../../helpers/addToCart";
+
 import style from "./ProductDetail.module.scss";
-import StarIcon from "@material-ui/icons/Star";
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
@@ -118,7 +120,7 @@ const ProductDetail = (props) => {
                   {Array(rating)
                     .fill()
                     .map((_, i) => (
-                      <StarIcon key={i} className={style.product__iconStar} />
+                      <Star key={i} className={style.product__iconStar} />
                     ))}
                 </div>
                 <p

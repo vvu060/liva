@@ -3,11 +3,14 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import CancelIcon from "@material-ui/icons/Cancel";
 import { AnimatePresence, motion } from "framer-motion";
+
 import { closeSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import { logout, selectUserEmail } from "../../redux/features/user/userSlice";
 import { signIn } from "../../helpers/signIn";
 import { auth, providerFacebook, providerGoogle } from "../../firebase";
+
 import Logo from "../logo/Logo";
+
 import style from "./Sidebar.module.scss";
 
 const Sidebar = ({ sidebar = false }) => {

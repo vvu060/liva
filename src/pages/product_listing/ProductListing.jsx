@@ -1,9 +1,12 @@
 import React, { useState, Fragment } from "react";
-import { endpoints, headersPublic } from "../../endpoints";
 import useFetch from "../../hooks/useFetch";
+
+import { endpoints, headersPublic } from "../../endpoints";
+
 import Filters from "../../components/filters/Filters";
 import ProductCard from "../../components/products_row/product_card/ProductCard";
 import ProductCardShimmer from "../../components/loading/product_card/ProductCardShimmer";
+
 import style from "./ProductListing.module.scss";
 
 const ProductListing = () => {

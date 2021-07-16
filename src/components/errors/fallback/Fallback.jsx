@@ -1,5 +1,7 @@
 import React from "react";
+
 import fallback from "../../../assets/images/fallback.jpg";
+
 import style from "./Fallback.module.scss";
 
 const Fallback = () => {

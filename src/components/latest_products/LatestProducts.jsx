@@ -1,8 +1,11 @@
 import React, { Fragment } from "react";
+
 import { endpoints, headersPublic } from "../../endpoints";
 import useFetch from "../../hooks/useFetch";
+
 import LatestProduct from "./latest_product/LatestProduct";
 import LatestProductShimmer from "../loading/latest_product/LatestProductShimmer";
+
 import style from "./LatestProducts.module.scss";
 
 const LatestProducts = () => {

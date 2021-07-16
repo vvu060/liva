@@ -1,10 +1,12 @@
 import React from "react";
+
 import { endpoints, headersPublic } from "../../endpoints";
+import useFetch from "../../hooks/useFetch";
+
 import IconSection from "./icon_section/IconSection";
 import LatestProducts from "../../components/latest_products/LatestProducts";
 import Banner from "../../components/banner/Banner";
 import ProductsRow from "../../components/products_row/ProductsRow";
-import useFetch from "../../hooks/useFetch";
 
 const Home = () => {
   const {

@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
-import logoSrc from "../../resources/logo.png";
+
+import logoSrc from "../../assets/images/logo.png";
+
 import style from "./Logo.module.scss";
 
 const Logo = ({ alt, width, height }) => {

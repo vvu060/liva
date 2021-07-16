@@ -1,8 +1,11 @@
 import React, { Fragment } from "react";
+
 import { endpoints, headersSecret } from "../../endpoints";
 import useFetch from "../../hooks/useFetch";
+
 import Order from "./order/Order";
 import OrderShimmer from "../../components/loading/orders/OrderShimmer";
+
 import style from "./Orders.module.scss";
 
 const Orders = () => {

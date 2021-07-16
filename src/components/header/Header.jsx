@@ -3,11 +3,14 @@ import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar, Badge, Button } from "@material-ui/core";
 import { ShoppingCart, History } from "@material-ui/icons/";
+
 import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
 import { selectUserPhoto } from "../../redux/features/user/userSlice";
 import { selectCartItems } from "../../redux/features/cart/cartSlice";
+
 import Logo from "../logo/Logo";
 import SearchBar from "../searchbar/SearchBar";
+
 import style from "./Header.module.scss";
 
 const Header = () => {

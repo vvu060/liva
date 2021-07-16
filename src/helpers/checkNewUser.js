@@ -23,7 +23,6 @@ export const checkNewUser = async (userData, dispatch) => {
     dispatch(closeSidebar({ sidebar: false }));
   } catch (error) {
     if (error.response && error.response.status === 422) {
-      alert(`Welcome Back ${userData.firstname}`);
       getCustomerId(userData.email, dispatch);
 
       dispatch(closeSidebar({ sidebar: false }));

@@ -1,11 +1,13 @@
 import React from "react";
-import style from "./IconSection.module.scss";
-import Icon from "./icon/Icon";
 import {
   HeadsetMicOutlined,
   FlightTakeoffOutlined,
   SecurityOutlined,
 } from "@material-ui/icons";
+
+import Icon from "./icon/Icon";
+
+import style from "./IconSection.module.scss";
 
 const IconSection = () => {
   return (

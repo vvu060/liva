@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+
 import { checkoutSession } from "../../helpers/checkoutSession";
 import { generateCheckoutToken } from "../../helpers/generateCheckoutToken";
 import { selectCartItems } from "../../redux/features/cart/cartSlice";
 import { selectUserEmail } from "../../redux/features/user/userSlice";
 import { openSidebar } from "../../redux/features/sidebar/sidebarSlice";
+
 import style from "./Address.module.scss";
 
 const Address = () => {

@@ -10,6 +10,12 @@ export const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test='${val}']`);
 };
 
+/**
+ *
+ * @param {component} - component.
+ * @param {conformingProps} - default props.
+ * @returns {}
+ */
 export const checkProps = (component, conformingProps) => {
   const propError = checkPropTypes(
     component.propTypes,
@@ -20,9 +26,3 @@ export const checkProps = (component, conformingProps) => {
 
   expect(propError).toBeUndefined();
 };
-
-export const mockDispatch = jest.fn();
-jest.mock("react-redux", () => ({
-  useSelector: jest.fn(),
-  useDispatch: () => mockDispatch,
-}));

@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
-import moment from "moment";
-import PropTypes from "prop-types";
-import style from "./Order.module.scss";
 import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
+import moment from "moment";
+
+import style from "./Order.module.scss";
 
 const Order = ({ order }) => {
   const history = useHistory();

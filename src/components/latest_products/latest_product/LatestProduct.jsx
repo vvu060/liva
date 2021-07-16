@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
-import { ShoppingCartOutlined, Star } from "@material-ui/icons";
-import { addToCart } from "../../../helpers/addToCart";
 import { useDispatch } from "react-redux";
+import { ShoppingCartOutlined, Star } from "@material-ui/icons";
+
+import { addToCart } from "../../../helpers/addToCart";
+
 import style from "./LatestProduct.module.scss";
 
 const MAX_RATING = 5;

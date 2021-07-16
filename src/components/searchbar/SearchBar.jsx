@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Search, Star } from "@material-ui/icons";
 import BeatLoader from "react-spinners/BeatLoader";
+
 import { endpoints, headersPublic } from "../../endpoints";
+
 import style from "./SearchBar.module.scss";
 
 const MAX_RATING = 5;

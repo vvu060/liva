@@ -49,9 +49,4 @@ describe("renders search results section", () => {
     const resultsDetails = findByTestAttr(wrapper, "results-details");
     expect(resultsDetails.length).toBe(1);
   });
-
-  test("renders product name", () => {
-    const resultsDetails = findByTestAttr(wrapper, "product-name");
-    expect(resultsDetails.length).toBe(1);
-  });
 });

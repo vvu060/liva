@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import {
   selectCartItems,
   selectTotalAmount,
 } from "../../../redux/features/cart/cartSlice";
+
 import style from "./PriceSummary.module.scss";
 
 const PriceSummary = () => {

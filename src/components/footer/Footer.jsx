@@ -1,6 +1,8 @@
 import React from "react";
 import { LocationOnOutlined, MailOutlined } from "@material-ui/icons";
+
 import Logo from "../logo/Logo";
+
 import style from "./Footer.module.scss";
 
 const Footer = () => {

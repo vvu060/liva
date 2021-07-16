@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+
 import fallbackCart from "../../../assets/images/fallbackCart.png";
+
 import style from "./FallbackCart.module.scss";
 
 const FallbackCart = () => {

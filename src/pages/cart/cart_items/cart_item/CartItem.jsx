@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Button from "../../../../components/button/Button";
-import { Remove, Add } from "@material-ui/icons";
-import style from "./CartItem.module.scss";
-import { updateItem, removeItem } from "../../../../helpers/updateCart";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoading } from "../../../../redux/features/loading/loadingSlice";
 import { useHistory } from "react-router-dom";
-import ClipLoader from "react-spinners/ClipLoader";
-import StarIcon from "@material-ui/icons/Star";
 import PropTypes from "prop-types";
+import ClipLoader from "react-spinners/ClipLoader";
+import { Remove, Add, Star } from "@material-ui/icons";
+
+import { updateItem, removeItem } from "../../../../helpers/updateCart";
+
+import { selectLoading } from "../../../../redux/features/loading/loadingSlice";
+
+import Button from "../../../../components/button/Button";
+
+import style from "./CartItem.module.scss";
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
@@ -33,6 +36,12 @@ const CartItem = ({
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
 
+  /**
+   * Function to debounce quantity change.
+   * @function useEffect
+   * @param {}
+   * @returns {}
+   */
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedQuantity(quantity);
@@ -97,7 +106,7 @@ const CartItem = ({
             {Array(rating)
               .fill()
               .map((_, i) => (
-                <StarIcon key={i} className={style.cartItem__iconStar} />
+                <Star key={i} className={style.cartItem__iconStar} />
               ))}
           </div>
 

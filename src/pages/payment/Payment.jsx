@@ -1,5 +1,8 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
+import { CheckCircle, Cancel } from "@material-ui/icons";
+
 import { endpoints, headersPublic } from "../../endpoints";
 import {
   selectUserEmail,
@@ -7,12 +10,12 @@ import {
   selectUserLastName,
 } from "../../redux/features/user/userSlice";
 import { cartItems } from "../../redux/features/cart/cartSlice";
-import { CheckCircle, Cancel } from "@material-ui/icons";
+
 import Button from "../../components/button/Button";
 import LatestProducts from "../../components/latest_products/LatestProducts";
-import { useHistory, useLocation } from "react-router-dom";
-import style from "./Payment.module.scss";
 import PaymentShimmer from "../../components/loading/payment/PaymentShimmer";
+
+import style from "./Payment.module.scss";
 
 const Payment = () => {
   const history = useHistory();
@@ -26,11 +29,18 @@ const Payment = () => {
   const userFirstName = useSelector(selectUserFirstName);
   const userLastName = useSelector(selectUserLastName);
   const userEmail = useSelector(selectUserEmail);
+
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [totalAmount, setTotalAmount] = useState("");
   const location = useLocation();
 
+  /**
+   * Function to fetch all cart items.
+   * @function getCartItems
+   * @param {}
+   * @returns {} all cart items.
+   */
   const getCartItems = () => {
     setIsLoading(true);
     fetch(`${endpoints.cart}/${cartId}`, {
@@ -46,6 +56,12 @@ const Payment = () => {
       .catch((error) => console.error(error));
   };
 
+  /**
+   * Function to array into an object.
+   * @function convertArrayToObject
+   * @param {array, key} - takes array to be converted and key as parameters.
+   * @returns {obj} - new object.
+   */
   const convertArrayToObject = (array, key) => {
     const initialValue = {};
     return array.reduce((obj, item) => {
@@ -58,6 +74,12 @@ const Payment = () => {
     }, initialValue);
   };
 
+  /**
+   * Function to capture order after payment.
+   * @function captureOrder
+   * @param {items} - takes cart items as parameter.
+   * @returns {obj} - order ID.
+   */
   const captureOrder = (items) => {
     setIsLoading(true);
 
