@@ -15,9 +15,11 @@ app.use(function (req, res, next) {
 });
 
 const YOUR_DOMAIN = "https://liva-3ec01.web.app/payment";
+// const YOUR_DOMAIN = "http://localhost:3000/";
 
 app.post("/create-checkout-session", async (req, res) => {
   const { items, email } = req.body;
+  console.log(items)
 
   const session = await stripe.checkout.sessions.create({
     customer_email: email,

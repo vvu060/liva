@@ -24,6 +24,7 @@ export const updateItem = async (qty, cartId, lineItemId, dispatch) => {
       }
     );
     dispatch(getTotalAmount(data.cart.subtotal.raw));
+    dispatch(cartItems(data.cart.line_items));
     dispatch(isLoading(false));
   } catch (error) {
     alert(error.message);

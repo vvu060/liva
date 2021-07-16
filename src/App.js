@@ -31,11 +31,11 @@ function App() {
             Skip to main content
           </a>
           <Header />
-          <ErrorBoundary FallbackComponent={Fallback}>
+          {/* <ErrorBoundary FallbackComponent={Fallback}> */}
             <main id="main">
               <Routes />
             </main>
-          </ErrorBoundary>
+          {/* </ErrorBoundary> */}
           <Footer />
         </motion.div>
       </Router>

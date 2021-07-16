@@ -14,9 +14,8 @@ const ProductDetail = lazy(() =>
 const Cart = lazy(() => import("./pages/cart/Cart"));
 const Orders = lazy(() => import("./pages/orders/Orders"));
 const Payment = lazy(() => import("./pages/payment/Payment"));
-const Transition = lazy(() =>
-  import("./components/loading/transition/Transition")
-);
+
+import Transition from "./components/loading/transition/Transition";
 
 const Routes = () => {
   const dispatch = useDispatch();
