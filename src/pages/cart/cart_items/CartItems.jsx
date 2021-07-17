@@ -9,6 +9,7 @@ import {
 import { selectLoading } from "../../../redux/features/loading/loadingSlice";
 
 import CartItem from "./cart_item/CartItem";
+import FallbackCart from "../../../components/errors/empty_cart/FallbackCart";
 import CartItemShimmer from "../../../components/loading/cart_item/CartItemShimmer";
 
 import style from "./CartItems.module.scss";
@@ -45,12 +46,21 @@ const CartItems = () => {
   useEffect(() => {
     const ac = new AbortController();
     getCart();
+    console.log("coming");
     return () => ac.abort();
   }, []);
 
   useEffect(() => {
     setItems(cart);
   }, [cart]);
+
+  if (items?.length === 0 || !cartId) {
+    return (
+      <div className="block container">
+        <FallbackCart />
+      </div>
+    );
+  }
 
   return (
     <div data-test="component-cartItems" className={`block ${style.cartItems}`}>
