@@ -26,7 +26,7 @@ const Address = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [pincode, setPincode] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("+91");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [payment, setPayment] = useState("online");
 
   /**
