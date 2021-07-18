@@ -20,6 +20,8 @@ Please note that UI design mocks are provided only for reference and benchmarkin
 
 ### Home Page
 
+![](screenshots/home.png)
+
 ### Login Page
 
 ### Product Detail Page
