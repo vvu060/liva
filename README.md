@@ -6,13 +6,39 @@ This is an E-Commerce web application where farmers, agriculture land owners and
 
 ## Application screenshots
 
-Web Application screens are available in `screenshots` folder. Please note that UI design mocks are provided only for reference and benchmarking purpose. Design mocks doesn't cover all possible set of features in your application(for example, error pages).
-| | |
-| :--------------------------: | :--------------------------: |
-| ![](screenshots/home.PNG) | ![](screenshots/listing.PNG) |
-| ![](screenshots/cart.PNG) | ![](screenshots/details.PNG) |
-| ![](screenshots/signin.PNG) | ![](screenshots/payment.PNG) |
-| ![](screenshots/success.PNG) | ![](screenshots/orders.PNG) |
+Application screenshots are available in `screenshots` folder. Please note that UI design mocks are provided only for reference and benchmarking purpose. Design mocks doesn't cover all possible set of features in your application(for example, error screens).
+
+### Home Page
+
+![](screenshots/home.PNG)
+
+### Login Page
+
+![](screenshots/signin.PNG)
+
+### Product Listing Page
+
+![](screenshots/listing.PNG)
+
+### Product Detail Page
+
+![](screenshots/details.PNG)
+
+### Cart Page
+
+![](screenshots/cart.PNG)
+
+### Stripe Checkout Page
+
+![](screenshots/payment.png)
+
+### Payment Success Page
+
+![](screenshots/success.png)
+
+### Order History Page
+
+![](screenshots/orders.png)
 
 ## Tech Stack
 
