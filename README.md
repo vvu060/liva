@@ -13,7 +13,7 @@ Please note that UI design mocks are provided only for reference and benchmarkin
 
 |                                    |                                        |
 | :--------------------------------: | :------------------------------------: |
-|     ![](screenshots/home.png)      |      ![](screenshots/listing.png)      |
+|     ![](screenshots/home.PNG)      |       ![](screenshots/home.PNG)        |
 | ![](design-mocks/product_list.png) |     ![](design-mocks/product.png)      |
 |     ![](design-mocks/cart.png)     |     ![](design-mocks/checkout.png)     |
 |    ![](design-mocks/orders.png)    | ![](design-mocks/successful_order.png) |
