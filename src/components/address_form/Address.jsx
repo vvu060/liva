@@ -28,7 +28,7 @@ const Address = () => {
   const [pincode, setPincode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [payment, setPayment] = useState("online");
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(false);
 
   /**
    * Function to handle shipping address form submission.
@@ -56,16 +56,15 @@ const Address = () => {
       );
       if (payment === "online") {
         checkoutSession(items, userEmail);
-        setDisabled(true)
+        setDisabled(true);
       } else {
         history.push("./payment?success=true");
       }
     }
   };
 
-
   useEffect(() => {
-    if (!checkoutTokenId && items ) {
+    if (!checkoutTokenId && items) {
       /**
        * Function to generate commerce JS checkout token.
        * @function generateCheckoutToken
@@ -214,7 +213,11 @@ const Address = () => {
         className="btn btn-primary"
         disabled={disabled}
       >
-        {userEmail ? "Checkout" : "Sign in To Continue"}
+        {disabled
+          ? "Processing..."
+          : userEmail
+          ? "Checkout"
+          : "Sign in To Continue"}
       </button>
     </form>
   );
