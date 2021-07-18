@@ -5,6 +5,7 @@
 .payment {
   @extend %fca;
   padding-inline: rem(20);
+  height: 100vh;
 
   p {
     color: $textColor;

@@ -43,6 +43,7 @@ const Sidebar = ({ sidebar = false }) => {
       auth.signOut().then(() => {
         dispatch(logout());
         dispatch(closeSidebar({ sidebar: false }));
+        localStorage.removeItem("chec_user_id");
       });
     }
   };
