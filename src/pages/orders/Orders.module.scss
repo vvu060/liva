@@ -1,4 +1,5 @@
 @import "../../scss/functions";
+@import "../../scss/placeholder";
 
 .orders {
   h2 {
@@ -8,5 +9,15 @@
   &__length {
     font-weight: bold;
     font-size: rem(15);
+  }
+
+  &__login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      margin-bottom: rem(30);
+    }
   }
 }
