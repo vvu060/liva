@@ -20,13 +20,17 @@ Please note that UI design mocks are provided only for reference and benchmarkin
 
 ### Home Page
 
-![](screenshots/home.png)
+![](screenshots/home.PNG)
 
 ### Login Page
 
 ### Product Detail Page
 
+![](screenshots/cart.JPG)
+
 ### Cart Page
+
+![](screenshots/cart.jpg)
 
 ### Stripe Checkout Page
 
