@@ -1,15 +1,16 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
-import App from './App';
+import React from "react";
+import { mount } from "enzyme";
+import App from "./App";
+import { findByTestAttr, checkProps } from "./test/testUtils";
 
-test('renders learn react link', () => {
-  const { getByText } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
+const mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch,
+}));
 
-  expect(getByText(/learn/i)).toBeInTheDocument();
+test("renders non-empty component without crashing", () => {
+  const wrapper = mount(<App />);
+  const component = findByTestAttr(wrapper, "component-app");
+  expect(component.length).toBe(1);
 });

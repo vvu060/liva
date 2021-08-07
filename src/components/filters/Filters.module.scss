@@ -1,0 +1,50 @@
+@import "../../scss/functions";
+@import "../../scss/placeholder";
+@import "../../scss/variables";
+
+.filters {
+  @extend %fca;
+  line-height: 2;
+  cursor: pointer;
+  margin-inline: rem(15);
+  margin-bottom: rem(10);
+  scale: 1;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+
+  img {
+    width: rem(75);
+    height: rem(75);
+    margin-bottom: rem(10);
+  }
+
+  h5 {
+    text-transform: uppercase;
+    color: $textColor;
+    letter-spacing: 0.7px;
+  }
+
+  &__current::after {
+    content: "";
+    margin-top: rem(3);
+    height: 3px;
+    width: 100%;
+    background-color: $accentColor;
+    scale: 1.15;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .filters {
+    img {
+      display: none;
+    }
+
+    h5 {
+      font-size: rem(12);
+    }
+  }
+}

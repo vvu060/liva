@@ -1,0 +1,26 @@
+@import "../../../scss/functions";
+@import "../../../scss/variables";
+@import "../../../scss/placeholder";
+
+.fallback {
+  @extend %fca;
+  color: $textColor;
+
+  img {
+    width: rem(450);
+    object-fit: contain;
+  }
+
+  p {
+    font-size: rem(14);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .fallback {
+    img {
+      width: rem(250);
+      object-fit: contain;
+    }
+  }
+}

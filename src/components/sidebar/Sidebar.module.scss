@@ -1,0 +1,100 @@
+@import "../../scss/functions";
+@import "../../scss/variables";
+@import "../../scss/placeholder";
+
+.sidebar {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(
+    to bottom right,
+    lighten($primaryColor, 10%),
+    lighten($accentColor, 0%)
+  ) !important;
+  color: $lightColor;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: rem(300);
+  height: 100%;
+
+  &__header {
+    @extend %fra;
+    justify-content: space-between;
+    background: $primaryColor;
+    padding: rem(5) rem(10);
+
+    h2 {
+      text-transform: uppercase;
+      font-size: rem(16);
+      cursor: pointer;
+    }
+  }
+
+  &__body {
+    @extend %fca;
+    justify-content: space-around;
+    line-height: 2;
+    margin-top: rem(100);
+    height: 40%;
+
+    h3 {
+      text-transform: uppercase;
+      font-size: rem(18);
+      color: $lightColor;
+    }
+
+    button {
+      display: block;
+      margin: rem(10);
+      padding: rem(10) 0;
+      width: 100%;
+      max-width: rem(230);
+      border: none;
+      border-radius: rem(3);
+      cursor: pointer !important;
+      color: $textColor;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: rem(18);
+      height: rem(18);
+      object-fit: contain;
+      margin-inline: rem(7);
+    }
+  }
+
+  &__close {
+    cursor: pointer !important;
+  }
+
+  &__outside {
+    background: transparent;
+    padding-inline: 5px;
+    position: fixed;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .sidebar {
+    &__outside {
+      width: 20%;
+    }
+  }
+}

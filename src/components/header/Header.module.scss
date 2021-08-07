@@ -1,0 +1,55 @@
+@import "../../scss/variables";
+@import "../../scss/functions";
+@import "../../scss/placeholder";
+
+.header {
+  position: sticky;
+  top: 0;
+  padding-block: rem(10);
+  background: $lightColor;
+  z-index: 9;
+  border-bottom: 3px solid $divider;
+  flex: 1;
+
+  &__row {
+    @extend %d-jsb;
+    margin-bottom: rem(10);
+  }
+
+  &__right {
+    @extend %fra;
+  }
+
+  &__icon {
+    margin-left: rem(30);
+    cursor: pointer;
+    font-size: x-large;
+  }
+
+  &__search {
+    width: 50%;
+  }
+
+  &__searchMob {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header {
+    padding-inline: rem(10);
+
+    &__search {
+      display: none;
+    }
+
+    &__icon {
+      margin-left: rem(20);
+      font-size: large;
+    }
+
+    &__searchMob {
+      display: block;
+    }
+  }
+}

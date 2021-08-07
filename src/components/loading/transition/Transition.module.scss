@@ -1,0 +1,14 @@
+@import "../../../scss/variables";
+
+.transition {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background: linear-gradient(
+    to bottom right,
+    lighten($accentColor, 10%),
+    lighten($primaryColor, 10%)
+  );
+}

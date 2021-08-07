@@ -1,0 +1,58 @@
+@import "../../scss/functions";
+@import "../../scss/variables";
+@import "../../scss/placeholder";
+
+.productsRow {
+  margin-bottom: rem(50);
+  border-bottom: rem(1.5) solid $divider;
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rem(10);
+    color: $textColor;
+
+    h4 {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: rem(18);
+      font-weight: 600;
+    }
+
+    a {
+      font-weight: 500;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: $textColor;
+      @extend %fra;
+
+      span {
+        height: rem(25);
+        width: rem(25);
+        border: 1px solid $primaryColor;
+
+        border-radius: 50%;
+        text-align: center;
+        margin-left: rem(3);
+      }
+
+      &:hover {
+        color: $primaryColor;
+      }
+    }
+  }
+
+  &__icon {
+    font-size: medium;
+    margin: rem(2);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .productsRow__card {
+    margin-bottom: rem(10);
+    padding-inline: rem(10);
+  }
+}

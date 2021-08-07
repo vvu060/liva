@@ -1,0 +1,100 @@
+@import "../../scss/variables";
+@import "../../scss/functions";
+@import "../../scss/placeholder";
+
+.search {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+
+  &__form {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    outline: none;
+    &:focus {
+      border: 2px solid $primaryColor;
+    }
+  }
+
+  &__btn {
+    border: none;
+    background: $primaryColor;
+    padding: rem(6) rem(8);
+    cursor: pointer;
+    border-top-right-radius: rem(3);
+    border-bottom-right-radius: rem(3);
+  }
+
+  &__icon {
+    color: $lightColor;
+  }
+
+  &__result {
+    position: absolute;
+    top: 100%;
+    max-height: rem(300);
+    overflow: auto;
+    width: 100%;
+    background: $lightColor;
+    border: 2px solid $divider;
+    border-bottom-left-radius: rem(3);
+    border-bottom-right-radius: rem(3);
+    align-items: center;
+
+    h5 {
+      text-align: center;
+      padding-block: rem(10);
+      color: $textColor;
+      font-size: rem(15);
+    }
+  }
+
+  &__results {
+    @extend %fra;
+    padding: rem(5);
+    margin: rem(5);
+    cursor: pointer;
+  }
+
+  &__image {
+    width: rem(100);
+    height: rem(100);
+    object-fit: contain;
+    height: auto;
+    margin-right: rem(5);
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: rem(13);
+      color: $textColor;
+      margin-bottom: rem(5);
+    }
+  }
+
+  &__loader {
+    text-align: center;
+    padding: rem(10);
+  }
+
+  &__rating {
+    @extend %fra;
+    margin-bottom: rem(10);
+  }
+
+  &__iconStar {
+    font-size: small !important;
+    color: $starColor;
+  }
+}

@@ -1,0 +1,46 @@
+@import "../../scss/placeholder";
+@import "../../scss/functions";
+@import "../../scss/variables";
+
+.payment {
+  @extend %fca;
+  padding-inline: rem(20);
+  height: 100vh;
+
+  p {
+    color: $textColor;
+    font-size: rem(15);
+    margin-bottom: rem(15);
+  }
+
+  &__confirmation {
+    @extend %fra;
+    margin-bottom: rem(20);
+
+    h1 {
+      color: $textColor;
+    }
+  }
+
+  &__successIcon {
+    color: lighten($primaryColor, 5%);
+    font-size: xx-large;
+    margin-right: rem(5);
+  }
+
+  &__cancelIcon {
+    color: lighten(red, 10%);
+    font-size: xx-large;
+    margin-right: rem(5);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .payment {
+    text-align: center;
+
+    &__confirmation {
+      flex-direction: column;
+    }
+  }
+}
